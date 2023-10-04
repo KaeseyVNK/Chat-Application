@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -38,6 +39,7 @@ namespace Chat_Application
         {
             try
             {
+                var email = new EmailAddressAttribute();
                 if (pcbDangKy.Image == null)
                 {
                     MessageBox.Show("Xin hãy thêm ảnh", " Thông Báo", MessageBoxButtons.OK);
@@ -50,6 +52,24 @@ namespace Chat_Application
                 else
                 {
                     errorProvider1.SetError(txbDangkyTen, string.Empty);
+                }
+                if (txbEmail.Text == "")
+                {
+                    errorProvider1.SetError(txbEmail, "Chưa Nhập Email");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txbEmail, string.Empty);
+                }
+                if(email.IsValid(txbEmail.Text) == false)
+                {
+                    errorProvider1.SetError(txbEmail, "Email sai cú pháp xin hãy xem lại");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txbEmail, string.Empty);
                 }
                 if (txbDangKyPassword.Text == "")
                 {
@@ -83,6 +103,7 @@ namespace Chat_Application
                 l.Username = txbDangkyTen.Text;
                 l.Password = txbDangKyPassword.Text;
                 l.ConfirmPass = txbDangKyPassword.Text;
+                l.Email = txbEmail.Text;
                 l.image = filename.ToString();
                 ThemHinhAnh(l.image);
                 context.Login.Add(l);
@@ -154,7 +175,7 @@ namespace Chat_Application
                 MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                 Form2 form2 = new Form2();
                 this.Visible = false;
-                form2.username = txbDangnhap.Text;
+                form2.usernames = txbDangnhap.Text;
                 form2.Show();
             }
             else
