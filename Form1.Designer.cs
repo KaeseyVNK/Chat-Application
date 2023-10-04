@@ -38,7 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_LogIn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pcbDangKy = new Chat_Application.RoundPictureBox();
+            this.txbEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,11 +49,11 @@
             this.txbDangkyTen = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.txbEmail = new System.Windows.Forms.TextBox();
+            this.cbShowpassword = new System.Windows.Forms.CheckBox();
+            this.pcbDangKy = new Chat_Application.RoundPictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -151,16 +152,22 @@
             this.panel1.Size = new System.Drawing.Size(353, 349);
             this.panel1.TabIndex = 8;
             // 
-            // pcbDangKy
+            // txbEmail
             // 
-            this.pcbDangKy.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDangKy.Location = new System.Drawing.Point(97, 28);
-            this.pcbDangKy.Name = "pcbDangKy";
-            this.pcbDangKy.Size = new System.Drawing.Size(156, 93);
-            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbDangKy.TabIndex = 15;
-            this.pcbDangKy.TabStop = false;
-            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
+            this.txbEmail.Location = new System.Drawing.Point(145, 170);
+            this.txbEmail.Name = "txbEmail";
+            this.txbEmail.Size = new System.Drawing.Size(175, 20);
+            this.txbEmail.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Email";
             // 
             // label9
             // 
@@ -240,22 +247,27 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label5
+            // cbShowpassword
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 20);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Email";
+            this.cbShowpassword.AutoSize = true;
+            this.cbShowpassword.Location = new System.Drawing.Point(148, 250);
+            this.cbShowpassword.Name = "cbShowpassword";
+            this.cbShowpassword.Size = new System.Drawing.Size(102, 17);
+            this.cbShowpassword.TabIndex = 9;
+            this.cbShowpassword.Text = "Show Password";
+            this.cbShowpassword.UseVisualStyleBackColor = true;
+            this.cbShowpassword.CheckedChanged += new System.EventHandler(this.cbShowpassword_CheckedChanged);
             // 
-            // txbEmail
+            // pcbDangKy
             // 
-            this.txbEmail.Location = new System.Drawing.Point(145, 170);
-            this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(175, 20);
-            this.txbEmail.TabIndex = 17;
+            this.pcbDangKy.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbDangKy.Location = new System.Drawing.Point(97, 28);
+            this.pcbDangKy.Name = "pcbDangKy";
+            this.pcbDangKy.Size = new System.Drawing.Size(156, 93);
+            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbDangKy.TabIndex = 15;
+            this.pcbDangKy.TabStop = false;
+            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
             // 
             // Form1
             // 
@@ -263,6 +275,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(357, 432);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cbShowpassword);
             this.Controls.Add(this.btn_LogIn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -276,8 +289,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,6 +319,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox cbShowpassword;
     }
 }
 

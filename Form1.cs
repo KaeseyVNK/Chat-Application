@@ -183,5 +183,19 @@ namespace Chat_Application
                 MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
             }
         }
+
+   
+
+        private void cbShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowpassword.Checked == true)
+            {
+                txbPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

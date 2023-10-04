@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -107,13 +108,21 @@ namespace Chat_Application
         {
             if (pnlDoiThongTin.Visible == false)
             {
+                ContextChatDB context = new ContextChatDB();
                 pnlDoiThongTin.Visible = true;
-                btnDoithongtin.BackColor = Color.Gray;
+                pnlThongTin.Visible = false;
+                pnlMenu.Visible = false;
+                Login dbuser = context.Login.FirstOrDefault(p => p.Username == usernames);
+                if (dbuser != null)
+                {
+                    txbDoiEmail.Text = dbuser.Email.ToString();
+                    ThemHinhAnh(dbuser.image);
+                    filename = dbuser.image;
+                }
             }
             else
             {
                 pnlDoiThongTin.Visible = false;
-                btnDoithongtin.BackColor = Color.White;
             }
         }
 
@@ -121,8 +130,8 @@ namespace Chat_Application
         {
             ContextChatDB context = new ContextChatDB();
             Login dbupdate = context.Login.FirstOrDefault(p => p.Username == usernames);
+            Login dbuser = context.Login.FirstOrDefault(p => p.Username == usernames);
             var email = new EmailAddressAttribute();
-            pcbDoiThongTin.Image = pcbProfile.Image;
             if (txbDoiEmail.Text == "")
             {
                 errorProvider1.SetError(txbDoiEmail, "Chưa Điền Email !");
@@ -141,9 +150,27 @@ namespace Chat_Application
             {
                 errorProvider1.SetError(txbDoiEmail, string.Empty);
             }
+            if (txbOldpassword.Text == "")
+            {
+                errorProvider1.SetError(txbOldpassword, "Chưa Điền Password cữ !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbOldpassword, string.Empty);
+            }
+            if (txbOldpassword.Text != dbuser.Password.ToString())
+            {
+                errorProvider1.SetError(txbOldpassword, "Password cũ sai xin hãy xem lại !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbOldpassword, string.Empty);
+            }
             if (txbDoipassword.Text == "")
             {
-                errorProvider1.SetError(txbDoipassword, "Chưa Điền Password !");
+                errorProvider1.SetError(txbDoipassword, "Chưa Điền Password mới !");
                 return;
             }
             else
@@ -177,6 +204,11 @@ namespace Chat_Application
                 context.SaveChanges();
                 Form2_Load(sender, e);
                 MessageBox.Show("Sửa Thành Công ! ", "Thông Báo", MessageBoxButtons.OK);
+                txbOldpassword.Clear();
+                txbDoipassword.Clear();
+                txbNhaplaipassword.Clear();
+                pnlDoiThongTin.Visible = false;
+
             }
         }
 
@@ -189,6 +221,45 @@ namespace Chat_Application
                 filename = dlg.FileName;
                 var image = Image.FromFile(dlg.FileName);
                 pcbDoiThongTin.Image = image;
+            }
+        }
+
+        private void btnXemthongtin_Click(object sender, EventArgs e)
+        {
+            if (pnlThongTin.Visible == false)
+            {
+                pnlThongTin.Visible = true;
+                pnlDoiThongTin.Visible = false;
+                pnlMenu.Visible = false;
+                ContextChatDB context = new ContextChatDB();
+                Login dbuser = context.Login.FirstOrDefault(p => p.Username == usernames);
+                if(dbuser != null)
+                {
+                    txbpnlTentaikhoan.Text = dbuser.Username.ToString();
+                    txbpnlEmail.Text = dbuser.Email.ToString();
+                    pcbpnlThongTinTaiKhoan.Image = pcbProfile.Image;
+                }
+            }
+            else
+            {
+                pnlThongTin.Visible = false;
+                btnXemthongtin.BackColor = Color.White;
+            }
+        }
+
+        private void cbShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowpassword.Checked == true)
+            {
+                txbOldpassword.UseSystemPasswordChar = false;
+                txbDoipassword.UseSystemPasswordChar = false;
+                txbNhaplaipassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbOldpassword.UseSystemPasswordChar = true;
+                txbDoipassword.UseSystemPasswordChar = true;
+                txbNhaplaipassword.UseSystemPasswordChar = true;
             }
         }
     }
