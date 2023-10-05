@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,13 +58,14 @@ namespace Chat_Application
         private void DanhSachNguoiDung()
         {
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
             var listusername = context.Login.ToList();
             var countusername = context.Login.Count();
             UserControl1[] userControls = new UserControl1[countusername];
-            for(int i=0;i<1;i++)
+            for (int i = 0; i < 1; i++)
             {
-                foreach(var username in listusername)
+                foreach (var username in listusername)
                 {
                     userControls[i] = new UserControl1();
                     userControls[i].Title = username.Username;
@@ -79,7 +81,106 @@ namespace Chat_Application
                 }
             }
         }
+        private void DanhSachThemBanBe()
+        {
 
+            FlowUserControlThemBan.Controls.Clear();
+            FlowUserControlThemBan.AutoScroll = true;
+            ContextChatDB context = new ContextChatDB();
+            var listusername = context.Login.ToList();
+            var listfriend = context.AddFriend.ToList();
+            var countusername = context.Login.Count();
+            UserControl1[] userControls = new UserControl1[countusername];
+            for (int i = 0; i < 1; i++)
+            {
+                foreach (var username in listusername)
+                {
+                    userControls[i] = new UserControl1();
+                    userControls[i].Title = username.Username;
+                    userControls[i].Icon = username.image;
+                    userControls[i].Click += Btnusercontrols1;
+                    if (userControls[i].Title == label1.Text)
+                    {
+                        FlowUserControlThemBan.Controls.Remove(userControls[i]);
+                    }
+                    else
+                    {
+                        FlowUserControlThemBan.Controls.Add(userControls[i]);
+                    }
+                }
+            }
+        }
+        private void Btnusercontrols1(object sender, EventArgs e)
+        {
+            UserControl1 userControls = sender as UserControl1;
+            txbThemBan.Text = userControls.Title;
+        }
+        private void XuatDanhSachBanBe()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.AutoScroll = true;
+            ContextChatDB context = new ContextChatDB();
+            var listusername = context.Login.ToList();
+            var listfriend = context.AddFriend.ToList();
+            var countusername = context.Login.Count();
+            UserControl1[] userControls = new UserControl1[countusername];
+            for (int i = 0; i < 1; i++)
+            {
+                foreach (var username in listusername)
+                {
+                    foreach (var friend in listfriend)
+                    {
+                        userControls[i] = new UserControl1();
+                        userControls[i].Title = username.Username;
+                        userControls[i].Icon = username.image;
+                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true)
+                        {
+                            flowLayoutPanel1.Controls.Add(userControls[i]);
+                        }
+                        if (userControls[i].Title == label1.Text)
+                        {
+                            flowLayoutPanel1.Controls.Remove(userControls[i]);
+                        }
+                    }
+                }
+            }
+        }
+        private void XuatDanhSachKetBan()
+        {
+            flowControlFriendRequest.Controls.Clear();
+            flowControlFriendRequest.AutoScroll = true;
+            ContextChatDB context = new ContextChatDB();
+            var listusername = context.Login.ToList();
+            var listfriend = context.AddFriend.ToList();
+            var countusername = context.Login.Count();
+            UserControl1[] userControls = new UserControl1[countusername];
+            for (int i = 0; i < 1; i++)
+            {
+                foreach (var username in listusername)
+                {
+                    foreach (var friend in listfriend)
+                    {
+                        userControls[i] = new UserControl1();
+                        userControls[i].Title = username.Username;
+                        userControls[i].Icon = username.image;
+                        userControls[i].Click += Btnusercontrols;
+                        if (userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == false)
+                        {
+                            flowControlFriendRequest.Controls.Add(userControls[i]);
+                        }
+                        if (userControls[i].Title == label1.Text)
+                        {
+                            flowControlFriendRequest.Controls.Remove(userControls[i]);
+                        }
+                    }
+                }
+            }
+        }
+        private void Btnusercontrols(object sender,EventArgs e)
+        {
+            UserControl1 userControls = sender as UserControl1;
+            txbTimBan.Text = userControls.Title;
+        }
         private void btnThoat_Click_1(object sender, EventArgs e)
         {        
             {
@@ -261,6 +362,174 @@ namespace Chat_Application
                 txbDoipassword.UseSystemPasswordChar = true;
                 txbNhaplaipassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void txbTimkiem_TextChanged(object sender, EventArgs e)
+        {
+           foreach(Control c in flowLayoutPanel1.Controls)
+            {
+               if(c is UserControl1 usercontrol&& usercontrol.Title.Contains(txbTimkiem.Text)==true)
+                {
+                    c.Visible = true;
+                }
+               else
+                {
+                    c.Visible = false;
+                }
+            }
+            if (txbTimkiem.Text == "")
+            {
+                flowLayoutPanel1.Visible = true;
+            }
+        }
+
+        private void btnAddFriend_Click(object sender, EventArgs e)
+        {
+            if (pnlAddfriend.Visible == false)
+            {
+                pnlAddfriend.Visible = true;
+                pnlFriendRequest.Visible = false;
+                DanhSachThemBanBe();
+            }
+            else
+            {
+                pnlAddfriend.Visible = false;
+            }
+        }
+
+        private void txbThemBan_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Control c in FlowUserControlThemBan.Controls)
+            {
+                if (c is UserControl1 usercontrol && usercontrol.Title.Contains(txbThemBan.Text) == true)
+                {
+                    c.Visible = true;
+                }
+                else
+                {
+                    c.Visible = false;
+                }
+            }
+            if (txbThemBan.Text == "")
+            {
+                FlowUserControlThemBan.Visible = true;
+            }
+        }
+
+        private void btnThemBan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txbThemBan.Text == "")
+                {
+                    errorProvider1.SetError(txbThemBan, "Chưa Điền Tên Kết Bạn !");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txbThemBan, string.Empty);
+                }
+                ContextChatDB context = new ContextChatDB();
+                Login dbAddFriend = context.Login.FirstOrDefault(p => p.Username == txbThemBan.Text);
+                if (dbAddFriend == null)
+                {
+                    errorProvider1.SetError(txbThemBan, "Không Tìm Thấy người dùng xin hãy xem lại!");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txbThemBan, string.Empty);
+                }
+                if (dbAddFriend != null)
+                {
+                    AddFriend add = new AddFriend();
+                    add.User1 = usernames;
+                    add.User2 = txbThemBan.Text;
+                    add.FriendRequestFlag = false;
+                    add.DateTime = DateTime.Now;
+                    context.AddFriend.Add(add);
+                    context.SaveChanges();
+                    MessageBox.Show("Thêm Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                    txbThemBan.Clear();
+                    pnlAddfriend.Visible = false;
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnShowfriend_Click(object sender, EventArgs e)
+        {
+            XuatDanhSachBanBe();
+        }
+
+        private void btnDongy_Click(object sender, EventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            AddFriend dbAcceptFriend= context.AddFriend.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
+            if(dbAcceptFriend != null)
+            {
+                dbAcceptFriend.FriendRequestFlag = true;
+                context.SaveChanges();
+                txbTimBan.Clear();
+                pnlFriendRequest.Visible = false;
+                Form2_Load(sender, e);
+                MessageBox.Show("Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void txbTimBan_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Control c in flowControlFriendRequest.Controls)
+            {
+                if (c is UserControl1 usercontrol && usercontrol.Title.Contains(txbTimBan.Text) == true)
+                {
+                    c.Visible = true;
+                }
+                else
+                {
+                    c.Visible = false;
+                }
+            }
+            if (txbTimkiem.Text == "")
+            {
+                flowLayoutPanel1.Visible = true;
+            }
+        }
+
+        private void btnFriendrequest_Click(object sender, EventArgs e)
+        {
+             if (pnlFriendRequest.Visible == false)
+            {
+                pnlFriendRequest.Visible = true;
+                pnlAddfriend.Visible = false;
+                XuatDanhSachKetBan();
+            }
+            else
+            {
+                pnlFriendRequest.Visible = false; ;
+            }
+        }
+
+        private void btnKhongdongy_Click(object sender, EventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            AddFriend dbNoAcceptFriend = context.AddFriend.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
+            if (dbNoAcceptFriend != null)
+            {
+                context.AddFriend.Remove(dbNoAcceptFriend);
+                context.SaveChanges();
+                txbTimBan.Clear();
+                pnlFriendRequest.Visible = false;
+                Form2_Load(sender, e);
+                MessageBox.Show("Đã không chấp nhận kết bạn !", " Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnAlluser_Click(object sender, EventArgs e)
+        {
+            DanhSachNguoiDung();
         }
     }
 }
