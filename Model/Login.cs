@@ -23,7 +23,8 @@ namespace Chat_Application.Model
 
         [Required]
         public string image { get; set; }
+
         [Required]
-        public string Email { get;set; }
+        public string Email { get; set; }
     }
 }

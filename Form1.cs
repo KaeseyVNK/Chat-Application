@@ -137,7 +137,7 @@ namespace Chat_Application
             dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                filename = dlg.FileName;
+                filename = Path.GetFileName(dlg.FileName);
                 var image = Image.FromFile(dlg.FileName);
                 pcbDangKy.Image = image;
             }
