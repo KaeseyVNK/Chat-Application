@@ -13,6 +13,7 @@ namespace Chat_Application.Model
         }
 
         public virtual DbSet<Login> Login { get; set; }
+        public virtual DbSet<AddFriend> AddFriend { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

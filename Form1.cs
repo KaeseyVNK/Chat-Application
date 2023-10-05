@@ -137,7 +137,7 @@ namespace Chat_Application
             dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                filename = dlg.FileName;
+                filename = Path.GetFileName(dlg.FileName);
                 var image = Image.FromFile(dlg.FileName);
                 pcbDangKy.Image = image;
             }
@@ -181,6 +181,20 @@ namespace Chat_Application
             else
             {
                 MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+   
+
+        private void cbShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowpassword.Checked == true)
+            {
+                txbPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txbPassword.UseSystemPasswordChar = true;
             }
         }
     }

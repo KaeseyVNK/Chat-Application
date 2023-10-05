@@ -29,40 +29,76 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFriendrequest = new System.Windows.Forms.Button();
+            this.btnShowfriend = new System.Windows.Forms.Button();
+            this.btnAlluser = new System.Windows.Forms.Button();
+            this.btnAddFriend = new System.Windows.Forms.Button();
+            this.txbTimkiem = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMenu = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnXemthongtin = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDoithongtin = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlDoiThongTin = new System.Windows.Forms.Panel();
-            this.txbDoipassword = new System.Windows.Forms.TextBox();
-            this.txbNhaplaipassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbDoiEmail = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.cbShowpassword = new System.Windows.Forms.CheckBox();
+            this.txbOldpassword = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnCapnhat = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txbDoiEmail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txbNhaplaipassword = new System.Windows.Forms.TextBox();
+            this.txbDoipassword = new System.Windows.Forms.TextBox();
+            this.pnlThongTin = new System.Windows.Forms.Panel();
+            this.txbpnlEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txbpnlTentaikhoan = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pnlAddfriend = new System.Windows.Forms.Panel();
+            this.btnThemBan = new System.Windows.Forms.Button();
+            this.FlowUserControlThemBan = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txbThemBan = new System.Windows.Forms.TextBox();
+            this.pnlFriendRequest = new System.Windows.Forms.Panel();
+            this.txbTimBan = new System.Windows.Forms.TextBox();
+            this.btnKhongdongy = new System.Windows.Forms.Button();
+            this.btnDongy = new System.Windows.Forms.Button();
+            this.flowControlFriendRequest = new System.Windows.Forms.FlowLayoutPanel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.userControl12 = new Chat_Application.UserControl1();
             this.userControl11 = new Chat_Application.UserControl1();
             this.pcbProfile = new Chat_Application.RoundPictureBox();
             this.pcbDoiThongTin = new Chat_Application.RoundPictureBox();
+            this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
+            this.userControl13 = new Chat_Application.UserControl1();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlDoiThongTin.SuspendLayout();
+            this.pnlThongTin.SuspendLayout();
+            this.pnlAddfriend.SuspendLayout();
+            this.FlowUserControlThemBan.SuspendLayout();
+            this.pnlFriendRequest.SuspendLayout();
+            this.flowControlFriendRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 67);
+            this.label1.Location = new System.Drawing.Point(88, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 24);
             this.label1.TabIndex = 2;
@@ -70,20 +106,74 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFriendrequest);
+            this.panel1.Controls.Add(this.btnShowfriend);
+            this.panel1.Controls.Add(this.btnAlluser);
+            this.panel1.Controls.Add(this.btnAddFriend);
+            this.panel1.Controls.Add(this.txbTimkiem);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.pcbProfile);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(247, 453);
+            this.panel1.Size = new System.Drawing.Size(255, 606);
             this.panel1.TabIndex = 4;
+            // 
+            // btnFriendrequest
+            // 
+            this.btnFriendrequest.Location = new System.Drawing.Point(150, 109);
+            this.btnFriendrequest.Name = "btnFriendrequest";
+            this.btnFriendrequest.Size = new System.Drawing.Size(84, 23);
+            this.btnFriendrequest.TabIndex = 31;
+            this.btnFriendrequest.Text = "FriendRequest";
+            this.btnFriendrequest.UseVisualStyleBackColor = true;
+            this.btnFriendrequest.Click += new System.EventHandler(this.btnFriendrequest_Click);
+            // 
+            // btnShowfriend
+            // 
+            this.btnShowfriend.Location = new System.Drawing.Point(75, 109);
+            this.btnShowfriend.Name = "btnShowfriend";
+            this.btnShowfriend.Size = new System.Drawing.Size(73, 23);
+            this.btnShowfriend.TabIndex = 30;
+            this.btnShowfriend.Text = "Friends";
+            this.btnShowfriend.UseVisualStyleBackColor = true;
+            this.btnShowfriend.Click += new System.EventHandler(this.btnShowfriend_Click);
+            // 
+            // btnAlluser
+            // 
+            this.btnAlluser.Location = new System.Drawing.Point(0, 109);
+            this.btnAlluser.Name = "btnAlluser";
+            this.btnAlluser.Size = new System.Drawing.Size(75, 23);
+            this.btnAlluser.TabIndex = 29;
+            this.btnAlluser.Text = "All User";
+            this.btnAlluser.UseVisualStyleBackColor = true;
+            this.btnAlluser.Click += new System.EventHandler(this.btnAlluser_Click);
+            // 
+            // btnAddFriend
+            // 
+            this.btnAddFriend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddFriend.BackgroundImage")));
+            this.btnAddFriend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddFriend.Location = new System.Drawing.Point(189, 87);
+            this.btnAddFriend.Name = "btnAddFriend";
+            this.btnAddFriend.Size = new System.Drawing.Size(34, 26);
+            this.btnAddFriend.TabIndex = 28;
+            this.btnAddFriend.UseVisualStyleBackColor = true;
+            this.btnAddFriend.Click += new System.EventHandler(this.btnAddFriend_Click);
+            // 
+            // txbTimkiem
+            // 
+            this.txbTimkiem.Location = new System.Drawing.Point(3, 91);
+            this.txbTimkiem.Name = "txbTimkiem";
+            this.txbTimkiem.Size = new System.Drawing.Size(187, 20);
+            this.txbTimkiem.TabIndex = 1;
+            this.txbTimkiem.TextChanged += new System.EventHandler(this.txbTimkiem_TextChanged);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.userControl11);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 94);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 132);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(244, 356);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(255, 473);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // btnMenu
@@ -98,18 +188,30 @@
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.btnXemthongtin);
             this.pnlMenu.Controls.Add(this.btnThoat);
             this.pnlMenu.Controls.Add(this.btnDoithongtin);
             this.pnlMenu.Location = new System.Drawing.Point(619, 22);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(181, 148);
+            this.pnlMenu.Size = new System.Drawing.Size(181, 120);
             this.pnlMenu.TabIndex = 6;
             this.pnlMenu.Visible = false;
+            // 
+            // btnXemthongtin
+            // 
+            this.btnXemthongtin.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnXemthongtin.Location = new System.Drawing.Point(0, 3);
+            this.btnXemthongtin.Name = "btnXemthongtin";
+            this.btnXemthongtin.Size = new System.Drawing.Size(181, 39);
+            this.btnXemthongtin.TabIndex = 29;
+            this.btnXemthongtin.Text = "Xem Thông Tin";
+            this.btnXemthongtin.UseVisualStyleBackColor = false;
+            this.btnXemthongtin.Click += new System.EventHandler(this.btnXemthongtin_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnThoat.Location = new System.Drawing.Point(0, 37);
+            this.btnThoat.Location = new System.Drawing.Point(0, 79);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(181, 39);
             this.btnThoat.TabIndex = 9;
@@ -120,7 +222,7 @@
             // btnDoithongtin
             // 
             this.btnDoithongtin.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDoithongtin.Location = new System.Drawing.Point(0, 0);
+            this.btnDoithongtin.Location = new System.Drawing.Point(0, 40);
             this.btnDoithongtin.Name = "btnDoithongtin";
             this.btnDoithongtin.Size = new System.Drawing.Size(181, 39);
             this.btnDoithongtin.TabIndex = 8;
@@ -134,6 +236,9 @@
             // 
             // pnlDoiThongTin
             // 
+            this.pnlDoiThongTin.Controls.Add(this.cbShowpassword);
+            this.pnlDoiThongTin.Controls.Add(this.txbOldpassword);
+            this.pnlDoiThongTin.Controls.Add(this.label6);
             this.pnlDoiThongTin.Controls.Add(this.btnCapnhat);
             this.pnlDoiThongTin.Controls.Add(this.label4);
             this.pnlDoiThongTin.Controls.Add(this.txbDoiEmail);
@@ -143,47 +248,68 @@
             this.pnlDoiThongTin.Controls.Add(this.label8);
             this.pnlDoiThongTin.Controls.Add(this.txbNhaplaipassword);
             this.pnlDoiThongTin.Controls.Add(this.txbDoipassword);
-            this.pnlDoiThongTin.Location = new System.Drawing.Point(253, 22);
+            this.pnlDoiThongTin.Location = new System.Drawing.Point(258, 21);
             this.pnlDoiThongTin.Name = "pnlDoiThongTin";
-            this.pnlDoiThongTin.Size = new System.Drawing.Size(547, 425);
+            this.pnlDoiThongTin.Size = new System.Drawing.Size(547, 660);
             this.pnlDoiThongTin.TabIndex = 26;
             this.pnlDoiThongTin.Visible = false;
             // 
-            // txbDoipassword
+            // cbShowpassword
             // 
-            this.txbDoipassword.Location = new System.Drawing.Point(223, 218);
-            this.txbDoipassword.Name = "txbDoipassword";
-            this.txbDoipassword.Size = new System.Drawing.Size(175, 20);
-            this.txbDoipassword.TabIndex = 19;
-            this.txbDoipassword.UseSystemPasswordChar = true;
+            this.cbShowpassword.AutoSize = true;
+            this.cbShowpassword.Location = new System.Drawing.Point(300, 332);
+            this.cbShowpassword.Name = "cbShowpassword";
+            this.cbShowpassword.Size = new System.Drawing.Size(102, 17);
+            this.cbShowpassword.TabIndex = 31;
+            this.cbShowpassword.Text = "Show Password";
+            this.cbShowpassword.UseVisualStyleBackColor = true;
+            this.cbShowpassword.CheckedChanged += new System.EventHandler(this.cbShowpassword_CheckedChanged);
             // 
-            // txbNhaplaipassword
+            // txbOldpassword
             // 
-            this.txbNhaplaipassword.Location = new System.Drawing.Point(223, 255);
-            this.txbNhaplaipassword.Name = "txbNhaplaipassword";
-            this.txbNhaplaipassword.Size = new System.Drawing.Size(175, 20);
-            this.txbNhaplaipassword.TabIndex = 20;
-            this.txbNhaplaipassword.UseSystemPasswordChar = true;
+            this.txbOldpassword.Location = new System.Drawing.Point(223, 221);
+            this.txbOldpassword.Name = "txbOldpassword";
+            this.txbOldpassword.Size = new System.Drawing.Size(175, 20);
+            this.txbOldpassword.TabIndex = 30;
+            this.txbOldpassword.UseSystemPasswordChar = true;
             // 
-            // label8
+            // label6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(84, 216);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 20);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Password";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(88, 221);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 20);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Old Password";
             // 
-            // label9
+            // btnCapnhat
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(84, 253);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 20);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Repeat Password";
+            this.btnCapnhat.Location = new System.Drawing.Point(204, 355);
+            this.btnCapnhat.Name = "btnCapnhat";
+            this.btnCapnhat.Size = new System.Drawing.Size(153, 48);
+            this.btnCapnhat.TabIndex = 28;
+            this.btnCapnhat.Text = "Cập Nhật";
+            this.btnCapnhat.UseVisualStyleBackColor = true;
+            this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(174, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 25);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Thay Đổi Thông Tin";
+            // 
+            // txbDoiEmail
+            // 
+            this.txbDoiEmail.Location = new System.Drawing.Point(223, 173);
+            this.txbDoiEmail.Name = "txbDoiEmail";
+            this.txbDoiEmail.Size = new System.Drawing.Size(175, 20);
+            this.txbDoiEmail.TabIndex = 26;
             // 
             // label2
             // 
@@ -195,33 +321,216 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Email";
             // 
-            // txbDoiEmail
+            // label9
             // 
-            this.txbDoiEmail.Location = new System.Drawing.Point(223, 173);
-            this.txbDoiEmail.Name = "txbDoiEmail";
-            this.txbDoiEmail.Size = new System.Drawing.Size(175, 20);
-            this.txbDoiEmail.TabIndex = 26;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(88, 299);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 20);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Repeat Password";
             // 
-            // label4
+            // label8
             // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(171, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 25);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Thay Đổi Thông Tin";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(88, 262);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Password";
             // 
-            // btnCapnhat
+            // txbNhaplaipassword
             // 
-            this.btnCapnhat.Location = new System.Drawing.Point(223, 295);
-            this.btnCapnhat.Name = "btnCapnhat";
-            this.btnCapnhat.Size = new System.Drawing.Size(153, 48);
-            this.btnCapnhat.TabIndex = 28;
-            this.btnCapnhat.Text = "Cập Nhật";
-            this.btnCapnhat.UseVisualStyleBackColor = true;
-            this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
+            this.txbNhaplaipassword.Location = new System.Drawing.Point(227, 301);
+            this.txbNhaplaipassword.Name = "txbNhaplaipassword";
+            this.txbNhaplaipassword.Size = new System.Drawing.Size(175, 20);
+            this.txbNhaplaipassword.TabIndex = 20;
+            this.txbNhaplaipassword.UseSystemPasswordChar = true;
+            // 
+            // txbDoipassword
+            // 
+            this.txbDoipassword.Location = new System.Drawing.Point(227, 264);
+            this.txbDoipassword.Name = "txbDoipassword";
+            this.txbDoipassword.Size = new System.Drawing.Size(175, 20);
+            this.txbDoipassword.TabIndex = 19;
+            this.txbDoipassword.UseSystemPasswordChar = true;
+            // 
+            // pnlThongTin
+            // 
+            this.pnlThongTin.Controls.Add(this.txbpnlEmail);
+            this.pnlThongTin.Controls.Add(this.label5);
+            this.pnlThongTin.Controls.Add(this.pcbpnlThongTinTaiKhoan);
+            this.pnlThongTin.Controls.Add(this.label7);
+            this.pnlThongTin.Controls.Add(this.txbpnlTentaikhoan);
+            this.pnlThongTin.Controls.Add(this.label3);
+            this.pnlThongTin.Location = new System.Drawing.Point(256, 19);
+            this.pnlThongTin.Name = "pnlThongTin";
+            this.pnlThongTin.Size = new System.Drawing.Size(544, 654);
+            this.pnlThongTin.TabIndex = 27;
+            this.pnlThongTin.Visible = false;
+            // 
+            // txbpnlEmail
+            // 
+            this.txbpnlEmail.Location = new System.Drawing.Point(254, 224);
+            this.txbpnlEmail.Name = "txbpnlEmail";
+            this.txbpnlEmail.Size = new System.Drawing.Size(175, 20);
+            this.txbpnlEmail.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(115, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Email";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(115, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Tên Tài Khoản";
+            // 
+            // txbpnlTentaikhoan
+            // 
+            this.txbpnlTentaikhoan.Location = new System.Drawing.Point(254, 178);
+            this.txbpnlTentaikhoan.Name = "txbpnlTentaikhoan";
+            this.txbpnlTentaikhoan.Size = new System.Drawing.Size(175, 20);
+            this.txbpnlTentaikhoan.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(201, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(198, 25);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Thông Tin Tài Khoản";
+            // 
+            // pnlAddfriend
+            // 
+            this.pnlAddfriend.Controls.Add(this.btnThemBan);
+            this.pnlAddfriend.Controls.Add(this.FlowUserControlThemBan);
+            this.pnlAddfriend.Controls.Add(this.label10);
+            this.pnlAddfriend.Controls.Add(this.txbThemBan);
+            this.pnlAddfriend.Location = new System.Drawing.Point(256, 3);
+            this.pnlAddfriend.Name = "pnlAddfriend";
+            this.pnlAddfriend.Size = new System.Drawing.Size(296, 439);
+            this.pnlAddfriend.TabIndex = 28;
+            this.pnlAddfriend.Visible = false;
+            // 
+            // btnThemBan
+            // 
+            this.btnThemBan.Location = new System.Drawing.Point(10, 385);
+            this.btnThemBan.Name = "btnThemBan";
+            this.btnThemBan.Size = new System.Drawing.Size(153, 48);
+            this.btnThemBan.TabIndex = 32;
+            this.btnThemBan.Text = "Thêm Bạn";
+            this.btnThemBan.UseVisualStyleBackColor = true;
+            this.btnThemBan.Click += new System.EventHandler(this.btnThemBan_Click);
+            // 
+            // FlowUserControlThemBan
+            // 
+            this.FlowUserControlThemBan.Controls.Add(this.userControl12);
+            this.FlowUserControlThemBan.Location = new System.Drawing.Point(5, 98);
+            this.FlowUserControlThemBan.Name = "FlowUserControlThemBan";
+            this.FlowUserControlThemBan.Size = new System.Drawing.Size(279, 269);
+            this.FlowUserControlThemBan.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(5, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 20);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "AddUser";
+            // 
+            // txbThemBan
+            // 
+            this.txbThemBan.Location = new System.Drawing.Point(9, 71);
+            this.txbThemBan.Name = "txbThemBan";
+            this.txbThemBan.Size = new System.Drawing.Size(171, 20);
+            this.txbThemBan.TabIndex = 27;
+            this.txbThemBan.TextChanged += new System.EventHandler(this.txbThemBan_TextChanged);
+            // 
+            // pnlFriendRequest
+            // 
+            this.pnlFriendRequest.Controls.Add(this.txbTimBan);
+            this.pnlFriendRequest.Controls.Add(this.btnKhongdongy);
+            this.pnlFriendRequest.Controls.Add(this.btnDongy);
+            this.pnlFriendRequest.Controls.Add(this.flowControlFriendRequest);
+            this.pnlFriendRequest.Controls.Add(this.label11);
+            this.pnlFriendRequest.Location = new System.Drawing.Point(256, 0);
+            this.pnlFriendRequest.Name = "pnlFriendRequest";
+            this.pnlFriendRequest.Size = new System.Drawing.Size(296, 439);
+            this.pnlFriendRequest.TabIndex = 29;
+            this.pnlFriendRequest.Visible = false;
+            // 
+            // txbTimBan
+            // 
+            this.txbTimBan.Location = new System.Drawing.Point(5, 71);
+            this.txbTimBan.Name = "txbTimBan";
+            this.txbTimBan.Size = new System.Drawing.Size(187, 20);
+            this.txbTimBan.TabIndex = 32;
+            this.txbTimBan.TextChanged += new System.EventHandler(this.txbTimBan_TextChanged);
+            // 
+            // btnKhongdongy
+            // 
+            this.btnKhongdongy.Location = new System.Drawing.Point(140, 388);
+            this.btnKhongdongy.Name = "btnKhongdongy";
+            this.btnKhongdongy.Size = new System.Drawing.Size(144, 48);
+            this.btnKhongdongy.TabIndex = 33;
+            this.btnKhongdongy.Text = "Không Đồng Ý";
+            this.btnKhongdongy.UseVisualStyleBackColor = true;
+            this.btnKhongdongy.Click += new System.EventHandler(this.btnKhongdongy_Click);
+            // 
+            // btnDongy
+            // 
+            this.btnDongy.Location = new System.Drawing.Point(2, 385);
+            this.btnDongy.Name = "btnDongy";
+            this.btnDongy.Size = new System.Drawing.Size(132, 48);
+            this.btnDongy.TabIndex = 32;
+            this.btnDongy.Text = "Đồng Ý";
+            this.btnDongy.UseVisualStyleBackColor = true;
+            this.btnDongy.Click += new System.EventHandler(this.btnDongy_Click);
+            // 
+            // flowControlFriendRequest
+            // 
+            this.flowControlFriendRequest.Controls.Add(this.userControl13);
+            this.flowControlFriendRequest.Location = new System.Drawing.Point(5, 98);
+            this.flowControlFriendRequest.Name = "flowControlFriendRequest";
+            this.flowControlFriendRequest.Size = new System.Drawing.Size(279, 269);
+            this.flowControlFriendRequest.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 48);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(140, 20);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "FriendRequestList";
+            // 
+            // userControl12
+            // 
+            this.userControl12.Icon = null;
+            this.userControl12.Location = new System.Drawing.Point(3, 3);
+            this.userControl12.Name = "userControl12";
+            this.userControl12.Size = new System.Drawing.Size(276, 73);
+            this.userControl12.TabIndex = 0;
+            this.userControl12.Title = null;
             // 
             // userControl11
             // 
@@ -235,7 +544,7 @@
             // pcbProfile
             // 
             this.pcbProfile.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbProfile.Location = new System.Drawing.Point(47, 3);
+            this.pcbProfile.Location = new System.Drawing.Point(75, 3);
             this.pcbProfile.Name = "pcbProfile";
             this.pcbProfile.Size = new System.Drawing.Size(93, 58);
             this.pcbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -245,7 +554,7 @@
             // pcbDoiThongTin
             // 
             this.pcbDoiThongTin.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDoiThongTin.Location = new System.Drawing.Point(176, 55);
+            this.pcbDoiThongTin.Location = new System.Drawing.Point(199, 73);
             this.pcbDoiThongTin.Name = "pcbDoiThongTin";
             this.pcbDoiThongTin.Size = new System.Drawing.Size(156, 93);
             this.pcbDoiThongTin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -253,15 +562,37 @@
             this.pcbDoiThongTin.TabStop = false;
             this.pcbDoiThongTin.Click += new System.EventHandler(this.pcbDoiThongTin_Click);
             // 
+            // pcbpnlThongTinTaiKhoan
+            // 
+            this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbpnlThongTinTaiKhoan.Location = new System.Drawing.Point(206, 82);
+            this.pcbpnlThongTinTaiKhoan.Name = "pcbpnlThongTinTaiKhoan";
+            this.pcbpnlThongTinTaiKhoan.Size = new System.Drawing.Size(156, 93);
+            this.pcbpnlThongTinTaiKhoan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbpnlThongTinTaiKhoan.TabIndex = 21;
+            this.pcbpnlThongTinTaiKhoan.TabStop = false;
+            // 
+            // userControl13
+            // 
+            this.userControl13.Icon = null;
+            this.userControl13.Location = new System.Drawing.Point(3, 3);
+            this.userControl13.Name = "userControl13";
+            this.userControl13.Size = new System.Drawing.Size(276, 73);
+            this.userControl13.TabIndex = 0;
+            this.userControl13.Title = null;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 618);
+            this.Controls.Add(this.pnlAddfriend);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlDoiThongTin);
+            this.Controls.Add(this.pnlThongTin);
+            this.Controls.Add(this.pnlFriendRequest);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -272,8 +603,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlDoiThongTin.ResumeLayout(false);
             this.pnlDoiThongTin.PerformLayout();
+            this.pnlThongTin.ResumeLayout(false);
+            this.pnlThongTin.PerformLayout();
+            this.pnlAddfriend.ResumeLayout(false);
+            this.pnlAddfriend.PerformLayout();
+            this.FlowUserControlThemBan.ResumeLayout(false);
+            this.pnlFriendRequest.ResumeLayout(false);
+            this.pnlFriendRequest.PerformLayout();
+            this.flowControlFriendRequest.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +639,34 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txbNhaplaipassword;
         private System.Windows.Forms.TextBox txbDoipassword;
+        private System.Windows.Forms.Panel pnlThongTin;
+        private System.Windows.Forms.Button btnXemthongtin;
+        private System.Windows.Forms.TextBox txbpnlEmail;
+        private System.Windows.Forms.Label label5;
+        private RoundPictureBox pcbpnlThongTinTaiKhoan;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbpnlTentaikhoan;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txbOldpassword;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox cbShowpassword;
+        private System.Windows.Forms.TextBox txbTimkiem;
+        private System.Windows.Forms.Button btnAddFriend;
+        private System.Windows.Forms.Panel pnlAddfriend;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txbThemBan;
+        private System.Windows.Forms.Button btnThemBan;
+        private System.Windows.Forms.FlowLayoutPanel FlowUserControlThemBan;
+        private UserControl1 userControl12;
+        private System.Windows.Forms.Button btnShowfriend;
+        private System.Windows.Forms.Button btnAlluser;
+        private System.Windows.Forms.Button btnFriendrequest;
+        private System.Windows.Forms.Panel pnlFriendRequest;
+        private System.Windows.Forms.Button btnDongy;
+        private System.Windows.Forms.FlowLayoutPanel flowControlFriendRequest;
+        private UserControl1 userControl13;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnKhongdongy;
+        private System.Windows.Forms.TextBox txbTimBan;
     }
 }
