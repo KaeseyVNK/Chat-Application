@@ -23,18 +23,23 @@ namespace Chat_Application
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            closeform();
             button1.BackColor = Color.Gray;
             button2.BackColor = Color.White;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            closeform();
             panel1.Visible = true;
             button2.BackColor = Color.Gray;
             button1.BackColor = Color.White;
         }
-
+        private void closeform()
+        {
+            panel1.Visible = false;
+            panel2.Visible = false;
+        }
         private void btnDangkyForm_Click(object sender, EventArgs e)
         {
             try
@@ -105,6 +110,7 @@ namespace Chat_Application
                 l.ConfirmPass = txbDangKyPassword.Text;
                 l.Email = txbEmail.Text;
                 l.image = filename.ToString();
+                l.IDPermission = 1;
                 ThemHinhAnh(l.image);
                 context.Login.Add(l);
                 context.SaveChanges();
@@ -145,7 +151,7 @@ namespace Chat_Application
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            closeform();
         }
 
         private void btn_LogIn_Click(object sender, EventArgs e)
@@ -170,13 +176,20 @@ namespace Chat_Application
             }
             ContextChatDB context = new ContextChatDB();
             Login dblogin = context.Login.FirstOrDefault(p=>p.Username == txbDangnhap.Text && p.Password == txbPassword.Text);
-            if (dblogin != null)
+            Login dbadmin = context.Login.FirstOrDefault(p => p.Username == txbDangnhap.Text && p.Password == txbPassword.Text && p.IDPermission == 2);
+            if(dblogin != null)
             {
                 MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                 Form2 form2 = new Form2();
                 this.Visible = false;
                 form2.usernames = txbDangnhap.Text;
                 form2.Show();
+                if(dbadmin != null)
+                {
+                    Form3 form3 = new Form3();
+                    form3.usernames = txbDangnhap.Text;
+                    form3.Show();
+                }
             }
             else
             {
@@ -195,6 +208,56 @@ namespace Chat_Application
             else
             {
                 txbPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void label6_MouseHover(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.Blue;
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.Black;
+        }
+        private void label6_Click(object sender, EventArgs e)
+        {
+            closeform();
+            panel2.Visible = true;
+
+        }
+        private void btnGetpassword_Click(object sender, EventArgs e)
+        {
+            if (txbttkQuenmatkhau.Text == "")
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, "Chưa Điền Tên Tài Khoản !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, string.Empty);
+            }
+            if (txbEmailquenmatkhau.Text == "")
+            {
+                errorProvider1.SetError(txbEmailquenmatkhau, "Chưa Điền Email !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbEmailquenmatkhau, string.Empty);
+            }
+            ContextChatDB context = new ContextChatDB();
+            Login dblogin = context.Login.FirstOrDefault(p => p.Username == txbttkQuenmatkhau.Text && p.Email == txbEmailquenmatkhau.Text);
+            if(dblogin != null)
+            {
+                MessageBox.Show("Password của bạn là : "+dblogin.Password, " Thông Báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, "Kiểm tra");
+                errorProvider1.SetError(txbEmailquenmatkhau, "Kiểm tra");
+                MessageBox.Show("Không tìm thấy người dùng xin hãy kiểm tra lại" , " Thông Báo", MessageBoxButtons.OK);
+                return;
             }
         }
     }

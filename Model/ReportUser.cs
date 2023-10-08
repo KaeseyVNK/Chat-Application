@@ -6,26 +6,29 @@ namespace Chat_Application.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("AddFriend")]
-    public partial class AddFriend
+    [Table("ReportUser")]
+    public partial class ReportUser
     {
         [Key]
-        [Column(Order = 0)]
+        public int ReportID { get; set; }
+
+        [Column("ReportUser")]
+        [Required]
         [StringLength(50)]
-        public string User1 { get; set; }
+        public string ReportUser1 { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(50)]
-        public string User2 { get; set; }
+        public string ReportedUser { get; set; }
 
-        public bool? FriendRequestFlag { get; set; }
+        public int ReportReasonID { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime DateTime { get; set; }
+        public string Note { get; set; }
 
         public virtual Login Login { get; set; }
 
         public virtual Login Login1 { get; set; }
+
+        public virtual Reason Reason { get; set; }
     }
 }

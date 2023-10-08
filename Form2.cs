@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -42,7 +43,15 @@ namespace Chat_Application
                 pcbDoiThongTin.Refresh();
             }
         }
-
+        private void closepanel()
+        {
+            pnlAddfriend.Visible = false;
+            pnlDoiThongTin.Visible = false;
+            pnlFriendRequest.Visible = false;
+            pnlMenu.Visible = false;
+            pnlThongTin.Visible = false;
+            pnlReport.Visible = false;
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
             label1.Text = usernames;
@@ -88,7 +97,6 @@ namespace Chat_Application
             FlowUserControlThemBan.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
             var listusername = context.Login.ToList();
-            var listfriend = context.AddFriend.ToList();
             var countusername = context.Login.Count();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
@@ -103,6 +111,7 @@ namespace Chat_Application
                     {
                         FlowUserControlThemBan.Controls.Remove(userControls[i]);
                     }
+
                     else
                     {
                         FlowUserControlThemBan.Controls.Add(userControls[i]);
@@ -176,6 +185,38 @@ namespace Chat_Application
                 }
             }
         }
+        private void DanhSachReport()
+        {
+            flpReportuser.Controls.Clear();
+            flpReportuser.AutoScroll = true;
+            ContextChatDB context = new ContextChatDB();
+            var listusername = context.Login.ToList();
+            var countusername = context.Login.Count();
+            UserControl1[] userControls = new UserControl1[countusername];
+            for (int i = 0; i < 1; i++)
+            {
+                foreach (var username in listusername)
+                {
+                    userControls[i] = new UserControl1();
+                    userControls[i].Title = username.Username;
+                    userControls[i].Icon = username.image;
+                    userControls[i].Click += Btnusercontrols2;
+                    if (userControls[i].Title == label1.Text)
+                    {
+                        flpReportuser.Controls.Remove(userControls[i]);
+                    }
+                    else
+                    {
+                        flpReportuser.Controls.Add(userControls[i]);
+                    }
+                }
+            }
+        }
+        private void Btnusercontrols2(object sender,EventArgs e)
+        {
+            UserControl1 userControls = sender as UserControl1;
+            txbUserreport.Text = userControls.Title;
+        }
         private void Btnusercontrols(object sender,EventArgs e)
         {
             UserControl1 userControls = sender as UserControl1;
@@ -191,7 +232,7 @@ namespace Chat_Application
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            if(pnlMenu.Visible == false)
+            if (pnlMenu.Visible == false)
             {
                 pnlMenu.Visible = true;
                 btnMenu.BackColor = Color.Gray;
@@ -210,9 +251,8 @@ namespace Chat_Application
             if (pnlDoiThongTin.Visible == false)
             {
                 ContextChatDB context = new ContextChatDB();
+                closepanel();
                 pnlDoiThongTin.Visible = true;
-                pnlThongTin.Visible = false;
-                pnlMenu.Visible = false;
                 Login dbuser = context.Login.FirstOrDefault(p => p.Username == usernames);
                 if (dbuser != null)
                 {
@@ -329,9 +369,8 @@ namespace Chat_Application
         {
             if (pnlThongTin.Visible == false)
             {
+                closepanel();
                 pnlThongTin.Visible = true;
-                pnlDoiThongTin.Visible = false;
-                pnlMenu.Visible = false;
                 ContextChatDB context = new ContextChatDB();
                 Login dbuser = context.Login.FirstOrDefault(p => p.Username == usernames);
                 if(dbuser != null)
@@ -343,7 +382,7 @@ namespace Chat_Application
             }
             else
             {
-                pnlThongTin.Visible = false;
+                closepanel();
                 btnXemthongtin.BackColor = Color.White;
             }
         }
@@ -387,8 +426,8 @@ namespace Chat_Application
         {
             if (pnlAddfriend.Visible == false)
             {
+                closepanel();
                 pnlAddfriend.Visible = true;
-                pnlFriendRequest.Visible = false;
                 DanhSachThemBanBe();
             }
             else
@@ -449,9 +488,9 @@ namespace Chat_Application
                     add.DateTime = DateTime.Now;
                     context.AddFriend.Add(add);
                     context.SaveChanges();
-                    MessageBox.Show("Thêm Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Gửi Lời Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                     txbThemBan.Clear();
-                    pnlAddfriend.Visible = false;
+                    closepanel();
                 }
             }catch(Exception ex)
             {
@@ -473,7 +512,7 @@ namespace Chat_Application
                 dbAcceptFriend.FriendRequestFlag = true;
                 context.SaveChanges();
                 txbTimBan.Clear();
-                pnlFriendRequest.Visible = false;
+                closepanel();
                 Form2_Load(sender, e);
                 MessageBox.Show("Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
             }
@@ -502,13 +541,13 @@ namespace Chat_Application
         {
              if (pnlFriendRequest.Visible == false)
             {
+                closepanel();
                 pnlFriendRequest.Visible = true;
-                pnlAddfriend.Visible = false;
                 XuatDanhSachKetBan();
             }
             else
             {
-                pnlFriendRequest.Visible = false; ;
+                closepanel();
             }
         }
 
@@ -521,7 +560,7 @@ namespace Chat_Application
                 context.AddFriend.Remove(dbNoAcceptFriend);
                 context.SaveChanges();
                 txbTimBan.Clear();
-                pnlFriendRequest.Visible = false;
+                closepanel();
                 Form2_Load(sender, e);
                 MessageBox.Show("Đã không chấp nhận kết bạn !", " Thông Báo", MessageBoxButtons.OK);
             }
@@ -530,6 +569,73 @@ namespace Chat_Application
         private void btnAlluser_Click(object sender, EventArgs e)
         {
             DanhSachNguoiDung();
+        }
+
+        private void txbUserreport_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Control c in flpReportuser.Controls)
+            {
+                if (c is UserControl1 usercontrol && usercontrol.Title.Contains(txbUserreport.Text) == true)
+                {
+                    c.Visible = true;
+                }
+                else
+                {
+                    c.Visible = false;
+                }
+            }
+            if (txbTimkiem.Text == "")
+            {
+                flpReportuser.Visible = true;
+            }
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            if (pnlReport.Visible == false)
+            {
+                ContextChatDB context = new ContextChatDB();
+                List<Reason> listreason = context.Reason.OrderBy(p => p.ReportReasonID).ToList();
+                closepanel();
+                FillReportComboBox(listreason);
+                pnlReport.Visible = true;
+                DanhSachReport();
+            }
+            else
+            {
+                pnlReport.Visible = false;
+            }
+        }
+        private void FillReportComboBox(List<Reason> listreason)
+        {
+            this.cmbReportreason.DataSource = listreason;
+            this.cmbReportreason.DisplayMember = "Reasons";
+            this.cmbReportreason.ValueMember = "ReportReasonID";
+        }
+
+        private void btnReportUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ContextChatDB context = new ContextChatDB();
+                Login dbReport = context.Login.FirstOrDefault(p => p.Username == label1.Text);
+                if (dbReport != null)
+                {
+                    ReportUser report = new ReportUser();
+                    report.ReportUser1 = label1.Text;
+                    report.ReportedUser = txbUserreport.Text;
+                    report.ReportReasonID = (cmbReportreason.SelectedItem as Reason).ReportReasonID;
+                    report.Note = txbNote.Text;
+                    context.ReportUser.Add(report);
+                    context.SaveChanges();
+                    closepanel();
+                    Form2_Load(sender, e);
+                    MessageBox.Show("Report Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                }
+            }catch
+            {
+                MessageBox.Show("Report Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+            }
         }
     }
 }

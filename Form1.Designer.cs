@@ -50,9 +50,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbShowpassword = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txbEmailquenmatkhau = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnGetpassword = new System.Windows.Forms.Button();
+            this.txbttkQuenmatkhau = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.pcbDangKy = new Chat_Application.RoundPictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +90,7 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(124, 95);
+            this.label1.Location = new System.Drawing.Point(130, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 2;
@@ -89,14 +98,14 @@
             // 
             // txbDangnhap
             // 
-            this.txbDangnhap.Location = new System.Drawing.Point(148, 170);
+            this.txbDangnhap.Location = new System.Drawing.Point(154, 143);
             this.txbDangnhap.Name = "txbDangnhap";
             this.txbDangnhap.Size = new System.Drawing.Size(197, 20);
             this.txbDangnhap.TabIndex = 3;
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(148, 211);
+            this.txbPassword.Location = new System.Drawing.Point(154, 184);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(197, 20);
             this.txbPassword.TabIndex = 4;
@@ -107,7 +116,7 @@
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-1, 165);
+            this.label2.Location = new System.Drawing.Point(5, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 25);
             this.label2.TabIndex = 5;
@@ -118,7 +127,7 @@
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(-1, 205);
+            this.label3.Location = new System.Drawing.Point(5, 178);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 25);
             this.label3.TabIndex = 6;
@@ -126,7 +135,7 @@
             // 
             // btn_LogIn
             // 
-            this.btn_LogIn.Location = new System.Drawing.Point(48, 286);
+            this.btn_LogIn.Location = new System.Drawing.Point(54, 259);
             this.btn_LogIn.Name = "btn_LogIn";
             this.btn_LogIn.Size = new System.Drawing.Size(229, 55);
             this.btn_LogIn.TabIndex = 7;
@@ -147,7 +156,7 @@
             this.panel1.Controls.Add(this.txbDangKyPassword);
             this.panel1.Controls.Add(this.txbDangkyTen);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(4, 71);
+            this.panel1.Location = new System.Drawing.Point(10, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 349);
             this.panel1.TabIndex = 8;
@@ -250,13 +259,94 @@
             // cbShowpassword
             // 
             this.cbShowpassword.AutoSize = true;
-            this.cbShowpassword.Location = new System.Drawing.Point(148, 250);
+            this.cbShowpassword.Location = new System.Drawing.Point(154, 223);
             this.cbShowpassword.Name = "cbShowpassword";
             this.cbShowpassword.Size = new System.Drawing.Size(102, 17);
             this.cbShowpassword.TabIndex = 9;
             this.cbShowpassword.Text = "Show Password";
             this.cbShowpassword.UseVisualStyleBackColor = true;
             this.cbShowpassword.CheckedChanged += new System.EventHandler(this.cbShowpassword_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(130, 320);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Quên Mật Khẩu ?";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.MouseLeave += new System.EventHandler(this.label6_MouseLeave);
+            this.label6.MouseHover += new System.EventHandler(this.label6_MouseHover);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txbEmailquenmatkhau);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.btnGetpassword);
+            this.panel2.Controls.Add(this.txbttkQuenmatkhau);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Location = new System.Drawing.Point(12, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(353, 349);
+            this.panel2.TabIndex = 11;
+            this.panel2.Visible = false;
+            // 
+            // txbEmailquenmatkhau
+            // 
+            this.txbEmailquenmatkhau.Location = new System.Drawing.Point(145, 101);
+            this.txbEmailquenmatkhau.Name = "txbEmailquenmatkhau";
+            this.txbEmailquenmatkhau.Size = new System.Drawing.Size(175, 20);
+            this.txbEmailquenmatkhau.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Email";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 55);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(111, 20);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Tên Tài Khoản";
+            // 
+            // btnGetpassword
+            // 
+            this.btnGetpassword.Location = new System.Drawing.Point(55, 143);
+            this.btnGetpassword.Name = "btnGetpassword";
+            this.btnGetpassword.Size = new System.Drawing.Size(229, 55);
+            this.btnGetpassword.TabIndex = 9;
+            this.btnGetpassword.Text = "Lấy Password";
+            this.btnGetpassword.UseVisualStyleBackColor = true;
+            this.btnGetpassword.Click += new System.EventHandler(this.btnGetpassword_Click);
+            // 
+            // txbttkQuenmatkhau
+            // 
+            this.txbttkQuenmatkhau.Location = new System.Drawing.Point(145, 55);
+            this.txbttkQuenmatkhau.Name = "txbttkQuenmatkhau";
+            this.txbttkQuenmatkhau.Size = new System.Drawing.Size(175, 20);
+            this.txbttkQuenmatkhau.TabIndex = 6;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(102, 3);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(151, 25);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Quên Mật Khẩu";
             // 
             // pcbDangKy
             // 
@@ -273,8 +363,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 432);
+            this.ClientSize = new System.Drawing.Size(387, 432);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cbShowpassword);
             this.Controls.Add(this.btn_LogIn);
             this.Controls.Add(this.label3);
@@ -290,6 +382,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,6 +414,14 @@
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbShowpassword;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txbEmailquenmatkhau;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnGetpassword;
+        private System.Windows.Forms.TextBox txbttkQuenmatkhau;
+        private System.Windows.Forms.Label label14;
     }
 }
 
