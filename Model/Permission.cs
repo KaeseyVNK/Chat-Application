@@ -12,7 +12,7 @@ namespace Chat_Application.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Permission()
         {
-            Login = new HashSet<Login>();
+            Logins = new HashSet<Login>();
         }
 
         [Key]
@@ -20,12 +20,8 @@ namespace Chat_Application.Model
 
         [StringLength(50)]
         public string PermissionName { get; set; }
-        public override string ToString()
-        {
-            return PermissionName;
-        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Login> Login { get; set; }
+        public virtual ICollection<Login> Logins { get; set; }
     }
 }

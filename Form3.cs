@@ -55,14 +55,14 @@ namespace Chat_Application
         {
             label1.Text = usernames;
             ContextChatDB context = new ContextChatDB();
-            Login dblogin = context.Login.FirstOrDefault(p => p.Username == usernames);
+            Login dblogin = context.Logins.FirstOrDefault(p => p.Username == usernames);
             if (dblogin != null)
             {
                 label1.Text = dblogin.Username;
                 ThemHinhAnh(dblogin.image);
             }
-            dgvUsers.DataSource = context.Login.OrderBy(p => p.Username).ToList();
-            dgvReports.DataSource = context.ReportUser.OrderBy(p => p.ReportID).ToList();
+            dgvUsers.DataSource = context.Logins.OrderBy(p => p.Username).ToList();
+            dgvReports.DataSource = context.ReportUsers.OrderBy(p => p.ReportID).ToList();
             dgvReports.Columns[3].Visible = false;
             dgvReports.Columns[5].Visible = false;
             dgvReports.Columns[6].Visible = false;
@@ -73,8 +73,8 @@ namespace Chat_Application
             dgvUsers.Columns[8].Visible = false;
             dgvUsers.Columns[9].Visible = false;
             dgvUsers.Columns[10].Visible = false;
-            List<Permission> listpermission = context.Permission.OrderBy(p => p.IDPermission).ToList();
-            List<Reason> listreason = context.Reason.OrderBy(p => p.ReportReasonID).ToList();
+            List<Permission> listpermission = context.Permissions.OrderBy(p => p.IDPermission).ToList();
+            List<Reason> listreason = context.Reasons.OrderBy(p => p.ReportReasonID).ToList();
             fillPermission(listpermission);
             cmbPermission.SelectedIndex = -1;
             fillReason(listreason);
@@ -98,7 +98,7 @@ namespace Chat_Application
             {
                 string user = txbUsername.Text = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
                 ContextChatDB context = new ContextChatDB();
-                Login find = context.Login.FirstOrDefault(p => p.Username == user);
+                Login find = context.Logins.FirstOrDefault(p => p.Username == user);
                 dgvUsers.CurrentRow.Selected = true;
                 {
                     if (find != null)
@@ -121,7 +121,7 @@ namespace Chat_Application
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            Login find = context.Login.FirstOrDefault(p => p.Username == txbUsername.Text);
+            Login find = context.Logins.FirstOrDefault(p => p.Username == txbUsername.Text);
             if (find != null)
             {
                 find.Username = txbUsername.Text;
@@ -151,21 +151,21 @@ namespace Chat_Application
         private void btnDelete_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            Login find = context.Login.FirstOrDefault(p => p.Username == txbUsername.Text);
-            var listfriend = context.AddFriend.ToList();
-            var listreport = context.ReportUser.ToList();
-            AddFriend friends = context.AddFriend.FirstOrDefault(p => p.User1 == txbUsername.Text || p.User2 == txbUsername.Text);
-            ReportUser reports = context.ReportUser.FirstOrDefault(p => p.ReportUser1 == txbUsername.Text || p.ReportedUser == txbUsername.Text);
+            Login find = context.Logins.FirstOrDefault(p => p.Username == txbUsername.Text);
+            var listfriend = context.AddFriends.ToList();
+            var listreport = context.ReportUsers.ToList();
+            AddFriend friends = context.AddFriends.FirstOrDefault(p => p.User1 == txbUsername.Text || p.User2 == txbUsername.Text);
+            ReportUser reports = context.ReportUsers.FirstOrDefault(p => p.ReportUser1 == txbUsername.Text || p.ReportedUser == txbUsername.Text);
             if (find != null)
             {
-                context.Login.Remove(find);
+                context.Logins.Remove(find);
                 if (friends != null)
                 {
                     foreach (var friend in listfriend)
                     {
                         if (friend.User1 == txbUsername.Text || friend.User2 == txbUsername.Text)
                         {
-                            context.AddFriend.Remove(friends);
+                            context.AddFriends.Remove(friends);
                         }
                     }
                 }
@@ -175,7 +175,7 @@ namespace Chat_Application
                     {
                         if(report.ReportUser1 == txbUsername.Text || report.ReportedUser == txbUsername.Text)
                         {
-                            context.ReportUser.Remove(reports);
+                            context.ReportUsers.Remove(reports);
                         }
                     }
                 }
@@ -221,7 +221,7 @@ namespace Chat_Application
         {
             string userreport = txbUsername.Text = dgvReports.Rows[e.RowIndex].Cells[2].Value.ToString();
             ContextChatDB context = new ContextChatDB();
-            Login find = context.Login.FirstOrDefault(p => p.Username == userreport);
+            Login find = context.Logins.FirstOrDefault(p => p.Username == userreport);
             dgvUsers.CurrentRow.Selected = true;
             {
                 if (find != null)

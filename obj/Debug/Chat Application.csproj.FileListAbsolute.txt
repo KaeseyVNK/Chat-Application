@@ -16,3 +16,26 @@ C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.cs
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form2.resources
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.UserControl1.resources
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form3.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.exe.config
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.exe
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.pdb
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\EntityFramework.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\EntityFramework.SqlServer.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\EntityFramework.xml
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\EntityFramework.SqlServer.xml
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.csproj.AssemblyReference.cache
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Form1.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Form2.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Form3.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Properties.Resources.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.UserControl1.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.csproj.GenerateResource.cache
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.csproj.CoreCompileInputs.cache
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.csproj.CopyComplete
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.exe
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat Application.pdb
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.User1.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.User2.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\ChangeTracking.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.xml

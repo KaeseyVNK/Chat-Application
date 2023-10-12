@@ -41,8 +41,6 @@ namespace Chat_Application
             this.btnAddFriend = new System.Windows.Forms.Button();
             this.txbTimkiem = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.userControl11 = new Chat_Application.UserControl1();
-            this.pcbProfile = new Chat_Application.RoundPictureBox();
             this.btnMenu = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnXemthongtin = new System.Windows.Forms.Button();
@@ -57,7 +55,6 @@ namespace Chat_Application
             this.label4 = new System.Windows.Forms.Label();
             this.txbDoiEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pcbDoiThongTin = new Chat_Application.RoundPictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txbNhaplaipassword = new System.Windows.Forms.TextBox();
@@ -65,14 +62,12 @@ namespace Chat_Application
             this.pnlThongTin = new System.Windows.Forms.Panel();
             this.txbpnlEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txbpnlTentaikhoan = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlAddfriend = new System.Windows.Forms.Panel();
             this.btnThemBan = new System.Windows.Forms.Button();
             this.FlowUserControlThemBan = new System.Windows.Forms.FlowLayoutPanel();
-            this.userControl12 = new Chat_Application.UserControl1();
             this.label10 = new System.Windows.Forms.Label();
             this.txbThemBan = new System.Windows.Forms.TextBox();
             this.pnlFriendRequest = new System.Windows.Forms.Panel();
@@ -80,7 +75,6 @@ namespace Chat_Application
             this.btnKhongdongy = new System.Windows.Forms.Button();
             this.btnDongy = new System.Windows.Forms.Button();
             this.flowControlFriendRequest = new System.Windows.Forms.FlowLayoutPanel();
-            this.userControl13 = new Chat_Application.UserControl1();
             this.label11 = new System.Windows.Forms.Label();
             this.pnlReport = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -88,24 +82,32 @@ namespace Chat_Application
             this.cmbReportreason = new System.Windows.Forms.ComboBox();
             this.btnReportUser = new System.Windows.Forms.Button();
             this.flpReportuser = new System.Windows.Forms.FlowLayoutPanel();
-            this.userControl14 = new Chat_Application.UserControl1();
             this.label12 = new System.Windows.Forms.Label();
             this.txbUserreport = new System.Windows.Forms.TextBox();
+            this.PanelChat = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.userControl14 = new Chat_Application.UserControl1();
+            this.userControl12 = new Chat_Application.UserControl1();
+            this.userControl11 = new Chat_Application.UserControl1();
+            this.pcbProfile = new Chat_Application.RoundPictureBox();
+            this.pcbDoiThongTin = new Chat_Application.RoundPictureBox();
+            this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
+            this.userControl13 = new Chat_Application.UserControl1();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnlDoiThongTin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).BeginInit();
             this.pnlThongTin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).BeginInit();
             this.pnlAddfriend.SuspendLayout();
             this.FlowUserControlThemBan.SuspendLayout();
             this.pnlFriendRequest.SuspendLayout();
             this.flowControlFriendRequest.SuspendLayout();
             this.pnlReport.SuspendLayout();
             this.flpReportuser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -201,25 +203,6 @@ namespace Chat_Application
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(255, 473);
             this.flowLayoutPanel1.TabIndex = 3;
-            // 
-            // userControl11
-            // 
-            this.userControl11.Icon = null;
-            this.userControl11.Location = new System.Drawing.Point(3, 3);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(241, 73);
-            this.userControl11.TabIndex = 0;
-            this.userControl11.Title = null;
-            // 
-            // pcbProfile
-            // 
-            this.pcbProfile.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbProfile.Location = new System.Drawing.Point(75, 3);
-            this.pcbProfile.Name = "pcbProfile";
-            this.pcbProfile.Size = new System.Drawing.Size(93, 58);
-            this.pcbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbProfile.TabIndex = 1;
-            this.pcbProfile.TabStop = false;
             // 
             // btnMenu
             // 
@@ -366,17 +349,6 @@ namespace Chat_Application
             this.label2.TabIndex = 25;
             this.label2.Text = "Email";
             // 
-            // pcbDoiThongTin
-            // 
-            this.pcbDoiThongTin.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDoiThongTin.Location = new System.Drawing.Point(199, 73);
-            this.pcbDoiThongTin.Name = "pcbDoiThongTin";
-            this.pcbDoiThongTin.Size = new System.Drawing.Size(156, 93);
-            this.pcbDoiThongTin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbDoiThongTin.TabIndex = 24;
-            this.pcbDoiThongTin.TabStop = false;
-            this.pcbDoiThongTin.Click += new System.EventHandler(this.pcbDoiThongTin_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -444,16 +416,6 @@ namespace Chat_Application
             this.label5.TabIndex = 22;
             this.label5.Text = "Email";
             // 
-            // pcbpnlThongTinTaiKhoan
-            // 
-            this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbpnlThongTinTaiKhoan.Location = new System.Drawing.Point(206, 82);
-            this.pcbpnlThongTinTaiKhoan.Name = "pcbpnlThongTinTaiKhoan";
-            this.pcbpnlThongTinTaiKhoan.Size = new System.Drawing.Size(156, 93);
-            this.pcbpnlThongTinTaiKhoan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbpnlThongTinTaiKhoan.TabIndex = 21;
-            this.pcbpnlThongTinTaiKhoan.TabStop = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -511,15 +473,6 @@ namespace Chat_Application
             this.FlowUserControlThemBan.Name = "FlowUserControlThemBan";
             this.FlowUserControlThemBan.Size = new System.Drawing.Size(279, 269);
             this.FlowUserControlThemBan.TabIndex = 4;
-            // 
-            // userControl12
-            // 
-            this.userControl12.Icon = null;
-            this.userControl12.Location = new System.Drawing.Point(3, 3);
-            this.userControl12.Name = "userControl12";
-            this.userControl12.Size = new System.Drawing.Size(276, 73);
-            this.userControl12.TabIndex = 0;
-            this.userControl12.Title = null;
             // 
             // label10
             // 
@@ -587,15 +540,6 @@ namespace Chat_Application
             this.flowControlFriendRequest.Name = "flowControlFriendRequest";
             this.flowControlFriendRequest.Size = new System.Drawing.Size(279, 269);
             this.flowControlFriendRequest.TabIndex = 4;
-            // 
-            // userControl13
-            // 
-            this.userControl13.Icon = null;
-            this.userControl13.Location = new System.Drawing.Point(3, 3);
-            this.userControl13.Name = "userControl13";
-            this.userControl13.Size = new System.Drawing.Size(276, 73);
-            this.userControl13.TabIndex = 0;
-            this.userControl13.Title = null;
             // 
             // label11
             // 
@@ -667,15 +611,6 @@ namespace Chat_Application
             this.flpReportuser.Size = new System.Drawing.Size(279, 204);
             this.flpReportuser.TabIndex = 4;
             // 
-            // userControl14
-            // 
-            this.userControl14.Icon = null;
-            this.userControl14.Location = new System.Drawing.Point(3, 3);
-            this.userControl14.Name = "userControl14";
-            this.userControl14.Size = new System.Drawing.Size(276, 73);
-            this.userControl14.TabIndex = 0;
-            this.userControl14.Title = null;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -694,11 +629,99 @@ namespace Chat_Application
             this.txbUserreport.TabIndex = 27;
             this.txbUserreport.TextChanged += new System.EventHandler(this.txbUserreport_TextChanged);
             // 
+            // PanelChat
+            // 
+            this.PanelChat.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.PanelChat.Location = new System.Drawing.Point(258, 0);
+            this.PanelChat.Name = "PanelChat";
+            this.PanelChat.Size = new System.Drawing.Size(542, 616);
+            this.PanelChat.TabIndex = 34;
+            this.PanelChat.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // userControl14
+            // 
+            this.userControl14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl14.Icon = null;
+            this.userControl14.Location = new System.Drawing.Point(3, 3);
+            this.userControl14.Name = "userControl14";
+            this.userControl14.Size = new System.Drawing.Size(276, 73);
+            this.userControl14.TabIndex = 0;
+            this.userControl14.Title = null;
+            // 
+            // userControl12
+            // 
+            this.userControl12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl12.Icon = null;
+            this.userControl12.Location = new System.Drawing.Point(3, 3);
+            this.userControl12.Name = "userControl12";
+            this.userControl12.Size = new System.Drawing.Size(276, 73);
+            this.userControl12.TabIndex = 0;
+            this.userControl12.Title = null;
+            // 
+            // userControl11
+            // 
+            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl11.Icon = null;
+            this.userControl11.Location = new System.Drawing.Point(3, 3);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(241, 89);
+            this.userControl11.TabIndex = 0;
+            this.userControl11.Title = null;
+            this.userControl11.Click += new System.EventHandler(this.userControl11_Click);
+            // 
+            // pcbProfile
+            // 
+            this.pcbProfile.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbProfile.Location = new System.Drawing.Point(84, 5);
+            this.pcbProfile.Name = "pcbProfile";
+            this.pcbProfile.Size = new System.Drawing.Size(64, 63);
+            this.pcbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbProfile.TabIndex = 1;
+            this.pcbProfile.TabStop = false;
+            // 
+            // pcbDoiThongTin
+            // 
+            this.pcbDoiThongTin.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbDoiThongTin.Location = new System.Drawing.Point(199, 73);
+            this.pcbDoiThongTin.Name = "pcbDoiThongTin";
+            this.pcbDoiThongTin.Size = new System.Drawing.Size(156, 93);
+            this.pcbDoiThongTin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbDoiThongTin.TabIndex = 24;
+            this.pcbDoiThongTin.TabStop = false;
+            this.pcbDoiThongTin.Click += new System.EventHandler(this.pcbDoiThongTin_Click);
+            // 
+            // pcbpnlThongTinTaiKhoan
+            // 
+            this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbpnlThongTinTaiKhoan.Location = new System.Drawing.Point(206, 82);
+            this.pcbpnlThongTinTaiKhoan.Name = "pcbpnlThongTinTaiKhoan";
+            this.pcbpnlThongTinTaiKhoan.Size = new System.Drawing.Size(156, 93);
+            this.pcbpnlThongTinTaiKhoan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbpnlThongTinTaiKhoan.TabIndex = 21;
+            this.pcbpnlThongTinTaiKhoan.TabStop = false;
+            // 
+            // userControl13
+            // 
+            this.userControl13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl13.Icon = null;
+            this.userControl13.Location = new System.Drawing.Point(3, 3);
+            this.userControl13.Name = "userControl13";
+            this.userControl13.Size = new System.Drawing.Size(276, 73);
+            this.userControl13.TabIndex = 0;
+            this.userControl13.Title = null;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 618);
+            this.Controls.Add(this.PanelChat);
             this.Controls.Add(this.pnlReport);
             this.Controls.Add(this.pnlAddfriend);
             this.Controls.Add(this.pnlMenu);
@@ -713,15 +736,12 @@ namespace Chat_Application
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.pnlDoiThongTin.ResumeLayout(false);
             this.pnlDoiThongTin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).EndInit();
             this.pnlThongTin.ResumeLayout(false);
             this.pnlThongTin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).EndInit();
             this.pnlAddfriend.ResumeLayout(false);
             this.pnlAddfriend.PerformLayout();
             this.FlowUserControlThemBan.ResumeLayout(false);
@@ -731,6 +751,9 @@ namespace Chat_Application
             this.pnlReport.ResumeLayout(false);
             this.pnlReport.PerformLayout();
             this.flpReportuser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -795,5 +818,7 @@ namespace Chat_Application
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.TextBox txbNote;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel PanelChat;
+        private System.Windows.Forms.Timer timer1;
     }
 }

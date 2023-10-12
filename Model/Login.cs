@@ -12,10 +12,10 @@ namespace Chat_Application.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Login()
         {
-            AddFriend = new HashSet<AddFriend>();
-            AddFriend1 = new HashSet<AddFriend>();
-            ReportUser = new HashSet<ReportUser>();
-            ReportUser1 = new HashSet<ReportUser>();
+            AddFriends = new HashSet<AddFriend>();
+            AddFriends1 = new HashSet<AddFriend>();
+            ReportUsers = new HashSet<ReportUser>();
+            ReportUsers1 = new HashSet<ReportUser>();
         }
 
         [Key]
@@ -39,17 +39,17 @@ namespace Chat_Application.Model
         public int? IDPermission { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AddFriend> AddFriend { get; set; }
+        public virtual ICollection<AddFriend> AddFriends { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AddFriend> AddFriend1 { get; set; }
+        public virtual ICollection<AddFriend> AddFriends1 { get; set; }
 
         public virtual Permission Permission { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportUser> ReportUser { get; set; }
+        public virtual ICollection<ReportUser> ReportUsers { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportUser> ReportUser1 { get; set; }
+        public virtual ICollection<ReportUser> ReportUsers1 { get; set; }
     }
 }

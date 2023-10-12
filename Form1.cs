@@ -112,7 +112,7 @@ namespace Chat_Application
                 l.image = filename.ToString();
                 l.IDPermission = 1;
                 ThemHinhAnh(l.image);
-                context.Login.Add(l);
+                context.Logins.Add(l);
                 context.SaveChanges();
                 MessageBox.Show("Đăng Ký Thành công !", " Thông Báo", MessageBoxButtons.OK);
                 Form1_Load(sender, e);
@@ -175,8 +175,8 @@ namespace Chat_Application
                 errorProvider1.SetError(txbPassword, string.Empty);
             }
             ContextChatDB context = new ContextChatDB();
-            Login dblogin = context.Login.FirstOrDefault(p=>p.Username == txbDangnhap.Text && p.Password == txbPassword.Text);
-            Login dbadmin = context.Login.FirstOrDefault(p => p.Username == txbDangnhap.Text && p.Password == txbPassword.Text && p.IDPermission == 2);
+            Login dblogin = context.Logins.FirstOrDefault(p=>p.Username == txbDangnhap.Text && p.Password == txbPassword.Text);
+            Login dbadmin = context.Logins.FirstOrDefault(p => p.Username == txbDangnhap.Text && p.Password == txbPassword.Text && p.IDPermission == 2);
             if(dblogin != null)
             {
                 MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
@@ -247,7 +247,7 @@ namespace Chat_Application
                 errorProvider1.SetError(txbEmailquenmatkhau, string.Empty);
             }
             ContextChatDB context = new ContextChatDB();
-            Login dblogin = context.Login.FirstOrDefault(p => p.Username == txbttkQuenmatkhau.Text && p.Email == txbEmailquenmatkhau.Text);
+            Login dblogin = context.Logins.FirstOrDefault(p => p.Username == txbttkQuenmatkhau.Text && p.Email == txbEmailquenmatkhau.Text);
             if(dblogin != null)
             {
                 MessageBox.Show("Password của bạn là : "+dblogin.Password, " Thông Báo", MessageBoxButtons.OK);

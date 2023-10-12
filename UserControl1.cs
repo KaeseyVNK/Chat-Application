@@ -44,5 +44,10 @@ namespace Chat_Application
                 pcbDanhBa.Refresh();
             }
         }
+
+        private void UserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

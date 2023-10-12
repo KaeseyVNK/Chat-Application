@@ -36,9 +36,9 @@
             // pcbDanhBa
             // 
             this.pcbDanhBa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDanhBa.Location = new System.Drawing.Point(18, 18);
+            this.pcbDanhBa.Location = new System.Drawing.Point(3, 3);
             this.pcbDanhBa.Name = "pcbDanhBa";
-            this.pcbDanhBa.Size = new System.Drawing.Size(60, 36);
+            this.pcbDanhBa.Size = new System.Drawing.Size(66, 65);
             this.pcbDanhBa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbDanhBa.TabIndex = 0;
             this.pcbDanhBa.TabStop = false;
@@ -57,10 +57,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pcbDanhBa);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(339, 73);
+            this.Size = new System.Drawing.Size(220, 73);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbDanhBa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
