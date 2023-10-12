@@ -29,6 +29,7 @@ namespace Chat_Application
         int truoc;
         int sau;
 
+        UserControl1 iconchat;
         public string usernames { set; get; }
         public Form2()
         {
@@ -659,7 +660,8 @@ namespace Chat_Application
 
         private void userControl11_Click(object sender, EventArgs e)
         {
-            closepanel();
+            //closepanel();
+            PanelChat.BringToFront();
             UserControl1 user = sender as UserControl1;
             //MessageBox.Show("Da chon user");
             foreach (Control control in PanelChat.Controls)
@@ -676,22 +678,25 @@ namespace Chat_Application
                 nguoichat.Size = new Size(550, 71);
                 nguoichat.BackColor = Color.Cyan;
                 nguoichat.Title = user.Title;
+                nguoichat.Icon = user.Icon;
+                iconchat = user;
                 PanelChat.Controls.Clear();
                 PanelChat.Controls.Add(nguoichat);                
                 CreatedTextAndSendButton(PanelChat, nguoichat.Title );
                 usercchat = nguoichat.Title;
+                
                 ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
             }
-            else if ( user.Title == usercchat && PanelChat.Visible == true )
-            { 
+            else if (user.Title == usercchat && PanelChat.Visible == true)
+            {
                 PanelChat.Visible = false;
-                
+
             }
             else
             {
                 PanelChat.Visible = false;
-               
             }
+
         }
 
         private void btnGui_Click(object sender, EventArgs e)
@@ -710,7 +715,7 @@ namespace Chat_Application
                         mess.Username2 = usercchat;
                         mess.Messenger1 = Mess.Text;
                         mess.TimeMessenger = DateTime.Now;
-
+                       
                         context.Messengers.Add(mess);
                         context.SaveChanges();
 
@@ -799,6 +804,7 @@ namespace Chat_Application
                         User2 user2 = new User2();
                         user2.Title = mess.Messenger1;
                         user2.Location = new Point(0, y);
+                        user2.Icon = iconchat.Icon;
                         ChatArea.Controls.Add(user2);
                         y += 60;
                     }
