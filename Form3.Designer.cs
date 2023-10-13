@@ -41,19 +41,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chuyểnDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReportLog = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.txbNote = new System.Windows.Forms.TextBox();
+            this.cmbReason = new System.Windows.Forms.ComboBox();
             this.dgvReports = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.pcbProfile = new Chat_Application.RoundPictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbReason = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhnguoidung)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -168,23 +167,13 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(186, 126);
+            this.btnUpdate.Location = new System.Drawing.Point(278, 125);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Cập Nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(276, 126);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 17;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnThoat
             // 
@@ -242,6 +231,15 @@
             this.panel1.TabIndex = 20;
             this.panel1.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(497, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Lý Do";
+            // 
             // txbNote
             // 
             this.txbNote.Location = new System.Drawing.Point(562, 3);
@@ -250,6 +248,14 @@
             this.txbNote.ReadOnly = true;
             this.txbNote.Size = new System.Drawing.Size(299, 32);
             this.txbNote.TabIndex = 21;
+            // 
+            // cmbReason
+            // 
+            this.cmbReason.FormattingEnabled = true;
+            this.cmbReason.Location = new System.Drawing.Point(559, 50);
+            this.cmbReason.Name = "cmbReason";
+            this.cmbReason.Size = new System.Drawing.Size(138, 21);
+            this.cmbReason.TabIndex = 21;
             // 
             // dgvReports
             // 
@@ -280,31 +286,13 @@
             this.pcbProfile.TabIndex = 3;
             this.pcbProfile.TabStop = false;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(497, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Lý Do";
-            // 
-            // cmbReason
-            // 
-            this.cmbReason.FormattingEnabled = true;
-            this.cmbReason.Location = new System.Drawing.Point(559, 50);
-            this.cmbReason.Name = "cmbReason";
-            this.cmbReason.Size = new System.Drawing.Size(138, 21);
-            this.cmbReason.TabIndex = 21;
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 524);
-            this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -353,7 +341,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem chuyểnDatabaseToolStripMenuItem;

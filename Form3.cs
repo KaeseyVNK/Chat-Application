@@ -147,44 +147,6 @@ namespace Chat_Application
                 pcbAnhnguoidung.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            ContextChatDB context = new ContextChatDB();
-            Login find = context.Logins.FirstOrDefault(p => p.Username == txbUsername.Text);
-            var listfriend = context.AddFriends.ToList();
-            var listreport = context.ReportUsers.ToList();
-            AddFriend friends = context.AddFriends.FirstOrDefault(p => p.User1 == txbUsername.Text || p.User2 == txbUsername.Text);
-            ReportUser reports = context.ReportUsers.FirstOrDefault(p => p.ReportUser1 == txbUsername.Text || p.ReportedUser == txbUsername.Text);
-            if (find != null)
-            {
-                context.Logins.Remove(find);
-                if (friends != null)
-                {
-                    foreach (var friend in listfriend)
-                    {
-                        if (friend.User1 == txbUsername.Text || friend.User2 == txbUsername.Text)
-                        {
-                            context.AddFriends.Remove(friends);
-                        }
-                    }
-                }
-                if(reports != null)
-                {
-                    foreach(var report in listreport)
-                    {
-                        if(report.ReportUser1 == txbUsername.Text || report.ReportedUser == txbUsername.Text)
-                        {
-                            context.ReportUsers.Remove(reports);
-                        }
-                    }
-                }
-                context.SaveChanges();
-                Form3_Load(sender, e);
-                MessageBox.Show("Xóa Thành Công ! ", " Thông Báo", MessageBoxButtons.OK);
-            }
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();

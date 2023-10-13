@@ -1,4 +1,5 @@
-﻿using Chat_Application.Model;
+﻿using Castle.Components.DictionaryAdapter.Xml;
+using Chat_Application.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,6 +91,7 @@ namespace Chat_Application
                     userControls[i] = new UserControl1();
                     userControls[i].Title = username.Username;
                     userControls[i].Icon = username.image;
+                    userControls[i].Click += ClickAllUser;
                     if (userControls[i].Title == label1.Text)
                     {
                         flowLayoutPanel1.Controls.Remove(userControls[i]);
@@ -99,6 +101,112 @@ namespace Chat_Application
                         flowLayoutPanel1.Controls.Add(userControls[i]);
                     }
                 }
+            }
+        }
+        private void ThemHinhAnhUser(string Imagename)
+        {
+            if (string.IsNullOrEmpty(Imagename))
+            {
+                pcbProfile.Image = null;
+            }
+            else
+            {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
+                pcbpnlThongTinTaiKhoan.Image = Image.FromFile(imagepath);
+                pcbpnlThongTinTaiKhoan.Refresh();
+            }
+        }
+        private void ClickAllUser(object sender, EventArgs e)
+        {
+            UserControl1 userControls = sender as UserControl1;
+            foreach (Control control in pnlThongTin.Controls)
+            {
+                if (control is Button)
+                {
+                    pnlThongTin.Controls.Remove(control);
+                }
+            }
+            if (pnlThongTin.Visible == false)
+            {
+                closepanel();
+                pnlThongTin.Visible = true;
+                ContextChatDB context = new ContextChatDB();
+                Login dbuser = context.Logins.FirstOrDefault(p => p.Username == userControls.Title);
+                AddFriend dbaddfriendTrue = context.AddFriends.FirstOrDefault(p => p.User2 == userControls.Title && p.User1 == label1.Text && p.FriendRequestFlag == true ||p.User1 == userControls.Title && p.User2 == label1.Text && p.FriendRequestFlag == true);
+                AddFriend dbaddfriendFalse = context.AddFriends.FirstOrDefault(p => p.User2 == userControls.Title && p.User1 == label1.Text && p.FriendRequestFlag == false || p.User1 == userControls.Title && p.User2 == label1.Text && p.FriendRequestFlag == false);
+                var listfriend = context.AddFriends.ToList();
+                SendBtn = new Button();
+                if (dbaddfriendTrue != null)
+                {
+                    SendBtn.Text = "Đã Kết Bạn";
+                    SendBtn.Enabled = false;
+                }
+                if (dbaddfriendFalse != null)
+                {
+                    SendBtn.Text = "Đã Gửi Kết Bạn";
+                    SendBtn.Enabled = false;
+                }
+                if(dbaddfriendTrue == null && dbaddfriendFalse == null)
+                {
+                    SendBtn.Text = "Kết Bạn !";
+                }
+                SendBtn.Size = new Size(75, 40);
+                SendBtn.Location = new Point(354, 325);
+                SendBtn.BackColor = Color.White;
+                SendBtn.Click += addfriendclick;
+                pnlThongTin.Controls.Add(SendBtn);
+                if (dbuser != null)
+                {
+                    txbpnlTentaikhoan.Text = dbuser.Username.ToString();
+                    txbpnlEmail.Text = dbuser.Email.ToString();
+                    ThemHinhAnhUser(dbuser.image);
+                }
+            }
+            else
+            {
+                closepanel();
+            }
+        }
+        private void addfriendclick(object sender, EventArgs e)
+        {
+            try
+            {
+                UserControl1 userControls = sender as UserControl1;
+                ContextChatDB context = new ContextChatDB();
+                Login dbAddFriend = context.Logins.FirstOrDefault(p => p.Username == txbpnlTentaikhoan.Text);
+                AddFriend dbcheckfriend = context.AddFriends.FirstOrDefault(q => q.User1 == txbpnlTentaikhoan.Text);
+                if (dbcheckfriend != null)
+                {
+                    MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
+                    return;
+                }
+                if (dbAddFriend == null)
+                {
+                    errorProvider1.SetError(txbThemBan, "Không Tìm Thấy người dùng xin hãy xem lại!");
+                    return;
+                }
+                else
+                {
+                    errorProvider1.SetError(txbThemBan, string.Empty);
+                }
+                if (dbAddFriend != null)
+                {
+                    AddFriend add = new AddFriend();
+                    add.User1 = usernames;
+                    add.User2 = txbpnlTentaikhoan.Text;
+                    add.FriendRequestFlag = false;
+                    add.DateTime = DateTime.Now;
+                    context.AddFriends.Add(add);
+                    context.SaveChanges();
+                    MessageBox.Show("Gửi Lời Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                    SendBtn.Text = "Đã Gửi Kết Bạn";
+                    SendBtn.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
             }
         }
         private void DanhSachThemBanBe()

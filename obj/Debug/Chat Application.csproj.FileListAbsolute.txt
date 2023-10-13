@@ -39,3 +39,8 @@ E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.U
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.dll
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\ChangeTracking.dll
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Castle.Core.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\ChangeTracking.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Castle.Core.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.User1.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.User2.resources
