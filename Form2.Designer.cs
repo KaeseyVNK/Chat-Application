@@ -34,6 +34,8 @@ namespace Chat_Application
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl15 = new Chat_Application.UserControl1();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnFriendrequest = new System.Windows.Forms.Button();
             this.btnShowfriend = new System.Windows.Forms.Button();
@@ -94,6 +96,7 @@ namespace Chat_Application
             this.PanelChat = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
             this.pnlMenu.SuspendLayout();
@@ -122,6 +125,7 @@ namespace Chat_Application
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.flowLayoutPanel2);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.btnFriendrequest);
             this.panel1.Controls.Add(this.btnShowfriend);
@@ -135,6 +139,27 @@ namespace Chat_Application
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 606);
             this.panel1.TabIndex = 4;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.userControl15);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1, 133);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(255, 473);
+            this.flowLayoutPanel2.TabIndex = 35;
+            this.flowLayoutPanel2.Visible = false;
+            // 
+            // userControl15
+            // 
+            this.userControl15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl15.Icon = null;
+            this.userControl15.Location = new System.Drawing.Point(4, 4);
+            this.userControl15.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl15.Name = "userControl15";
+            this.userControl15.Size = new System.Drawing.Size(241, 89);
+            this.userControl15.Status = null;
+            this.userControl15.TabIndex = 0;
+            this.userControl15.Title = null;
             // 
             // btnReport
             // 
@@ -212,6 +237,7 @@ namespace Chat_Application
             this.userControl11.Margin = new System.Windows.Forms.Padding(4);
             this.userControl11.Name = "userControl11";
             this.userControl11.Size = new System.Drawing.Size(241, 89);
+            this.userControl11.Status = null;
             this.userControl11.TabIndex = 0;
             this.userControl11.Title = null;
             this.userControl11.Click += new System.EventHandler(this.userControl11_Click);
@@ -525,6 +551,7 @@ namespace Chat_Application
             this.userControl12.Margin = new System.Windows.Forms.Padding(4);
             this.userControl12.Name = "userControl12";
             this.userControl12.Size = new System.Drawing.Size(276, 73);
+            this.userControl12.Status = null;
             this.userControl12.TabIndex = 0;
             this.userControl12.Title = null;
             // 
@@ -603,6 +630,7 @@ namespace Chat_Application
             this.userControl13.Margin = new System.Windows.Forms.Padding(4);
             this.userControl13.Name = "userControl13";
             this.userControl13.Size = new System.Drawing.Size(276, 73);
+            this.userControl13.Status = null;
             this.userControl13.TabIndex = 0;
             this.userControl13.Title = null;
             // 
@@ -684,6 +712,7 @@ namespace Chat_Application
             this.userControl14.Margin = new System.Windows.Forms.Padding(4);
             this.userControl14.Name = "userControl14";
             this.userControl14.Size = new System.Drawing.Size(276, 73);
+            this.userControl14.Status = null;
             this.userControl14.TabIndex = 0;
             this.userControl14.Title = null;
             // 
@@ -736,9 +765,11 @@ namespace Chat_Application
             this.Controls.Add(this.pnlFriendRequest);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).EndInit();
             this.pnlMenu.ResumeLayout(false);
@@ -824,5 +855,7 @@ namespace Chat_Application
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel PanelChat;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private UserControl1 userControl15;
     }
 }

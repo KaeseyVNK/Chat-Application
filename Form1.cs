@@ -175,9 +175,10 @@ namespace Chat_Application
                 errorProvider1.SetError(txbPassword, string.Empty);
             }
             ContextChatDB context = new ContextChatDB();
-            Login dbBanned = context.Logins.FirstOrDefault(p => p.Username == txbDangnhap.Text && p.Password == txbPassword.Text && p.IDPermission == 3);
-            Login dblogin = context.Logins.FirstOrDefault(p=>p.Username == txbDangnhap.Text && p.Password == txbPassword.Text);
-            Login dbadmin = context.Logins.FirstOrDefault(p => p.Username == txbDangnhap.Text && p.Password == txbPassword.Text && p.IDPermission == 2);
+            Login dbBanned = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text) && p.IDPermission == 3);
+            Login dblogin = context.Logins.FirstOrDefault(p=>p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text));
+            Login dbadmin = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text) && p.IDPermission == 2);
+            var listuser = context.Logins.ToList();
             if(dbBanned != null)
             {
                 MessageBox.Show("Người dùng đã bị giới hạn quyền truy cập xin hãy liên hệ Admin", " Thông Báo", MessageBoxButtons.OK);
@@ -188,6 +189,8 @@ namespace Chat_Application
                 MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                 Form2 form2 = new Form2();
                 this.Visible = false;
+                dblogin.UserStatus = true;
+                context.SaveChanges();
                 form2.usernames = txbDangnhap.Text;
                 form2.Show();
                 if(dbadmin != null)

@@ -14,6 +14,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Chat_Application
 {
@@ -30,12 +31,15 @@ namespace Chat_Application
         int truoc;
         int sau;
 
+        int statustruoc;
+        int statussau;
         UserControl1 iconchat;
         public string usernames { set; get; }
         public Form2()
         {
             form1 = new Form1();
             InitializeComponent();
+            ContextChatDB context = new ContextChatDB();
         }
 
         private void ThemHinhAnh(string Imagename)
@@ -83,6 +87,7 @@ namespace Chat_Application
             ContextChatDB context = new ContextChatDB();
             var listusername = context.Logins.ToList();
             var countusername = context.Logins.Count();
+            statustruoc = context.Logins.Where(p => p.UserStatus == true).Count();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -91,6 +96,7 @@ namespace Chat_Application
                     userControls[i] = new UserControl1();
                     userControls[i].Title = username.Username;
                     userControls[i].Icon = username.image;
+                    userControls[i].Status = username.UserStatus.ToString();
                     userControls[i].Click += ClickAllUser;
                     if (userControls[i].Title == label1.Text)
                     {
@@ -225,6 +231,7 @@ namespace Chat_Application
                     userControls[i] = new UserControl1();
                     userControls[i].Title = username.Username;
                     userControls[i].Icon = username.image;
+                    userControls[i].Status = username.UserStatus.ToString();
                     userControls[i].Click += Btnusercontrols1;
                     if (userControls[i].Title == label1.Text)
                     {
@@ -245,8 +252,8 @@ namespace Chat_Application
         }
         private void XuatDanhSachBanBe()
         {
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel2.Controls.Clear();
+            flowLayoutPanel2.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
             var listusername = context.Logins.ToList();
             var listfriend = context.AddFriends.ToList();
@@ -261,13 +268,14 @@ namespace Chat_Application
                         userControls[i] = new UserControl1();
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
+                        userControls[i].Status = username.UserStatus.ToString();
                         if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true)
                         {
-                            flowLayoutPanel1.Controls.Add(userControls[i]);
+                            flowLayoutPanel2.Controls.Add(userControls[i]);
                         }
                         if (userControls[i].Title == label1.Text)
                         {
-                            flowLayoutPanel1.Controls.Remove(userControls[i]);
+                            flowLayoutPanel2.Controls.Remove(userControls[i]);
                         }
                         userControls[i].Click += userControl11_Click;
                         
@@ -293,6 +301,7 @@ namespace Chat_Application
                         userControls[i] = new UserControl1();
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
+                        userControls[i].Status = username.UserStatus.ToString();
                         userControls[i].Click += Btnusercontrols;
                         if (userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == false)
                         {
@@ -321,6 +330,7 @@ namespace Chat_Application
                     userControls[i] = new UserControl1();
                     userControls[i].Title = username.Username;
                     userControls[i].Icon = username.image;
+                    userControls[i].Status = username.UserStatus.ToString();
                     userControls[i].Click += Btnusercontrols2;
                     if (userControls[i].Title == label1.Text)
                     {
@@ -346,6 +356,16 @@ namespace Chat_Application
         private void btnThoat_Click_1(object sender, EventArgs e)
         {        
             {
+                ContextChatDB context = new ContextChatDB();
+                var listuser = context.Logins.ToList();
+                foreach(Login user in listuser)
+                {
+                    if(user.Username == label1.Text)
+                    {
+                        user.UserStatus = false;
+                        context.SaveChanges();
+                    }
+                }
                 this.Visible = false;
                 form1.Visible = true;
             }
@@ -628,6 +648,8 @@ namespace Chat_Application
 
         private void btnShowfriend_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel2.Visible = true;
             XuatDanhSachBanBe();
         }
 
@@ -696,6 +718,8 @@ namespace Chat_Application
 
         private void btnAlluser_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel2.Visible = false;
             DanhSachNguoiDung();
         }
 
@@ -787,6 +811,7 @@ namespace Chat_Application
                 nguoichat.BackColor = Color.Cyan;
                 nguoichat.Title = user.Title;
                 nguoichat.Icon = user.Icon;
+                nguoichat.Status = user.Status;
                 iconchat = user;
                 PanelChat.Controls.Clear();
                 PanelChat.Controls.Add(nguoichat);                
@@ -831,7 +856,7 @@ namespace Chat_Application
                         var MessList = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).ToList();
                         truoc = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).Count();
                         BindGridMess(MessList, usercchat);
-                        ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
+                      //  ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
 
                         transaction.Commit();
                         Mess.Text = "";
@@ -917,17 +942,16 @@ namespace Chat_Application
                         y += 60;
                     }
                     ChatArea.Refresh();
-                    ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
                 }
             }
-            
+            ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            ContextChatDB context = new ContextChatDB();
             if ( ChatArea != null )
             {
-                ContextChatDB context = new ContextChatDB();               
                 sau = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).Count();
                 if ( truoc != sau )
                 {
@@ -937,7 +961,27 @@ namespace Chat_Application
                     truoc = sau;
                 }
             }
-                  
+                statussau = context.Logins.Where(p => p.UserStatus == true).Count();
+                if (statustruoc != statussau)
+                {
+                DanhSachNguoiDung();
+                XuatDanhSachBanBe();
+                statustruoc = statussau;
+                }
+            }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            var listuser = context.Logins.ToList();
+            foreach (Login user in listuser)
+            {
+                if (user.Username == label1.Text)
+                {
+                    user.UserStatus = false;
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

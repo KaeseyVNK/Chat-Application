@@ -12,7 +12,7 @@ namespace Chat_Application.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reason()
         {
-            ReportUsers = new HashSet<ReportUser>();
+            ReportUser = new HashSet<ReportUser>();
         }
 
         [Key]
@@ -23,6 +23,6 @@ namespace Chat_Application.Model
         public string Reasons { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportUser> ReportUsers { get; set; }
+        public virtual ICollection<ReportUser> ReportUser { get; set; }
     }
 }

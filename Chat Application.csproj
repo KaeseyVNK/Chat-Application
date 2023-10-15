@@ -84,9 +84,9 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AddFriend.cs" />
-    <Compile Include="Model\ContextChatDB.cs" />
     <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Messenger.cs" />
+    <Compile Include="Model\ContextChatDB.cs" />
     <Compile Include="Model\Permission.cs" />
     <Compile Include="Model\Reason.cs" />
     <Compile Include="Model\ReportUser.cs" />

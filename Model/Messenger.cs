@@ -25,5 +25,9 @@ namespace Chat_Application.Model
         public string Messenger1 { get; set; }
 
         public DateTime TimeMessenger { get; set; }
+
+        public virtual Login Login { get; set; }
+
+        public virtual Login Login1 { get; set; }
     }
 }
