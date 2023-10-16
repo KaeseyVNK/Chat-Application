@@ -966,6 +966,9 @@ namespace Chat_Application
                 {
                 DanhSachNguoiDung();
                 XuatDanhSachBanBe();
+                DanhSachReport();
+                XuatDanhSachKetBan();
+                DanhSachThemBanBe();
                 statustruoc = statussau;
                 }
             }

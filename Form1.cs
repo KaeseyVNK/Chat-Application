@@ -45,10 +45,6 @@ namespace Chat_Application
             try
             {
                 var email = new EmailAddressAttribute();
-                if (pcbDangKy.Image == null)
-                {
-                    MessageBox.Show("Xin hãy thêm ảnh", " Thông Báo", MessageBoxButtons.OK);
-                }
                 if(txbDangkyTen.Text == "")
                 {
                     errorProvider1.SetError(txbDangkyTen, "Chưa Điền Tên Đăng Ký");
@@ -109,7 +105,14 @@ namespace Chat_Application
                 l.Password = txbDangKyPassword.Text;
                 l.ConfirmPass = txbDangKyPassword.Text;
                 l.Email = txbEmail.Text;
-                l.image = filename.ToString();
+                if (filename == "")
+                {
+                    l.image = "user-icon.png";
+                }
+                else
+                {
+                    l.image = filename.ToString();
+                }
                 l.IDPermission = 1;
                 ThemHinhAnh(l.image);
                 context.Logins.Add(l);
