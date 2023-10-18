@@ -1,4 +1,4 @@
-﻿using Chat_Application.Model;
+﻿using DalChatApplication.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +73,9 @@ namespace Chat_Application
             dgvUsers.Columns[8].Visible = false;
             dgvUsers.Columns[9].Visible = false;
             dgvUsers.Columns[10].Visible = false;
+            dgvUsers.Columns[11].Visible = false;
+            dgvUsers.Columns[12].Visible = false;
+            dgvUsers.Columns[13].Visible = false;
             List<Permission> listpermission = context.Permissions.OrderBy(p => p.IDPermission).ToList();
             List<Reason> listreason = context.Reasons.OrderBy(p => p.ReportReasonID).ToList();
             fillPermission(listpermission);

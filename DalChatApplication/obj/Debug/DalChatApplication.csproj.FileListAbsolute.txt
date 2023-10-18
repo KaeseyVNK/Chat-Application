@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\DalChatApplication.dll.config
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\DalChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\DalChatApplication.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\obj\Debug\DalChatApplication.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\obj\Debug\DalChatApplication.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\obj\Debug\DalChatApplication.csproj.CopyComplete
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\obj\Debug\DalChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\DalChatApplication\obj\Debug\DalChatApplication.pdb

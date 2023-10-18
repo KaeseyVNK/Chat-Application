@@ -4,17 +4,22 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
-using Chat_Application.Model;
+using BusChatApplication;
+using DalChatApplication.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 namespace Chat_Application
 {
     public partial class Form1 : Form
     {
+        private LoginService loginservice = new LoginService();
         string filename = "";
         OpenFileDialog dlg = new OpenFileDialog();
         public Form1()
@@ -115,8 +120,7 @@ namespace Chat_Application
                 }
                 l.IDPermission = 1;
                 ThemHinhAnh(l.image);
-                context.Logins.Add(l);
-                context.SaveChanges();
+                loginservice.InsertLogin(l);
                 MessageBox.Show("Đăng Ký Thành công !", " Thông Báo", MessageBoxButtons.OK);
                 Form1_Load(sender, e);
                 
@@ -178,9 +182,9 @@ namespace Chat_Application
                 errorProvider1.SetError(txbPassword, string.Empty);
             }
             ContextChatDB context = new ContextChatDB();
-            Login dbBanned = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text) && p.IDPermission == 3);
-            Login dblogin = context.Logins.FirstOrDefault(p=>p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text));
-            Login dbadmin = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text) && p.IDPermission == 2);
+            Login dbBanned = loginservice.FindBanned(txbDangnhap.Text, txbPassword.Text);
+            Login dblogin = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text)) ;
+            Login dbadmin = loginservice.FindAdmin(txbDangnhap.Text, txbPassword.Text);
             var listuser = context.Logins.ToList();
             if(dbBanned != null)
             {

@@ -1,5 +1,6 @@
-﻿using Castle.Components.DictionaryAdapter.Xml;
-using Chat_Application.Model;
+﻿using BusChatApplication;
+using Castle.Components.DictionaryAdapter.Xml;
+using DalChatApplication.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,10 @@ namespace Chat_Application
 {
     public partial class Form2 : Form
     {
+        private LoginService loginservice = new LoginService();
+        private AddFriendService addfriendservice = new AddFriendService();
+        private ReasonService reasonservice = new ReasonService();
+        private MessengerService messengerservice = new MessengerService();
         string filename = "";
         Form1 form1 = new Form1();
 
@@ -72,7 +77,7 @@ namespace Chat_Application
         {
             label1.Text = usernames;
             ContextChatDB context = new ContextChatDB();
-            Login dblogin = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            Login dblogin = loginservice.FindUsername(usernames);
             if (dblogin != null)
             {
                 label1.Text = dblogin.Username;
@@ -85,9 +90,9 @@ namespace Chat_Application
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
-            var listusername = context.Logins.ToList();
-            var countusername = context.Logins.Count();
-            statustruoc = context.Logins.Where(p => p.UserStatus == true).Count();
+            var listusername = loginservice.GetAll();
+            var countusername = loginservice.CountAll();
+            statustruoc = loginservice.StatusCount();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -138,10 +143,10 @@ namespace Chat_Application
                 closepanel();
                 pnlThongTin.Visible = true;
                 ContextChatDB context = new ContextChatDB();
-                Login dbuser = context.Logins.FirstOrDefault(p => p.Username == userControls.Title);
-                AddFriend dbaddfriendTrue = context.AddFriends.FirstOrDefault(p => p.User2 == userControls.Title && p.User1 == label1.Text && p.FriendRequestFlag == true ||p.User1 == userControls.Title && p.User2 == label1.Text && p.FriendRequestFlag == true);
-                AddFriend dbaddfriendFalse = context.AddFriends.FirstOrDefault(p => p.User2 == userControls.Title && p.User1 == label1.Text && p.FriendRequestFlag == false || p.User1 == userControls.Title && p.User2 == label1.Text && p.FriendRequestFlag == false);
-                var listfriend = context.AddFriends.ToList();
+                Login dbuser = loginservice.FindUsername(userControls.Title);
+                AddFriend dbaddfriendTrue = addfriendservice.AddFriendTrue(userControls.Title, label1.Text);
+                AddFriend dbaddfriendFalse = addfriendservice.AddFriendFalse(userControls.Title, label1.Text);
+                var listfriend = addfriendservice.GetAll();
                 SendBtn = new Button();
                 if (dbaddfriendTrue != null)
                 {
@@ -180,8 +185,8 @@ namespace Chat_Application
             {
                 UserControl1 userControls = sender as UserControl1;
                 ContextChatDB context = new ContextChatDB();
-                Login dbAddFriend = context.Logins.FirstOrDefault(p => p.Username == txbpnlTentaikhoan.Text);
-                AddFriend dbcheckfriend = context.AddFriends.FirstOrDefault(q => q.User1 == txbpnlTentaikhoan.Text);
+                Login dbAddFriend = loginservice.FindUsername(txbpnlTentaikhoan.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbpnlTentaikhoan.Text);
                 if (dbcheckfriend != null)
                 {
                     MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
@@ -203,8 +208,7 @@ namespace Chat_Application
                     add.User2 = txbpnlTentaikhoan.Text;
                     add.FriendRequestFlag = false;
                     add.DateTime = DateTime.Now;
-                    context.AddFriends.Add(add);
-                    context.SaveChanges();
+                    addfriendservice.InsertAddFriend(add);
                     MessageBox.Show("Gửi Lời Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                     SendBtn.Text = "Đã Gửi Kết Bạn";
                     SendBtn.Enabled = false;
@@ -221,8 +225,8 @@ namespace Chat_Application
             FlowUserControlThemBan.Controls.Clear();
             FlowUserControlThemBan.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
-            var listusername = context.Logins.ToList();
-            var countusername = context.Logins.Count();
+            var listusername = loginservice.GetAll();
+            var countusername = loginservice.CountAll();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -255,9 +259,9 @@ namespace Chat_Application
             flowLayoutPanel2.Controls.Clear();
             flowLayoutPanel2.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
-            var listusername = context.Logins.ToList();
-            var listfriend = context.AddFriends.ToList();
-            var countusername = context.Logins.Count();
+            var listusername = loginservice.GetAll();
+            var listfriend = addfriendservice.GetAll();
+            var countusername = loginservice.CountAll();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -288,9 +292,9 @@ namespace Chat_Application
             flowControlFriendRequest.Controls.Clear();
             flowControlFriendRequest.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
-            var listusername = context.Logins.ToList();
-            var listfriend = context.AddFriends.ToList();
-            var countusername = context.Logins.Count();
+            var listusername = loginservice.GetAll();
+            var listfriend = addfriendservice.GetAll();
+            var countusername = loginservice.CountAll();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -320,8 +324,8 @@ namespace Chat_Application
             flpReportuser.Controls.Clear();
             flpReportuser.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
-            var listusername = context.Logins.ToList();
-            var countusername = context.Logins.Count();
+            var listusername = loginservice.GetAll();
+            var countusername = loginservice.CountAll();
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
@@ -358,7 +362,7 @@ namespace Chat_Application
             {
                 ContextChatDB context = new ContextChatDB();
                 var listuser = context.Logins.ToList();
-                foreach(Login user in listuser)
+                foreach (Login user in listuser)
                 {
                     if(user.Username == label1.Text)
                     {
@@ -394,7 +398,7 @@ namespace Chat_Application
                 ContextChatDB context = new ContextChatDB();
                 closepanel();
                 pnlDoiThongTin.Visible = true;
-                Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
+                Login dbuser = loginservice.FindUsername(usernames);
                 if (dbuser != null)
                 {
                     txbDoiEmail.Text = dbuser.Email.ToString();
@@ -411,8 +415,8 @@ namespace Chat_Application
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            Login dbupdate = context.Logins.FirstOrDefault(p => p.Username == usernames);
-            Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            Login dbupdate = loginservice.FindUsername(usernames);
+            Login dbuser = loginservice.FindUsername(usernames);
             var email = new EmailAddressAttribute();
             if (txbDoiEmail.Text == "")
             {
@@ -513,8 +517,8 @@ namespace Chat_Application
                 closepanel();
                 pnlThongTin.Visible = true;
                 ContextChatDB context = new ContextChatDB();
-                Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
-                if(dbuser != null)
+                Login dbuser = loginservice.FindUsername(usernames);
+                if (dbuser != null)
                 {
                     txbpnlTentaikhoan.Text = dbuser.Username.ToString();
                     txbpnlEmail.Text = dbuser.Email.ToString();
@@ -611,8 +615,8 @@ namespace Chat_Application
                 {
                     errorProvider1.SetError(txbThemBan, string.Empty);
                 }
-                Login dbAddFriend = context.Logins.FirstOrDefault(p => p.Username == txbThemBan.Text);
-                AddFriend dbcheckfriend = context.AddFriends.FirstOrDefault(q => q.User1 == txbThemBan.Text);
+                Login dbAddFriend = loginservice.FindUsername(txbThemBan.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbThemBan.Text);
                 if(dbcheckfriend != null)
                 {
                   MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
@@ -634,13 +638,12 @@ namespace Chat_Application
                     add.User2 = txbThemBan.Text;
                     add.FriendRequestFlag = false;
                     add.DateTime = DateTime.Now;
-                    context.AddFriends.Add(add);
-                    context.SaveChanges();
+                    addfriendservice.InsertAddFriend(add);
                     MessageBox.Show("Gửi Lời Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                     txbThemBan.Clear();
                     closepanel();
                 }
-            }catch(Exception ex)
+            }catch
             {
                 MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
             }
@@ -656,14 +659,13 @@ namespace Chat_Application
         private void btnDongy_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            AddFriend dbAcceptFriend= context.AddFriends.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
-            if(dbAcceptFriend != null)
+            AddFriend dbAcceptFriend = context.AddFriends.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
+            if (dbAcceptFriend != null)
             {
                 dbAcceptFriend.FriendRequestFlag = true;
                 context.SaveChanges();
                 txbTimBan.Clear();
                 closepanel();
-                Form2_Load(sender, e);
                 MessageBox.Show("Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
             }
         }
@@ -747,7 +749,7 @@ namespace Chat_Application
             if (pnlReport.Visible == false)
             {
                 ContextChatDB context = new ContextChatDB();
-                List<Reason> listreason = context.Reasons.OrderBy(p => p.ReportReasonID).ToList();
+                List<Reason> listreason = reasonservice.GetAll();
                 closepanel();
                 FillReportComboBox(listreason);
                 pnlReport.Visible = true;
@@ -770,7 +772,7 @@ namespace Chat_Application
             try
             {
                 ContextChatDB context = new ContextChatDB();
-                Login dbReport = context.Logins.FirstOrDefault(p => p.Username == label1.Text);
+                Login dbReport = loginservice.FindUsername(label1.Text);
                 if (dbReport != null)
                 {
                     ReportUser report = new ReportUser();
@@ -848,13 +850,10 @@ namespace Chat_Application
                         mess.Username2 = usercchat;
                         mess.Messenger1 = Mess.Text;
                         mess.TimeMessenger = DateTime.Now;
-                       
-                        context.Messengers.Add(mess);
-                        context.SaveChanges();
-
+                        messengerservice.InsertMessage(mess);
                         ChatArea.Controls.Clear();
-                        var MessList = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).ToList();
-                        truoc = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).Count();
+                        var MessList = messengerservice.GetAllMessage(usernames);
+                        truoc = messengerservice.CountMessage(usernames);
                         BindGridMess(MessList, usercchat);
                       //  ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
 
@@ -898,8 +897,8 @@ namespace Chat_Application
             SendBtn.Click += btnGui_Click;
 
             ContextChatDB context = new ContextChatDB();
-            var MessList = context.Messengers.Where(p=>p.Username1 == usernames || p.Username2 == usernames ).ToList();
-            truoc = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).Count();
+            var MessList = messengerservice.GetAllMessage(usernames);
+            truoc = messengerservice.CountMessage(usernames);
             //Mess.Text = MessList.Count.ToString();
 
             BindGridMess(MessList, userchat);
@@ -952,16 +951,16 @@ namespace Chat_Application
             ContextChatDB context = new ContextChatDB();
             if ( ChatArea != null )
             {
-                sau = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).Count();
+                sau = messengerservice.CountMessage(usernames);
                 if ( truoc != sau )
                 {
-                    var MessList = context.Messengers.Where(p => p.Username1 == usernames || p.Username2 == usernames).ToList();
+                    var MessList = messengerservice.GetAllMessage(usernames);
                     BindGridMess(MessList, usercchat);
                     ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
                     truoc = sau;
                 }
             }
-                statussau = context.Logins.Where(p => p.UserStatus == true).Count();
+                statussau = loginservice.StatusCount();
                 if (statustruoc != statussau)
                 {
                 DanhSachNguoiDung();

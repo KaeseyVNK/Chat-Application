@@ -83,13 +83,6 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\AddFriend.cs" />
-    <Compile Include="Model\Login.cs" />
-    <Compile Include="Model\Messenger.cs" />
-    <Compile Include="Model\ContextChatDB.cs" />
-    <Compile Include="Model\Permission.cs" />
-    <Compile Include="Model\Reason.cs" />
-    <Compile Include="Model\ReportUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundPictureBox.cs">
@@ -154,6 +147,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="BusChatApplication\BusChatApplication.csproj">
+      <Project>{edd66bdd-7651-48fd-85e6-f64674fbc9ba}</Project>
+      <Name>BusChatApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="DalChatApplication\DalChatApplication.csproj">
+      <Project>{ed52b7b8-09e9-486a-b4d8-790cd2443216}</Project>
+      <Name>DalChatApplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

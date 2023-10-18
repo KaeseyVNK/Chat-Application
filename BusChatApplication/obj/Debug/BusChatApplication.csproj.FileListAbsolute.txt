@@ -1,0 +1,15 @@
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\BusChatApplication.dll.config
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\BusChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\BusChatApplication.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\DalChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\DalChatApplication.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\DalChatApplication.dll.config
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\obj\Debug\BusChatApplication.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\obj\Debug\BusChatApplication.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\obj\Debug\BusChatApplication.csproj.CopyComplete
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\obj\Debug\BusChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\BusChatApplication\obj\Debug\BusChatApplication.pdb

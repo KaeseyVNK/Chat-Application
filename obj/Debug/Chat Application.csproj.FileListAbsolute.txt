@@ -1,21 +1,3 @@
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.exe.config
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.exe
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.pdb
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form1.resources
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Properties.Resources.resources
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.GenerateResource.cache
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.exe
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.pdb
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.dll
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.xml
-C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.CopyComplete
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form2.resources
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.UserControl1.resources
-C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form3.resources
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.exe.config
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.exe
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Chat Application.pdb
@@ -39,8 +21,32 @@ E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.U
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.dll
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\ChangeTracking.dll
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Castle.Core.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.exe.config
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.exe
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Chat Application.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\BusChatApplication.dll
 C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Castle.Core.dll
 C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\ChangeTracking.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\DalChatApplication.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\BusChatApplication.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\BusChatApplication.dll.config
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\DalChatApplication.pdb
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\DalChatApplication.dll.config
 C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Castle.Core.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form1.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form2.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Form3.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Properties.Resources.resources
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.User1.resources
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.User2.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.UserControl1.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.CopyComplete
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.exe
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.pdb
