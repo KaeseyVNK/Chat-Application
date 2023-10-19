@@ -50,3 +50,10 @@ C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.cs
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.csproj.CopyComplete
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.exe
 C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat Application.pdb
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\BusChatApplication.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\Guna.UI2.dll
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\BusChatApplication.pdb
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\BusChatApplication.dll.config
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.pdb
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.dll.config

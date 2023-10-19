@@ -188,23 +188,45 @@ namespace Chat_Application
             var listuser = context.Logins.ToList();
             if(dbBanned != null)
             {
-                MessageBox.Show("Người dùng đã bị giới hạn quyền truy cập xin hãy liên hệ Admin", " Thông Báo", MessageBoxButtons.OK);
-                return;
+                string a = dblogin.Username;
+                string b = txbDangnhap.Text;
+                string c = dblogin.Password;
+                string d = txbPassword.Text;
+                if (c.Equals(d) && a.Equals(b))
+                {
+                    MessageBox.Show("Người dùng đã bị giới hạn quyền truy cập xin hãy liên hệ Admin", " Thông Báo", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                }             
             }
             if(dblogin != null)
             {
-                MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
-                Form2 form2 = new Form2();
-                this.Visible = false;
-                dblogin.UserStatus = true;
-                context.SaveChanges();
-                form2.usernames = txbDangnhap.Text;
-                form2.Show();
-                if(dbadmin != null)
+                string a = dblogin.Username;
+                string b = txbDangnhap.Text;
+                string c = dblogin.Password;
+                string d = txbPassword.Text;
+                if ( c.Equals(d) && a.Equals(b) )
                 {
-                    Form3 form3 = new Form3();
-                    form3.usernames = txbDangnhap.Text;
-                    form3.Show();
+                    MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                    Form2 form2 = new Form2();
+                    this.Visible = false;
+                    dblogin.UserStatus = true;
+                    context.SaveChanges();
+                    form2.usernames = txbDangnhap.Text;
+                    form2.Show();
+                    if (dbadmin != null)
+                    {
+                        Form3 form3 = new Form3();
+                        form3.usernames = txbDangnhap.Text;
+                        form3.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
                 }
             }
             else
@@ -275,6 +297,13 @@ namespace Chat_Application
                 MessageBox.Show("Không tìm thấy người dùng xin hãy kiểm tra lại" , " Thông Báo", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+            guna2WinProgressIndicator1.Visible = true;
+            guna2WinProgressIndicator1.AutoStart = true;
+
         }
     }
 }
