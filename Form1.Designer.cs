@@ -40,7 +40,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pcbDangKy = new Chat_Application.RoundPictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,10 +59,11 @@
             this.txbttkQuenmatkhau = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.guna2WinProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
+            this.pcbDangKy = new Chat_Application.RoundPictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -179,17 +179,6 @@
             this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Email";
-            // 
-            // pcbDangKy
-            // 
-            this.pcbDangKy.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDangKy.Location = new System.Drawing.Point(97, 28);
-            this.pcbDangKy.Name = "pcbDangKy";
-            this.pcbDangKy.Size = new System.Drawing.Size(156, 93);
-            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbDangKy.TabIndex = 15;
-            this.pcbDangKy.TabStop = false;
-            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
             // 
             // label9
             // 
@@ -370,13 +359,22 @@
             this.guna2WinProgressIndicator1.TabIndex = 18;
             this.guna2WinProgressIndicator1.Visible = false;
             // 
+            // pcbDangKy
+            // 
+            this.pcbDangKy.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbDangKy.Location = new System.Drawing.Point(97, 28);
+            this.pcbDangKy.Name = "pcbDangKy";
+            this.pcbDangKy.Size = new System.Drawing.Size(156, 93);
+            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbDangKy.TabIndex = 15;
+            this.pcbDangKy.TabStop = false;
+            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 432);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbShowpassword);
             this.Controls.Add(this.btn_LogIn);
@@ -388,15 +386,17 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
