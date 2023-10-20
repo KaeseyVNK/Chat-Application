@@ -58,3 +58,4 @@ E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\BusChatApplication
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.pdb
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.dll.config
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Login_Register_Form.resources
+E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Chat_Form.resources

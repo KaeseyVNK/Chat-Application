@@ -156,7 +156,7 @@ namespace Chat_Application
                 if (c.Equals(d) && a.Equals(b))
                 {
                     MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
-                    Form2 form2 = new Form2();
+                    Chat_Form form2 = new Chat_Form();
                     this.Visible = false;
                     dblogin.UserStatus = true;
                     context.SaveChanges();

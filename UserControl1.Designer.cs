@@ -41,7 +41,7 @@
             this.pcbDanhBa.Location = new System.Drawing.Point(3, 3);
             this.pcbDanhBa.Name = "pcbDanhBa";
             this.pcbDanhBa.Size = new System.Drawing.Size(66, 65);
-            this.pcbDanhBa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbDanhBa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbDanhBa.TabIndex = 0;
             this.pcbDanhBa.TabStop = false;
             // 
@@ -57,9 +57,9 @@
             // 
             // pcbStatus
             // 
-            this.pcbStatus.Location = new System.Drawing.Point(55, 52);
+            this.pcbStatus.Location = new System.Drawing.Point(48, 50);
             this.pcbStatus.Name = "pcbStatus";
-            this.pcbStatus.Size = new System.Drawing.Size(14, 18);
+            this.pcbStatus.Size = new System.Drawing.Size(21, 18);
             this.pcbStatus.TabIndex = 2;
             this.pcbStatus.TabStop = false;
             // 
@@ -72,7 +72,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pcbDanhBa);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(220, 73);
+            this.Size = new System.Drawing.Size(214, 73);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbDanhBa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbStatus)).EndInit();

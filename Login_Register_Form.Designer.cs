@@ -48,13 +48,6 @@
             this.btnGetpassword = new Guna.UI2.WinForms.Guna2Button();
             this.panelDangKy = new System.Windows.Forms.Panel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.pcbDangKy = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txbDangkyTen = new System.Windows.Forms.TextBox();
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.txbDangKyPassword = new System.Windows.Forms.TextBox();
@@ -67,17 +60,24 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcbDangKy = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panelDangNhap.SuspendLayout();
             this.PanelQuenMatKhau.SuspendLayout();
             this.panelDangKy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -87,7 +87,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.BackColor = System.Drawing.Color.Crimson;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -315,80 +315,6 @@
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Đăng Ký";
             // 
-            // pcbDangKy
-            // 
-            this.pcbDangKy.Image = global::Chat_Application.Properties.Resources.user_icon;
-            this.pcbDangKy.Location = new System.Drawing.Point(33, 50);
-            this.pcbDangKy.Name = "pcbDangKy";
-            this.pcbDangKy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pcbDangKy.ShadowDecoration.Parent = this.pcbDangKy;
-            this.pcbDangKy.Size = new System.Drawing.Size(143, 109);
-            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbDangKy.TabIndex = 22;
-            this.pcbDangKy.TabStop = false;
-            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Chat_Application.Properties.Resources.Forgot_Password_48px;
-            this.pictureBox5.Location = new System.Drawing.Point(19, 205);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 24;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Chat_Application.Properties.Resources.Businessman_52px;
-            this.pictureBox6.Location = new System.Drawing.Point(19, 115);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 23;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Chat_Application.Properties.Resources.if_quit_37278;
-            this.pictureBox4.Location = new System.Drawing.Point(91, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 18;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Chat_Application.Properties.Resources.Forgot_Password_48px;
-            this.pictureBox3.Location = new System.Drawing.Point(25, 259);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Chat_Application.Properties.Resources.Businessman_52px;
-            this.pictureBox2.Location = new System.Drawing.Point(25, 198);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Chat_Application.Properties.Resources.debut;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
             // txbDangkyTen
             // 
             this.txbDangkyTen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -512,6 +438,80 @@
             this.linkLabel6.Text = "<- Quay lại";
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Chat_Application.Properties.Resources.if_quit_37278;
+            this.pictureBox4.Location = new System.Drawing.Point(100, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 18;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Chat_Application.Properties.Resources.Forgot_Password_48px;
+            this.pictureBox3.Location = new System.Drawing.Point(25, 259);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Chat_Application.Properties.Resources.Businessman_52px;
+            this.pictureBox2.Location = new System.Drawing.Point(25, 198);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Chat_Application.Properties.Resources.debut;
+            this.pictureBox1.Location = new System.Drawing.Point(49, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 140);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pcbDangKy
+            // 
+            this.pcbDangKy.Image = global::Chat_Application.Properties.Resources.user_icon;
+            this.pcbDangKy.Location = new System.Drawing.Point(33, 50);
+            this.pcbDangKy.Name = "pcbDangKy";
+            this.pcbDangKy.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pcbDangKy.ShadowDecoration.Parent = this.pcbDangKy;
+            this.pcbDangKy.Size = new System.Drawing.Size(143, 109);
+            this.pcbDangKy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbDangKy.TabIndex = 22;
+            this.pcbDangKy.TabStop = false;
+            this.pcbDangKy.Click += new System.EventHandler(this.pcbDangKy_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Chat_Application.Properties.Resources.Forgot_Password_48px;
+            this.pictureBox5.Location = new System.Drawing.Point(19, 205);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 24;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Chat_Application.Properties.Resources.Businessman_52px;
+            this.pictureBox6.Location = new System.Drawing.Point(19, 115);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 23;
+            this.pictureBox6.TabStop = false;
+            // 
             // Login_Register_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,14 +531,14 @@
             this.PanelQuenMatKhau.PerformLayout();
             this.panelDangKy.ResumeLayout(false);
             this.panelDangKy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDangKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
