@@ -129,7 +129,7 @@ namespace Chat_Application
             UserControl1 userControls = sender as UserControl1;
             foreach (Control control in pnlThongTin.Controls)
             {
-                if (control is Button)
+                if (control is Guna2Button)
                 {
                     pnlThongTin.Controls.Remove(control);
                 }
@@ -149,12 +149,12 @@ namespace Chat_Application
                     SendBtn.Text = " Đã Kết Bạn";
                     SendBtn.Enabled = false;
                 }
-                if (dbaddfriendFalse != null)
+                else if (dbaddfriendFalse != null)
                 {
                     SendBtn.Text = "Đã Gửi Kết Bạn";
                     SendBtn.Enabled = false;
                 }
-                if (dbaddfriendTrue == null && dbaddfriendFalse == null)
+                else if (dbaddfriendTrue == null && dbaddfriendFalse == null)
                 {
                     SendBtn.Text = "Kết Bạn !";
                 }
@@ -352,37 +352,6 @@ namespace Chat_Application
 
             pnlDoiThongTin.BringToFront();
         }
-
-        private void btnListFiend_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnThemUser_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnThongBao_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             TimerMenu.Start();
@@ -1072,6 +1041,20 @@ namespace Chat_Application
                 txbNhaplaipassword.Clear();
                 pnlDoiThongTin.Visible = false;
 
+            }
+        }
+
+        private void Chat_Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            var listuser = context.Logins.ToList();
+            foreach (Login user in listuser)
+            {
+                if (user.Username == label1.Text)
+                {
+                    user.UserStatus = false;
+                    context.SaveChanges();
+                }
             }
         }
     }
