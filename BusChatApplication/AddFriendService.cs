@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,10 +25,10 @@ namespace BusChatApplication
             ContextChatDB context = new ContextChatDB();
             return context.AddFriends.ToList();
         }
-        public AddFriend CheckAddFriendUser(string user)
+        public AddFriend CheckAddFriendUser(string user1,string user2)
         {
             ContextChatDB context = new ContextChatDB();
-            return context.AddFriends.FirstOrDefault(q => q.User1 == user);
+            return context.AddFriends.FirstOrDefault(q => q.User1 == user1 && q.User2 == user2);
         }
         public void InsertAddFriend(AddFriend b)
         {

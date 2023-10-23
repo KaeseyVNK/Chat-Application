@@ -186,7 +186,7 @@ namespace Chat_Application
                 UserControl1 userControls = sender as UserControl1;
                 ContextChatDB context = new ContextChatDB();
                 Login dbAddFriend = loginservice.FindUsername(txbpnlTentaikhoan.Text);
-                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbpnlTentaikhoan.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbpnlTentaikhoan.Text,label1.Text);
                 if (dbcheckfriend != null)
                 {
                     MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
@@ -618,7 +618,7 @@ namespace Chat_Application
                     errorProvider1.SetError(txbThemBan, string.Empty);
                 }
                 Login dbAddFriend = loginservice.FindUsername(txbThemBan.Text);
-                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbThemBan.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbThemBan.Text,label1.Text);
                 if(dbcheckfriend != null)
                 {
                   MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);

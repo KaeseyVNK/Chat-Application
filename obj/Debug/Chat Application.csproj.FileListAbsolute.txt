@@ -59,3 +59,6 @@ E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\bin\Debug\DalChatApplication.dll.config
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Login_Register_Form.resources
 E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\obj\Debug\Chat_Application.Chat_Form.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Chat_Form.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\obj\Debug\Chat_Application.Login_Register_Form.resources
+C:\Users\Admin\Desktop\New folder\Chat Application\bin\Debug\Guna.UI2.dll

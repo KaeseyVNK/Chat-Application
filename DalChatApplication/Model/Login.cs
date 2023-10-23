@@ -42,6 +42,16 @@ namespace DalChatApplication.Model
 
         public bool? UserStatus { get; set; }
 
+        public string BackgroundImage { get; set; }
+
+        public string UserDescription { get; set; }
+
+        [StringLength(15)]
+        public string Gender { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime DateofBirth { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AddFriend> AddFriend { get; set; }
 

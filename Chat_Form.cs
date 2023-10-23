@@ -2,6 +2,7 @@
 using ChangeTracking;
 using DalChatApplication.Model;
 using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Chat_Application
 {
@@ -24,6 +27,7 @@ namespace Chat_Application
         private ReasonService reasonservice = new ReasonService();
         private MessengerService messengerservice = new MessengerService();
         string filename = "";
+        string backgroundimagefilename = "";
         Login_Register_Form form1 = new Login_Register_Form();
 
         Guna2TextBox Mess;
@@ -33,6 +37,9 @@ namespace Chat_Application
 
         int truoc;
         int sau;
+
+        int friendrequesttruoc;
+        int friendrequestsau;
 
         bool MenuExpend = false;
         bool MennuEXitExpend = false;
@@ -60,11 +67,6 @@ namespace Chat_Application
 
         private void ThemHinhAnh(string Imagename)
         {
-            if (string.IsNullOrEmpty(Imagename))
-            {
-                pcbProfile.Image = null;
-            }
-            else
             {
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
                 string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
@@ -79,21 +81,50 @@ namespace Chat_Application
                 pcbDoiThongTin.Refresh();
             }
         }
-        private void ThemHinhAnhUser(string Imagename)
+        private void ThemBackgroundImage(string Imagename)
         {
             if (string.IsNullOrEmpty(Imagename))
             {
-                pcbProfile.Image = null;
+                pcbBackgroundTrangChu.Image = null;
             }
             else
             {
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
                 string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
-                pcbpnlThongTinTaiKhoan.Image = Image.FromFile(imagepath);
-                pcbpnlThongTinTaiKhoan.Refresh();
+                pcbBackgroundImageChinhSua.Image = Image.FromFile(imagepath);
+                pcbTrangChu.SizeMode = PictureBoxSizeMode.Zoom;
+                pcbBackgroundTrangChu.Image = Image.FromFile(imagepath);
+                pcbBackgroundTrangChu.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
-
+        private void ThemHinhAnhUser(string Imagename)
+        {
+            if (string.IsNullOrEmpty(Imagename))
+            {
+                pcbAlluserimage.Image = null;
+            }
+            else
+            {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
+                pcbAlluserimage.Image = Image.FromFile(imagepath);
+                pcbAlluserimage.Refresh();
+            }
+        }
+        private void ThemBackgroundUser(string Imagename)
+        {
+            if (string.IsNullOrEmpty(Imagename))
+            {
+                pcbAllUserBackground.Image = null;
+            }
+            else
+            {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
+                pcbAllUserBackground.Image = Image.FromFile(imagepath);
+                pcbAllUserBackground.Refresh();
+            }
+        }
         private void DanhSachNguoiDung()
         {
             flowLayoutPanel3.Controls.Clear();
@@ -158,16 +189,26 @@ namespace Chat_Application
                 {
                     SendBtn.Text = "Kết Bạn !";
                 }
-                SendBtn.Size = new Size(75, 40);
-                SendBtn.Location = new Point(276, 316);
+                SendBtn.Size = new Size(180, 45);
+                SendBtn.Location = new Point(240, 404);
                 SendBtn.FillColor = Color.Crimson;
                 SendBtn.Click += addfriendclick;
                 pnlThongTin.Controls.Add(SendBtn);
                 if (dbuser != null)
                 {
-                    txbpnlTentaikhoan.Text = dbuser.Username.ToString();
-                    txbpnlEmail.Text = dbuser.Email.ToString();
+                    lblAllusername.Text = dbuser.Username.ToString();
+                    lblGender.Text = dbuser.Gender.ToString();
+                    dtpAlluser.Value = dbuser.DateofBirth;
+                    if (dbuser.UserDescription != null)
+                    {
+                        txbAlluseraboutme.Text = dbuser.UserDescription.ToString();
+                    }
+                    else
+                    {
+                        txbAlluseraboutme.Clear();
+                    }
                     ThemHinhAnhUser(dbuser.image);
+                    ThemBackgroundUser(dbuser.BackgroundImage);
                 }
             }
             else
@@ -191,8 +232,8 @@ namespace Chat_Application
             {
                 UserControl1 userControls = sender as UserControl1;
                 ContextChatDB context = new ContextChatDB();
-                Login dbAddFriend = loginservice.FindUsername(txbpnlTentaikhoan.Text);
-                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbpnlTentaikhoan.Text);
+                Login dbAddFriend = loginservice.FindUsername(lblAllusername.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(lblAllusername.Text,label1.Text);
                 if (dbcheckfriend != null)
                 {
                     MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
@@ -211,7 +252,7 @@ namespace Chat_Application
                 {
                     AddFriend add = new AddFriend();
                     add.User1 = usernames;
-                    add.User2 = txbpnlTentaikhoan.Text;
+                    add.User2 = lblAllusername.Text;
                     add.FriendRequestFlag = false;
                     add.DateTime = DateTime.Now;
                     addfriendservice.InsertAddFriend(add);
@@ -309,6 +350,12 @@ namespace Chat_Application
             {
                 label1.Text = dblogin.Username;
                 ThemHinhAnh(dblogin.image);
+                ThemBackgroundImage(dblogin.BackgroundImage);
+                txbMotaTrangChu.Text = dblogin.UserDescription;
+                txbMotaTrangChu.Enabled = false;
+                lblGender.Text = dblogin.Gender;
+                dtpTrangChu.Enabled = false;
+                dtpTrangChu.Value = dblogin.DateofBirth;
             }          
         }
 
@@ -333,6 +380,16 @@ namespace Chat_Application
 
         private void btnHienThiThongTin_Click(object sender, EventArgs e)
         {
+            ContextChatDB context = new ContextChatDB();
+            friendrequesttruoc = context.AddFriends.Where(p => p.User2 == label1.Text && p.FriendRequestFlag == false).Count();
+            if (friendrequesttruoc != 0)
+            {
+                Notification.Visible = true;
+            }
+            else
+            {
+                Notification.Visible = false;
+            }
             panelHienThiThongTin.BringToFront();       
             panelMenu.BringToFront();
             TimerMenu.Start();
@@ -344,6 +401,24 @@ namespace Chat_Application
 
         private void btnChinhSuaThongTin_Click(object sender, EventArgs e)
         {
+            pnlDoiThongTin.Visible = true;
+            ContextChatDB context = new ContextChatDB();
+            Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            txbChangeAboutMe.Text = dbuser.UserDescription;
+            txbDoiEmail.Text = dbuser.Email;
+            dtpDateofBirth.Value = dbuser.DateofBirth;
+            if (dbuser.Gender == "Nam")
+            {
+                rbNam.Checked = true;
+            }
+            if (dbuser.Gender == "Nữ")
+            {
+                rbNu.Checked = true;
+            }
+            if (dbuser.Gender == "Non Binary")
+            {
+                rbNonBinary.Checked = true;
+            }
             panelMenu.Width = panelMenu.MinimumSize.Width;
             MenuExpend = false;
 
@@ -451,7 +526,7 @@ namespace Chat_Application
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
                         userControls[i].Status = username.UserStatus.ToString();
-                        //userControls[i].Click += Btnusercontrols;
+                        userControls[i].Click += Btnusercontrols;
                         if (userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == false)
                         {
                             flowControlFriendRequest.Controls.Add(userControls[i]);
@@ -464,7 +539,11 @@ namespace Chat_Application
                 }
             }
         }
-
+        private void Btnusercontrols(object sender, EventArgs e)
+        {
+            UserControl1 userControls = sender as UserControl1;
+            txbTimBan.Text = userControls.Title;
+        }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             CloseForm();
@@ -613,7 +692,8 @@ namespace Chat_Application
             {
                 dbAcceptFriend.FriendRequestFlag = true;
                 context.SaveChanges();
-                txbTimBan.Clear();             
+                txbTimBan.Clear();
+                XuatDanhSachKetBan();
                 MessageBox.Show("Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
             }
         }
@@ -627,8 +707,7 @@ namespace Chat_Application
                 context.AddFriends.Remove(dbNoAcceptFriend);
                 context.SaveChanges();
                 txbTimBan.Clear();
-                
-                Chat_Form_Load(sender, e);
+                XuatDanhSachKetBan();
                 MessageBox.Show("Đã không chấp nhận kết bạn !", " Thông Báo", MessageBoxButtons.OK);
             }
         }
@@ -649,7 +728,7 @@ namespace Chat_Application
                     errorProvider1.SetError(txbThemBan, string.Empty);
                 }
                 Login dbAddFriend = loginservice.FindUsername(txbThemBan.Text);
-                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbThemBan.Text);
+                AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(txbThemBan.Text, label1.Text);
                 if (dbcheckfriend != null)
                 {
                     MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
@@ -852,6 +931,15 @@ namespace Chat_Application
                     truoc = sau;
                 }
             }
+            friendrequestsau = context.AddFriends.Where(p => p.User2 == label1.Text && p.FriendRequestFlag == false).Count();
+            if (pnlYeuCauKetban == null)
+            {
+                if (friendrequesttruoc != friendrequestsau)
+                {
+                    Notification.Visible = true;
+                }
+
+            }
         }
 
         private void TimerMenuThoat_Tick(object sender, EventArgs e)
@@ -961,8 +1049,8 @@ namespace Chat_Application
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            Login dbupdate = loginservice.FindUsername(usernames);
-            Login dbuser = loginservice.FindUsername(usernames);
+            Login dbupdate = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
             var email = new EmailAddressAttribute();
             if (txbDoiEmail.Text == "")
             {
@@ -982,6 +1070,89 @@ namespace Chat_Application
             {
                 errorProvider1.SetError(txbDoiEmail, string.Empty);
             }
+            if (dbupdate != null)
+            {
+                if (txbDoiEmail.Text != "")
+                {
+                    dbupdate.Email = txbDoiEmail.Text;
+                }
+                if (filename.ToString() != "")
+                {
+                    dbupdate.image = filename.ToString();
+                }
+                if (backgroundimagefilename.ToString() != "")
+                {
+                    dbupdate.BackgroundImage = backgroundimagefilename.ToString();
+                }
+                if(rbNam.Checked == true)
+                {
+                    dbupdate.Gender = "Nam";
+                }
+                if(rbNu.Checked == true)
+                {
+                    dbupdate.Gender = "Nữ";
+                }
+                if(rbNonBinary.Checked == true)
+                {
+                    dbupdate.Gender = "Non Binary";
+                }
+                dbupdate.UserDescription = txbChangeAboutMe.Text;
+                dbupdate.DateofBirth = dtpDateofBirth.Value;
+                context.SaveChanges();
+                Chat_Form_Load(sender, e);
+                MessageBox.Show("Sửa Thành Công ! ", "Thông Báo", MessageBoxButtons.OK);
+                pnlDoiThongTin.Visible = false;
+            }
+        }
+
+        private void Chat_Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            var listuser = context.Logins.ToList();
+            foreach (Login user in listuser)
+            {
+                if (user.Username == label1.Text)
+                {
+                    user.UserStatus = false;
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        private void pcbDoiThongTin_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                filename = Path.GetFileName(dlg.FileName);
+                var image = Image.FromFile(dlg.FileName);
+                pcbDoiThongTin.Image = image;
+            }
+        }
+
+        private void pcbBackgroundImageChinhSua_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                backgroundimagefilename = Path.GetFileName(dlg.FileName);
+                var image = Image.FromFile(dlg.FileName);
+                pcbBackgroundImageChinhSua.Image = image;
+            }
+        }
+
+        private void pcbExit_Click(object sender, EventArgs e)
+        {
+            pnlDoiMatKhau.Visible = false;
+        }
+
+        private void btnCapNhatMatKhau_Click(object sender, EventArgs e)
+        {
+            ContextChatDB context = new ContextChatDB();
+            Login dbupdate = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
             if (txbOldpassword.Text == "")
             {
                 errorProvider1.SetError(txbOldpassword, "Chưa Điền Password cữ !");
@@ -1029,33 +1200,23 @@ namespace Chat_Application
             }
             if (dbupdate != null)
             {
-                dbupdate.Email = txbDoiEmail.Text;
                 dbupdate.Password = txbDoipassword.Text;
-                dbupdate.Password = txbNhaplaipassword.Text;
-                dbupdate.image = filename.ToString();
+                dbupdate.ConfirmPass = txbNhaplaipassword.Text;
                 context.SaveChanges();
-                Chat_Form_Load(sender, e);
                 MessageBox.Show("Sửa Thành Công ! ", "Thông Báo", MessageBoxButtons.OK);
+                pnlDoiMatKhau.Visible = false;
                 txbOldpassword.Clear();
                 txbDoipassword.Clear();
                 txbNhaplaipassword.Clear();
-                pnlDoiThongTin.Visible = false;
-
             }
         }
 
-        private void Chat_Form_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
-            ContextChatDB context = new ContextChatDB();
-            var listuser = context.Logins.ToList();
-            foreach (Login user in listuser)
-            {
-                if (user.Username == label1.Text)
-                {
-                    user.UserStatus = false;
-                    context.SaveChanges();
-                }
-            }
+            if (pnlDoiMatKhau.Visible == false)
+                pnlDoiMatKhau.Visible = true;
+            else
+                pnlDoiMatKhau.Visible = false;
         }
     }
 }
