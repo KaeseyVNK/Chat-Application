@@ -29,7 +29,7 @@ namespace Chat_Application
         string filename = "";
         string backgroundimagefilename = "";
         Login_Register_Form form1 = new Login_Register_Form();
-
+        string destination = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\Images\";
         Guna2TextBox Mess;
         Guna2Button SendBtn;
         Panel ChatArea;
@@ -120,7 +120,7 @@ namespace Chat_Application
             else
             {
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
+                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);          
                 pcbAllUserBackground.Image = Image.FromFile(imagepath);
                 pcbAllUserBackground.Refresh();
             }
@@ -1128,6 +1128,8 @@ namespace Chat_Application
                 filename = Path.GetFileName(dlg.FileName);
                 var image = Image.FromFile(dlg.FileName);
                 pcbDoiThongTin.Image = image;
+                string source = dlg.FileName;
+                File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
             }
         }
 
@@ -1140,6 +1142,8 @@ namespace Chat_Application
                 backgroundimagefilename = Path.GetFileName(dlg.FileName);
                 var image = Image.FromFile(dlg.FileName);
                 pcbBackgroundImageChinhSua.Image = image;
+                string source = dlg.FileName;            
+                File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
             }
         }
 
