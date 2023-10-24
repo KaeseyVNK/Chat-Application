@@ -76,6 +76,10 @@ namespace Chat_Application
             dgvUsers.Columns[11].Visible = false;
             dgvUsers.Columns[12].Visible = false;
             dgvUsers.Columns[13].Visible = false;
+            dgvUsers.Columns[14].Visible = false;
+            dgvUsers.Columns[15].Visible = false;
+            dgvUsers.Columns[16].Visible = false;
+            dgvUsers.Columns[17].Visible = false;
             List<Permission> listpermission = context.Permissions.OrderBy(p => p.IDPermission).ToList();
             List<Reason> listreason = context.Reasons.OrderBy(p => p.ReportReasonID).ToList();
             fillPermission(listpermission);
@@ -184,6 +188,7 @@ namespace Chat_Application
 
         private void dgvReports_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txbReportID.Text = dgvReports.Rows[e.RowIndex].Cells[0].Value.ToString();
             string userreport = txbUsername.Text = dgvReports.Rows[e.RowIndex].Cells[2].Value.ToString();
             ContextChatDB context = new ContextChatDB();
             Login find = context.Logins.FirstOrDefault(p => p.Username == userreport);
@@ -200,6 +205,20 @@ namespace Chat_Application
                     txbNote.Text = dgvReports.Rows[e.RowIndex].Cells[4].Value.ToString();
                     cmbReason.SelectedValue = dgvReports.Rows[e.RowIndex].Cells["ReportReasonID"].Value;
                 }
+            }
+        }
+
+        private void btnDeletereport_Click(object sender, EventArgs e)
+        {
+            int txbreportid = int.Parse(txbReportID.Text);
+            ContextChatDB context = new ContextChatDB();
+            ReportUser delete = context.ReportUsers.FirstOrDefault(p => p.ReportID == txbreportid);
+            if(delete != null)
+            {
+                context.ReportUsers.Remove(delete);
+                context.SaveChanges();
+                Form3_Load(sender, e);
+                MessageBox.Show("Xóa thành công ! ", " Thông Báo", MessageBoxButtons.OK);
             }
         }
     }

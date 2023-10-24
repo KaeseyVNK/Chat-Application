@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panelChatChung = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl11 = new Chat_Application.UserControl1();
             this.PanelChat = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.txbThemBan = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnThemBan = new Guna.UI2.WinForms.Guna2Button();
             this.FlowUserControlThemBan = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl12 = new Chat_Application.UserControl1();
             this.label17 = new System.Windows.Forms.Label();
             this.pnlToCaoNguoiDung = new System.Windows.Forms.Panel();
             this.btnReportUser = new Guna.UI2.WinForms.Guna2Button();
@@ -58,12 +60,14 @@
             this.txbNote = new System.Windows.Forms.TextBox();
             this.cmbReportreason = new System.Windows.Forms.ComboBox();
             this.flpReportuser = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl14 = new Chat_Application.UserControl1();
             this.label16 = new System.Windows.Forms.Label();
             this.txbUserreport = new System.Windows.Forms.TextBox();
             this.pnlYeuCauKetban = new System.Windows.Forms.Panel();
             this.txbTimBan = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnKhongdongy = new Guna.UI2.WinForms.Guna2Button();
             this.flowControlFriendRequest = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl13 = new Chat_Application.UserControl1();
             this.btnDongy = new Guna.UI2.WinForms.Guna2Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panelHienThiThongTin = new System.Windows.Forms.Panel();
@@ -89,13 +93,16 @@
             this.lblAllusername = new System.Windows.Forms.Label();
             this.pcbAlluserimage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pcbAllUserBackground = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panelAllUser = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl16 = new Chat_Application.UserControl1();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label25 = new System.Windows.Forms.Label();
             this.panelDanSachBanbe = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.userControl15 = new Chat_Application.UserControl1();
             this.TimerMenu = new System.Windows.Forms.Timer(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelThoat = new System.Windows.Forms.Panel();
@@ -146,13 +153,6 @@
             this.dtpTrangChu = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panelTrangChu = new System.Windows.Forms.Panel();
             this.txbMotaTrangChu = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
-            this.userControl16 = new Chat_Application.UserControl1();
-            this.userControl12 = new Chat_Application.UserControl1();
-            this.userControl14 = new Chat_Application.UserControl1();
-            this.userControl13 = new Chat_Application.UserControl1();
-            this.userControl15 = new Chat_Application.UserControl1();
-            this.userControl11 = new Chat_Application.UserControl1();
             timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
@@ -173,6 +173,7 @@
             this.pnlThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlluserimage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAllUserBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).BeginInit();
             this.panelAllUser.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
@@ -190,7 +191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBackgroundTrangChu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbTrangChu)).BeginInit();
             this.panelTrangChu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -294,7 +294,7 @@
             // 
             this.pcbProfile.BackColor = System.Drawing.Color.Transparent;
             this.pcbProfile.ImageRotate = 0F;
-            this.pcbProfile.Location = new System.Drawing.Point(27, 13);
+            this.pcbProfile.Location = new System.Drawing.Point(30, 10);
             this.pcbProfile.Name = "pcbProfile";
             this.pcbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pcbProfile.Size = new System.Drawing.Size(111, 96);
@@ -336,7 +336,7 @@
             // 
             this.panelChatChung.Controls.Add(this.flowLayoutPanel1);
             this.panelChatChung.Controls.Add(this.PanelChat);
-            this.panelChatChung.Location = new System.Drawing.Point(203, -1);
+            this.panelChatChung.Location = new System.Drawing.Point(201, -1);
             this.panelChatChung.Name = "panelChatChung";
             this.panelChatChung.Size = new System.Drawing.Size(731, 508);
             this.panelChatChung.TabIndex = 19;
@@ -349,6 +349,18 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(239, 504);
             this.flowLayoutPanel1.TabIndex = 17;
+            // 
+            // userControl11
+            // 
+            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl11.Icon = null;
+            this.userControl11.Location = new System.Drawing.Point(4, 4);
+            this.userControl11.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Size = new System.Drawing.Size(238, 75);
+            this.userControl11.Status = null;
+            this.userControl11.TabIndex = 32;
+            this.userControl11.Title = null;
             // 
             // PanelChat
             // 
@@ -433,6 +445,18 @@
             this.FlowUserControlThemBan.Size = new System.Drawing.Size(279, 330);
             this.FlowUserControlThemBan.TabIndex = 4;
             // 
+            // userControl12
+            // 
+            this.userControl12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl12.Icon = null;
+            this.userControl12.Location = new System.Drawing.Point(4, 4);
+            this.userControl12.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl12.Name = "userControl12";
+            this.userControl12.Size = new System.Drawing.Size(268, 73);
+            this.userControl12.Status = null;
+            this.userControl12.TabIndex = 0;
+            this.userControl12.Title = null;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -510,6 +534,18 @@
             this.flpReportuser.Size = new System.Drawing.Size(279, 243);
             this.flpReportuser.TabIndex = 4;
             // 
+            // userControl14
+            // 
+            this.userControl14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl14.Icon = null;
+            this.userControl14.Location = new System.Drawing.Point(4, 4);
+            this.userControl14.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl14.Name = "userControl14";
+            this.userControl14.Size = new System.Drawing.Size(266, 73);
+            this.userControl14.Status = null;
+            this.userControl14.TabIndex = 0;
+            this.userControl14.Title = null;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -586,6 +622,18 @@
             this.flowControlFriendRequest.Name = "flowControlFriendRequest";
             this.flowControlFriendRequest.Size = new System.Drawing.Size(292, 305);
             this.flowControlFriendRequest.TabIndex = 4;
+            // 
+            // userControl13
+            // 
+            this.userControl13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl13.Icon = null;
+            this.userControl13.Location = new System.Drawing.Point(4, 4);
+            this.userControl13.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl13.Name = "userControl13";
+            this.userControl13.Size = new System.Drawing.Size(275, 73);
+            this.userControl13.Status = null;
+            this.userControl13.TabIndex = 0;
+            this.userControl13.Title = null;
             // 
             // btnDongy
             // 
@@ -908,6 +956,16 @@
             this.pcbAllUserBackground.TabIndex = 24;
             this.pcbAllUserBackground.TabStop = false;
             // 
+            // pcbpnlThongTinTaiKhoan
+            // 
+            this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcbpnlThongTinTaiKhoan.Location = new System.Drawing.Point(129, 38);
+            this.pcbpnlThongTinTaiKhoan.Name = "pcbpnlThongTinTaiKhoan";
+            this.pcbpnlThongTinTaiKhoan.Size = new System.Drawing.Size(135, 117);
+            this.pcbpnlThongTinTaiKhoan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbpnlThongTinTaiKhoan.TabIndex = 21;
+            this.pcbpnlThongTinTaiKhoan.TabStop = false;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -938,6 +996,18 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(286, 429);
             this.flowLayoutPanel3.TabIndex = 4;
+            // 
+            // userControl16
+            // 
+            this.userControl16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl16.Icon = null;
+            this.userControl16.Location = new System.Drawing.Point(4, 4);
+            this.userControl16.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl16.Name = "userControl16";
+            this.userControl16.Size = new System.Drawing.Size(268, 73);
+            this.userControl16.Status = null;
+            this.userControl16.TabIndex = 0;
+            this.userControl16.Title = null;
             // 
             // guna2CirclePictureBox2
             // 
@@ -977,6 +1047,18 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(720, 453);
             this.flowLayoutPanel2.TabIndex = 17;
+            // 
+            // userControl15
+            // 
+            this.userControl15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userControl15.Icon = null;
+            this.userControl15.Location = new System.Drawing.Point(4, 4);
+            this.userControl15.Margin = new System.Windows.Forms.Padding(4);
+            this.userControl15.Name = "userControl15";
+            this.userControl15.Size = new System.Drawing.Size(717, 73);
+            this.userControl15.Status = null;
+            this.userControl15.TabIndex = 0;
+            this.userControl15.Title = null;
             // 
             // TimerMenu
             // 
@@ -1556,95 +1638,13 @@
             this.txbMotaTrangChu.Size = new System.Drawing.Size(417, 93);
             this.txbMotaTrangChu.TabIndex = 17;
             // 
-            // pcbpnlThongTinTaiKhoan
-            // 
-            this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbpnlThongTinTaiKhoan.Location = new System.Drawing.Point(129, 38);
-            this.pcbpnlThongTinTaiKhoan.Name = "pcbpnlThongTinTaiKhoan";
-            this.pcbpnlThongTinTaiKhoan.Size = new System.Drawing.Size(135, 117);
-            this.pcbpnlThongTinTaiKhoan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbpnlThongTinTaiKhoan.TabIndex = 21;
-            this.pcbpnlThongTinTaiKhoan.TabStop = false;
-            // 
-            // userControl16
-            // 
-            this.userControl16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl16.Icon = null;
-            this.userControl16.Location = new System.Drawing.Point(4, 4);
-            this.userControl16.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl16.Name = "userControl16";
-            this.userControl16.Size = new System.Drawing.Size(268, 73);
-            this.userControl16.Status = null;
-            this.userControl16.TabIndex = 0;
-            this.userControl16.Title = null;
-            // 
-            // userControl12
-            // 
-            this.userControl12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl12.Icon = null;
-            this.userControl12.Location = new System.Drawing.Point(4, 4);
-            this.userControl12.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl12.Name = "userControl12";
-            this.userControl12.Size = new System.Drawing.Size(268, 73);
-            this.userControl12.Status = null;
-            this.userControl12.TabIndex = 0;
-            this.userControl12.Title = null;
-            // 
-            // userControl14
-            // 
-            this.userControl14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl14.Icon = null;
-            this.userControl14.Location = new System.Drawing.Point(4, 4);
-            this.userControl14.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl14.Name = "userControl14";
-            this.userControl14.Size = new System.Drawing.Size(266, 73);
-            this.userControl14.Status = null;
-            this.userControl14.TabIndex = 0;
-            this.userControl14.Title = null;
-            // 
-            // userControl13
-            // 
-            this.userControl13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl13.Icon = null;
-            this.userControl13.Location = new System.Drawing.Point(4, 4);
-            this.userControl13.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl13.Name = "userControl13";
-            this.userControl13.Size = new System.Drawing.Size(275, 73);
-            this.userControl13.Status = null;
-            this.userControl13.TabIndex = 0;
-            this.userControl13.Title = null;
-            // 
-            // userControl15
-            // 
-            this.userControl15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl15.Icon = null;
-            this.userControl15.Location = new System.Drawing.Point(4, 4);
-            this.userControl15.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl15.Name = "userControl15";
-            this.userControl15.Size = new System.Drawing.Size(717, 73);
-            this.userControl15.Status = null;
-            this.userControl15.TabIndex = 0;
-            this.userControl15.Title = null;
-            // 
-            // userControl11
-            // 
-            this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.userControl11.Icon = null;
-            this.userControl11.Location = new System.Drawing.Point(4, 4);
-            this.userControl11.Margin = new System.Windows.Forms.Padding(4);
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(238, 75);
-            this.userControl11.Status = null;
-            this.userControl11.TabIndex = 32;
-            this.userControl11.Title = null;
-            // 
             // Chat_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 506);
-            this.Controls.Add(this.pnlDoiThongTin);
             this.Controls.Add(this.PanelChaoMung);
+            this.Controls.Add(this.pnlDoiThongTin);
             this.Controls.Add(this.panelHienThiThongTin);
             this.Controls.Add(this.panelTrangChu);
             this.Controls.Add(this.panelThoat);
@@ -1682,6 +1682,7 @@
             this.pnlThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlluserimage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAllUserBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).EndInit();
             this.panelAllUser.ResumeLayout(false);
             this.panelAllUser.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1706,7 +1707,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbTrangChu)).EndInit();
             this.panelTrangChu.ResumeLayout(false);
             this.panelTrangChu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbpnlThongTinTaiKhoan)).EndInit();
             this.ResumeLayout(false);
 
         }

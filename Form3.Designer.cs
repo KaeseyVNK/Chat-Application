@@ -52,7 +52,10 @@
             this.cmbReason = new System.Windows.Forms.ComboBox();
             this.dgvReports = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnDeletereport = new System.Windows.Forms.Button();
             this.pcbProfile = new Chat_Application.RoundPictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txbReportID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhnguoidung)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -220,6 +223,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txbReportID);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.btnDeletereport);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txbNote);
             this.panel1.Controls.Add(this.cmbReason);
@@ -276,6 +282,16 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "Note";
             // 
+            // btnDeletereport
+            // 
+            this.btnDeletereport.Location = new System.Drawing.Point(358, 43);
+            this.btnDeletereport.Name = "btnDeletereport";
+            this.btnDeletereport.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletereport.TabIndex = 23;
+            this.btnDeletereport.Text = "Xóa Report";
+            this.btnDeletereport.UseVisualStyleBackColor = true;
+            this.btnDeletereport.Click += new System.EventHandler(this.btnDeletereport_Click);
+            // 
             // pcbProfile
             // 
             this.pcbProfile.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -285,6 +301,22 @@
             this.pcbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbProfile.TabIndex = 3;
             this.pcbProfile.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(718, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "ReportID";
+            // 
+            // txbReportID
+            // 
+            this.txbReportID.Location = new System.Drawing.Point(774, 50);
+            this.txbReportID.Name = "txbReportID";
+            this.txbReportID.Size = new System.Drawing.Size(86, 20);
+            this.txbReportID.TabIndex = 21;
             // 
             // Form3
             // 
@@ -352,5 +384,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbReason;
+        private System.Windows.Forms.Button btnDeletereport;
+        private System.Windows.Forms.TextBox txbReportID;
+        private System.Windows.Forms.Label label9;
     }
 }

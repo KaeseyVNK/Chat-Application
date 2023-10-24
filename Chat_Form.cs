@@ -26,26 +26,26 @@ namespace Chat_Application
         private AddFriendService addfriendservice = new AddFriendService();
         private ReasonService reasonservice = new ReasonService();
         private MessengerService messengerservice = new MessengerService();
-        string filename = "";
-        string backgroundimagefilename = "";
-        Login_Register_Form form1 = new Login_Register_Form();
-        string destination = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\Images\";
+        string filename = ""; // Tạo biến toàn cục lấy filename của hình ảnh
+        string backgroundimagefilename = ""; // Tạo biến toàn cục lấy filename của ảnh background
+        Login_Register_Form form1 = new Login_Register_Form(); // khởi tạo form1 nhầm lấy username truyền vào label1
+        string destination = @"C:\Users\Admin\Desktop\New folder\Chat Application\Images\"; //Đường dẫn đến file hình ảnh để khi người dùng lấy hình ảnh sẽ tự động lưu vào folder.
         Guna2TextBox Mess;
         Guna2Button SendBtn;
         Panel ChatArea;
-        string usercchat;
+        string usercchat; 
 
-        int truoc;
-        int sau;
+        int truoc; //biến toàn cục dùng để kiểm tra số message giữa hai người dùng trước để update timer
+        int sau; //biến toàn cục dùng để kiểm tra số message sau giữa hai người dùng để update timer.
 
-        int friendrequesttruoc;
-        int friendrequestsau;
+        int friendrequesttruoc; //Như trên nhưng dùng cho friend request
+        int friendrequestsau; //Như trên
 
-        bool MenuExpend = false;
-        bool MennuEXitExpend = false;
+        bool MenuExpend = false; //biến toàn cục dùng để kéo thanh menu danh sách người dùng
+        bool MennuEXitExpend = false; //biến toàn cục dùng đẻ kéo thanh menu về khi click trong lúc menuexpend == true;
 
-        int statustruoc;
-        int statussau;
+        int statustruoc; //biến toàn cục kiểm tra status online của người dùng trước
+        int statussau; //biến toàn cục kiểm tra status online của người dùng sau.
         UserControl1 iconchat;
         public string usernames { set; get; }
 
@@ -58,14 +58,14 @@ namespace Chat_Application
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
-            panelThoat.BringToFront();
-            PanelMenuThoat.BringToFront();
-            TimerMenuThoat.Start();
+            panelThoat.BringToFront(); //đưa menu thoát lên đầu
+            PanelMenuThoat.BringToFront(); //đưa panel menu thoát lên
+            TimerMenuThoat.Start(); //kéo thanh exit ra 2 chức năng là thoát chương trình và đăng xuất
             panelMenu.Width = panelMenu.MinimumSize.Width;
             MenuExpend = false;
         }
 
-        private void ThemHinhAnh(string Imagename)
+        private void ThemHinhAnh(string Imagename) //Hàm thêm hình ảnh cho người dùng đang sử dụng
         {
             {
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
@@ -81,7 +81,7 @@ namespace Chat_Application
                 pcbDoiThongTin.Refresh();
             }
         }
-        private void ThemBackgroundImage(string Imagename)
+        private void ThemBackgroundImage(string Imagename) //Hàm thêm hình ảnh background cho người đang sử dụng
         {
             if (string.IsNullOrEmpty(Imagename))
             {
@@ -97,7 +97,7 @@ namespace Chat_Application
                 pcbBackgroundTrangChu.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
-        private void ThemHinhAnhUser(string Imagename)
+        private void ThemHinhAnhUser(string Imagename) //Thêm hình ảnh cho người dùng có trong panel tìm kiếm người dùng khi bấm vào click event của all user
         {
             if (string.IsNullOrEmpty(Imagename))
             {
@@ -111,7 +111,7 @@ namespace Chat_Application
                 pcbAlluserimage.Refresh();
             }
         }
-        private void ThemBackgroundUser(string Imagename)
+        private void ThemBackgroundUser(string Imagename) //Thêm hình ảnh background cho người dùng có trong panel tìm kiếm người dùng khi bấm vào click event của all user
         {
             if (string.IsNullOrEmpty(Imagename))
             {
@@ -125,29 +125,29 @@ namespace Chat_Application
                 pcbAllUserBackground.Refresh();
             }
         }
-        private void DanhSachNguoiDung()
+        private void DanhSachNguoiDung() //Xuất danh sách của tất cả tài khoản 
         {
-            flowLayoutPanel3.Controls.Clear();
+            flowLayoutPanel3.Controls.Clear(); //clear những control cũ của layoutpanel
             flowLayoutPanel3.AutoScroll = true;
             ContextChatDB context = new ContextChatDB();
             var listusername = loginservice.GetAll();
             var countusername = loginservice.CountAll();
-            statustruoc = loginservice.StatusCount();
+            statustruoc = loginservice.StatusCount(); //Đếm status của tất cả các usercontrol để kiểm tra
             UserControl1[] userControls = new UserControl1[countusername];
             for (int i = 0; i < 1; i++)
             {
                 foreach (var username in listusername)
                 {
-                    userControls[i] = new UserControl1();
-                    userControls[i].Title = username.Username;
+                    userControls[i] = new UserControl1(); //khởi tạo usercontrol 1 rồi truyền dữ liệu vào usercontrol
+                    userControls[i].Title = username.Username; 
                     userControls[i].Icon = username.image;
                     userControls[i].Status = username.UserStatus.ToString();
                     userControls[i].Click += ClickAllUser;
-                    if (userControls[i].Title == label1.Text)
+                    if (userControls[i].Title == label1.Text) //nếu trùng với tên của tên tài khoản đang sử dụng thì xóa
                     {
                         flowLayoutPanel3.Controls.Remove(userControls[i]);
                     }
-                    else
+                    else //thêm
                     {
                         flowLayoutPanel3.Controls.Add(userControls[i]);
                     }
@@ -155,10 +155,10 @@ namespace Chat_Application
             }
         }
 
-        private void ClickAllUser(object sender, EventArgs e)
+        private void ClickAllUser(object sender, EventArgs e) //chức năng kết bạn qua profile của người khác
         {
             UserControl1 userControls = sender as UserControl1;
-            foreach (Control control in pnlThongTin.Controls)
+            foreach (Control control in pnlThongTin.Controls) //xóa button cũ
             {
                 if (control is Guna2Button)
                 {
@@ -174,29 +174,29 @@ namespace Chat_Application
                 AddFriend dbaddfriendTrue = addfriendservice.AddFriendTrue(userControls.Title, label1.Text);
                 AddFriend dbaddfriendFalse = addfriendservice.AddFriendFalse(userControls.Title, label1.Text);
                 var listfriend = addfriendservice.GetAll();
-                SendBtn = new Guna2Button();
-                if (dbaddfriendTrue != null)
+                SendBtn = new Guna2Button(); //tạo button kiểm tra
+                if (dbaddfriendTrue != null) //nếu người dùng đã kết bạn
                 {
                     SendBtn.Text = " Đã Kết Bạn";
                     SendBtn.Enabled = false;
                 }
-                else if (dbaddfriendFalse != null)
+                else if (dbaddfriendFalse != null) //nếu người dùng đã gửi lời kết bạn nhưng người kia chưa chấp nhận
                 {
                     SendBtn.Text = "Đã Gửi Kết Bạn";
                     SendBtn.Enabled = false;
                 }
-                else if (dbaddfriendTrue == null && dbaddfriendFalse == null)
+                else if (dbaddfriendTrue == null && dbaddfriendFalse == null) //nếu cả hai điều kiện không xảy ra
                 {
                     SendBtn.Text = "Kết Bạn !";
                 }
                 SendBtn.Size = new Size(180, 45);
                 SendBtn.Location = new Point(240, 404);
                 SendBtn.FillColor = Color.Crimson;
-                SendBtn.Click += addfriendclick;
+                SendBtn.Click += addfriendclick; //khi click vào sẽ bặt đầu thêm dữ liệu kết bạn vào csdl
                 pnlThongTin.Controls.Add(SendBtn);
-                if (dbuser != null)
+                if (dbuser != null) //truyền thông tin người dùng bạn đang tìm kiếm.
                 {
-                    lblAllusername.Text = dbuser.Username.ToString();
+                    lblAllusername.Text = dbuser.Username.ToString(); 
                     lblGender.Text = dbuser.Gender.ToString();
                     dtpAlluser.Value = dbuser.DateofBirth;
                     if (dbuser.UserDescription != null)
@@ -217,7 +217,7 @@ namespace Chat_Application
             }
         }
 
-        private void ClosePanel()
+        private void ClosePanel() //hàm đóng đồng loạt tất cả các panel
         {
             pnlTimKiemNguoiDung.Visible = false;
             pnlToCaoNguoiDung.Visible = false;
@@ -234,12 +234,12 @@ namespace Chat_Application
                 ContextChatDB context = new ContextChatDB();
                 Login dbAddFriend = loginservice.FindUsername(lblAllusername.Text);
                 AddFriend dbcheckfriend = addfriendservice.CheckAddFriendUser(lblAllusername.Text,label1.Text);
-                if (dbcheckfriend != null)
+                if (dbcheckfriend != null) //kiểm tra xem người dùng đã kết bạn hay đã gửi lời kết bạn chưa
                 {
                     MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
                     return;
                 }
-                if (dbAddFriend == null)
+                if (dbAddFriend == null) 
                 {
                     errorProvider1.SetError(txbThemBan, "Không Tìm Thấy người dùng xin hãy xem lại!");
                     return;
@@ -267,7 +267,7 @@ namespace Chat_Application
             }
         }
 
-        private void DanhSachThemBanBe()
+        private void DanhSachThemBanBe() //dánh sách dùng để kiểm tra để kết bạn với bạn bè
         {
 
             FlowUserControlThemBan.Controls.Clear();
@@ -284,7 +284,7 @@ namespace Chat_Application
                     userControls[i].Title = username.Username;
                     userControls[i].Icon = username.image;
                     userControls[i].Status = username.UserStatus.ToString();
-                    userControls[i].Click += Btnusercontrols1;
+                    userControls[i].Click += Btnusercontrols1; //bấm vào sẽ truyền tên của usercontrol vào textbox rồi sau đó kết bạn
                     if (userControls[i].Title == label1.Text)
                     {
                         FlowUserControlThemBan.Controls.Remove(userControls[i]);
@@ -301,10 +301,10 @@ namespace Chat_Application
         private void Btnusercontrols1(object sender, EventArgs e)
         {
             UserControl1 userControls = sender as UserControl1;
-            txbThemBan.Text = userControls.Title;
+            txbThemBan.Text = userControls.Title; //truyền vào txb thêm bạn rồi khi click button kết bạn sẽ gửi lời kết bạn
         }
 
-        private void XuatDanhSachBanBe()
+        private void XuatDanhSachBanBe() //xuất danh sách bạn bè và người dùng đã chấp nhận lời mời kết bạn.
         {
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.AutoScroll = true;
@@ -323,7 +323,7 @@ namespace Chat_Application
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
                         userControls[i].Status = username.UserStatus.ToString();
-                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true)
+                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true) 
                         {
                             flowLayoutPanel1.Controls.Add(userControls[i]);
                         }
@@ -342,7 +342,7 @@ namespace Chat_Application
         private void Chat_Form_Load(object sender, EventArgs e)
         {
             
-            label1.Text = label3.Text = usernames;
+            label1.Text = label3.Text = usernames; //truyền usernames vào các label của chủ tài khoản
             ContextChatDB context = new ContextChatDB();
           
             Login dblogin = loginservice.FindUsername(usernames);
@@ -359,21 +359,21 @@ namespace Chat_Application
             }          
         }
 
-        private void btnTrangChu_Click(object sender, EventArgs e)
+        private void btnTrangChu_Click(object sender, EventArgs e) //btn để trả về trang chủ
         {
             panelTrangChu.BringToFront();
             panelMenu.Width = panelMenu.MinimumSize.Width;
-            MenuExpend = false;
+            MenuExpend = false; //tắt thanh menu danh sách người dùng
             PanelMenuThoat.Width = PanelMenuThoat.MinimumSize.Width;
-            MennuEXitExpend = false;
+            MennuEXitExpend = false; //tắt thanh menu thoát
         }
 
-        private void btnChatChung_Click(object sender, EventArgs e)
+        private void btnChatChung_Click(object sender, EventArgs e) //btn bấm vào để trả về trang chat chung
         {
             panelMenu.Width = panelMenu.MinimumSize.Width;
-            MenuExpend = false;
+            MenuExpend = false; //tắt thanh menu danh sách người dùng
             PanelMenuThoat.Width = PanelMenuThoat.MinimumSize.Width;
-            MennuEXitExpend = false;
+            MennuEXitExpend = false; //tắt thanh menu thoát
             panelChatChung.BringToFront();
             XuatDanhSachBanBe();
         }
@@ -381,8 +381,8 @@ namespace Chat_Application
         private void btnHienThiThongTin_Click(object sender, EventArgs e)
         {
             ContextChatDB context = new ContextChatDB();
-            friendrequesttruoc = context.AddFriends.Where(p => p.User2 == label1.Text && p.FriendRequestFlag == false).Count();
-            if (friendrequesttruoc != 0)
+            friendrequesttruoc = context.AddFriends.Where(p => p.User2 == label1.Text && p.FriendRequestFlag == false).Count(); //đếm truyền vào biến toàn cục để kiểm tra qua timer
+            if (friendrequesttruoc != 0) //nếu đếm có lời mời kết bạn thì hiện ra nút notification không thì cho ẩn
             {
                 Notification.Visible = true;
             }
@@ -392,18 +392,19 @@ namespace Chat_Application
             }
             panelHienThiThongTin.BringToFront();       
             panelMenu.BringToFront();
-            TimerMenu.Start();
+            TimerMenu.Start(); 
 
             PanelMenuThoat.Width = PanelMenuThoat.MinimumSize.Width;
             MennuEXitExpend = false;
 
         }
 
-        private void btnChinhSuaThongTin_Click(object sender, EventArgs e)
+        private void btnChinhSuaThongTin_Click(object sender, EventArgs e) //bấm vào sẽ truyền dữ liệu người dùng cũ vào các tính năng rồi đưa pnldoithongtin lên trước
         {
             pnlDoiThongTin.Visible = true;
             ContextChatDB context = new ContextChatDB();
             Login dbuser = context.Logins.FirstOrDefault(p => p.Username == usernames);
+            ThemBackgroundImage(dbuser.BackgroundImage);
             txbChangeAboutMe.Text = dbuser.UserDescription;
             txbDoiEmail.Text = dbuser.Email;
             dtpDateofBirth.Value = dbuser.DateofBirth;
@@ -465,7 +466,7 @@ namespace Chat_Application
             panelAllUser.Visible= false;
         }
 
-        private void btnReport_Click_1(object sender, EventArgs e)
+        private void btnReport_Click_1(object sender, EventArgs e) //button để mở panel report người dùng và truyền dữ liệu vào combo box lý do tố cáo
         {
             
             if (pnlToCaoNguoiDung.Visible == false)
@@ -489,7 +490,7 @@ namespace Chat_Application
 
         }
 
-        private void btnThemBann_Click(object sender, EventArgs e)
+        private void btnThemBann_Click(object sender, EventArgs e) //Them ban
         {
             CloseForm();
             panelMenu.Width = panelMenu.MinimumSize.Width;
@@ -498,7 +499,7 @@ namespace Chat_Application
             DanhSachThemBanBe();
         }
 
-        private void btnThongBao_Click_1(object sender, EventArgs e)
+        private void btnThongBao_Click_1(object sender, EventArgs e) //Mở xem thông báo
         {
             CloseForm();
             panelMenu.Width = panelMenu.MinimumSize.Width;
@@ -507,7 +508,7 @@ namespace Chat_Application
             XuatDanhSachKetBan();
         }
 
-        private void XuatDanhSachKetBan()
+        private void XuatDanhSachKetBan() //xuất danh sách tất cả những người đã gửi lời mời kết bạn đến người dùng
         {
             flowControlFriendRequest.Controls.Clear();
             flowControlFriendRequest.AutoScroll = true;
@@ -539,12 +540,12 @@ namespace Chat_Application
                 }
             }
         }
-        private void Btnusercontrols(object sender, EventArgs e)
+        private void Btnusercontrols(object sender, EventArgs e) //truyền title của usercontrol vào textbox 
         {
             UserControl1 userControls = sender as UserControl1;
             txbTimBan.Text = userControls.Title;
         }
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e) //btn tìm kiếm trong danh sách
         {
             CloseForm();
             panelMenu.Width = panelMenu.MinimumSize.Width;
@@ -596,7 +597,7 @@ namespace Chat_Application
             label13.Text = "Danh Sách Bạn Bè ";
             XuatDanhSachBanBe1();
         }
-        private void DanhSachReport()
+        private void DanhSachReport() //xuất danh sách report có event click 
         {
             flpReportuser.Controls.Clear();
             flpReportuser.AutoScroll = true;
@@ -631,7 +632,7 @@ namespace Chat_Application
             txbUserreport.Text = userControls.Title;
         }
 
-        private void FillReportComboBox(List<Reason> listreason)
+        private void FillReportComboBox(List<Reason> listreason) //fill combo box
         {
             this.cmbReportreason.DataSource = listreason;
             this.cmbReportreason.DisplayMember = "Reasons";
@@ -639,7 +640,7 @@ namespace Chat_Application
         }
 
 
-        private void btnReportUser_Click(object sender, EventArgs e)
+        private void btnReportUser_Click(object sender, EventArgs e) //report người dùng
         {
             try
             {
@@ -665,7 +666,7 @@ namespace Chat_Application
             }
         }
 
-        private void txbUserreport_TextChanged(object sender, EventArgs e)
+        private void txbUserreport_TextChanged(object sender, EventArgs e) //kiểm tra textchanged 
         {
             foreach (Control c in flpReportuser.Controls)
             {
@@ -684,7 +685,7 @@ namespace Chat_Application
             }
         }
 
-        private void btnDongy_Click(object sender, EventArgs e)
+        private void btnDongy_Click(object sender, EventArgs e) //nhấp đồng ý thì trả friendrequestflag true rồi refresh danh sách
         {
             ContextChatDB context = new ContextChatDB();
             AddFriend dbAcceptFriend = context.AddFriends.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
@@ -698,7 +699,7 @@ namespace Chat_Application
             }
         }
 
-        private void btnKhongdongy_Click(object sender, EventArgs e)
+        private void btnKhongdongy_Click(object sender, EventArgs e) //nhấp không đồng ý thì xóa khỏi danh sách rồi refresh
         {
             ContextChatDB context = new ContextChatDB();
             AddFriend dbNoAcceptFriend = context.AddFriends.FirstOrDefault(p => p.User1 == txbTimBan.Text && p.User2 == label1.Text);
@@ -940,6 +941,31 @@ namespace Chat_Application
                 }
 
             }
+            statussau = loginservice.StatusCount();
+            if (statustruoc != statussau)
+            {
+                if (panelAllUser.Visible == true)
+                {
+                    DanhSachNguoiDung();
+                }
+                if (panelDanSachBanbe.Visible == true)
+                {
+                    XuatDanhSachBanBe();
+                }
+                if (pnlToCaoNguoiDung.Visible == true)
+                {
+                    DanhSachReport();
+                }
+                if (flowControlFriendRequest.Visible == true)
+                {
+                    XuatDanhSachKetBan();
+                }
+                if (FlowUserControlThemBan.Visible == true)
+                {
+                    DanhSachThemBanBe();
+                }   
+                statustruoc = statussau;
+            }
         }
 
         private void TimerMenuThoat_Tick(object sender, EventArgs e)
@@ -1129,7 +1155,14 @@ namespace Chat_Application
                 var image = Image.FromFile(dlg.FileName);
                 pcbDoiThongTin.Image = image;
                 string source = dlg.FileName;
-                File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                if (File.Exists(destination + Path.GetFileName(dlg.FileName)))
+                {
+
+                }
+                else
+                {
+                    File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                }
             }
         }
 
@@ -1142,8 +1175,15 @@ namespace Chat_Application
                 backgroundimagefilename = Path.GetFileName(dlg.FileName);
                 var image = Image.FromFile(dlg.FileName);
                 pcbBackgroundImageChinhSua.Image = image;
-                string source = dlg.FileName;            
-                File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                string source = dlg.FileName;
+                if (File.Exists(destination + Path.GetFileName(dlg.FileName)))
+                {
+
+                }
+                else
+                {
+                    File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                }
             }
         }
 
