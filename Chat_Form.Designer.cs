@@ -131,8 +131,8 @@
             this.rbNonBinary = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.rbNu = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.rbNam = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.btnDoiMatKhau = new Guna.UI2.WinForms.Guna2Button();
             this.label28 = new System.Windows.Forms.Label();
+            this.btnDoiMatKhau = new Guna.UI2.WinForms.Guna2Button();
             this.txbChangeAboutMe = new Guna.UI2.WinForms.Guna2TextBox();
             this.pcbBackgroundImageChinhSua = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -210,7 +210,7 @@
             this.panel1.Controls.Add(this.btnTrangChu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pcbProfile);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Location = new System.Drawing.Point(-1, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(213, 508);
             this.panel1.TabIndex = 0;
@@ -306,7 +306,7 @@
             // 
             this.PanelChaoMung.Controls.Add(this.guna2PictureBox1);
             this.PanelChaoMung.Controls.Add(this.label2);
-            this.PanelChaoMung.Location = new System.Drawing.Point(200, -1);
+            this.PanelChaoMung.Location = new System.Drawing.Point(200, 10);
             this.PanelChaoMung.Name = "PanelChaoMung";
             this.PanelChaoMung.Size = new System.Drawing.Size(734, 508);
             this.PanelChaoMung.TabIndex = 1;
@@ -337,7 +337,7 @@
             // 
             this.panelChatChung.Controls.Add(this.flowLayoutPanel1);
             this.panelChatChung.Controls.Add(this.PanelChat);
-            this.panelChatChung.Location = new System.Drawing.Point(201, -1);
+            this.panelChatChung.Location = new System.Drawing.Point(201, 10);
             this.panelChatChung.Name = "panelChatChung";
             this.panelChatChung.Size = new System.Drawing.Size(731, 508);
             this.panelChatChung.TabIndex = 19;
@@ -624,7 +624,7 @@
             this.panelHienThiThongTin.Controls.Add(this.pnlToCaoNguoiDung);
             this.panelHienThiThongTin.Controls.Add(this.pnlYeuCauKetban);
             this.panelHienThiThongTin.Controls.Add(this.panelDanSachBanbe);
-            this.panelHienThiThongTin.Location = new System.Drawing.Point(200, -1);
+            this.panelHienThiThongTin.Location = new System.Drawing.Point(200, 10);
             this.panelHienThiThongTin.Name = "panelHienThiThongTin";
             this.panelHienThiThongTin.Size = new System.Drawing.Size(732, 508);
             this.panelHienThiThongTin.TabIndex = 2;
@@ -993,7 +993,7 @@
             this.panelThoat.Controls.Add(this.label26);
             this.panelThoat.Controls.Add(this.guna2PictureBox3);
             this.panelThoat.Controls.Add(this.PanelMenuThoat);
-            this.panelThoat.Location = new System.Drawing.Point(203, -1);
+            this.panelThoat.Location = new System.Drawing.Point(203, 10);
             this.panelThoat.Name = "panelThoat";
             this.panelThoat.Size = new System.Drawing.Size(729, 508);
             this.panelThoat.TabIndex = 0;
@@ -1161,7 +1161,7 @@
             this.pnlDoiThongTin.Controls.Add(this.label11);
             this.pnlDoiThongTin.Controls.Add(this.txbDoiEmail);
             this.pnlDoiThongTin.Controls.Add(this.label8);
-            this.pnlDoiThongTin.Location = new System.Drawing.Point(200, 0);
+            this.pnlDoiThongTin.Location = new System.Drawing.Point(200, 11);
             this.pnlDoiThongTin.Name = "pnlDoiThongTin";
             this.pnlDoiThongTin.Size = new System.Drawing.Size(734, 507);
             this.pnlDoiThongTin.TabIndex = 31;
@@ -1372,6 +1372,17 @@
             this.rbNam.Size = new System.Drawing.Size(24, 24);
             this.rbNam.TabIndex = 44;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.Crimson;
+            this.label28.Location = new System.Drawing.Point(301, 237);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(121, 17);
+            this.label28.TabIndex = 41;
+            this.label28.Text = "Mô Tả Bản Thân :";
+            // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.BorderColor = System.Drawing.Color.Crimson;
@@ -1386,17 +1397,6 @@
             this.btnDoiMatKhau.TabIndex = 43;
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label28.ForeColor = System.Drawing.Color.Crimson;
-            this.label28.Location = new System.Drawing.Point(301, 237);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(121, 17);
-            this.label28.TabIndex = 41;
-            this.label28.Text = "Mô Tả Bản Thân :";
             // 
             // txbChangeAboutMe
             // 
@@ -1529,7 +1529,7 @@
             this.panelTrangChu.Controls.Add(this.label3);
             this.panelTrangChu.Controls.Add(this.pcbTrangChu);
             this.panelTrangChu.Controls.Add(this.pcbBackgroundTrangChu);
-            this.panelTrangChu.Location = new System.Drawing.Point(200, 0);
+            this.panelTrangChu.Location = new System.Drawing.Point(200, 10);
             this.panelTrangChu.Name = "panelTrangChu";
             this.panelTrangChu.Size = new System.Drawing.Size(731, 507);
             this.panelTrangChu.TabIndex = 15;
@@ -1654,12 +1654,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 506);
+            this.ClientSize = new System.Drawing.Size(930, 518);
             this.Controls.Add(this.PanelChaoMung);
+            this.Controls.Add(this.panelTrangChu);
             this.Controls.Add(this.pnlDoiThongTin);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelHienThiThongTin);
-            this.Controls.Add(this.panelTrangChu);
             this.Controls.Add(this.panelThoat);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelChatChung);

@@ -47,15 +47,15 @@
             this.menuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReportLog = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txbReportID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnDeletereport = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txbNote = new System.Windows.Forms.TextBox();
             this.cmbReason = new System.Windows.Forms.ComboBox();
             this.dgvReports = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnDeletereport = new System.Windows.Forms.Button();
-            this.pcbProfile = new Chat_Application.RoundPictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txbReportID = new System.Windows.Forms.TextBox();
+            this.pcbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhnguoidung)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -237,6 +237,32 @@
             this.panel1.TabIndex = 20;
             this.panel1.Visible = false;
             // 
+            // txbReportID
+            // 
+            this.txbReportID.Location = new System.Drawing.Point(774, 50);
+            this.txbReportID.Name = "txbReportID";
+            this.txbReportID.Size = new System.Drawing.Size(86, 20);
+            this.txbReportID.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(718, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "ReportID";
+            // 
+            // btnDeletereport
+            // 
+            this.btnDeletereport.Location = new System.Drawing.Point(358, 43);
+            this.btnDeletereport.Name = "btnDeletereport";
+            this.btnDeletereport.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletereport.TabIndex = 23;
+            this.btnDeletereport.Text = "Xóa Report";
+            this.btnDeletereport.UseVisualStyleBackColor = true;
+            this.btnDeletereport.Click += new System.EventHandler(this.btnDeletereport_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -282,47 +308,24 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "Note";
             // 
-            // btnDeletereport
-            // 
-            this.btnDeletereport.Location = new System.Drawing.Point(358, 43);
-            this.btnDeletereport.Name = "btnDeletereport";
-            this.btnDeletereport.Size = new System.Drawing.Size(75, 23);
-            this.btnDeletereport.TabIndex = 23;
-            this.btnDeletereport.Text = "Xóa Report";
-            this.btnDeletereport.UseVisualStyleBackColor = true;
-            this.btnDeletereport.Click += new System.EventHandler(this.btnDeletereport_Click);
-            // 
             // pcbProfile
             // 
-            this.pcbProfile.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbProfile.Location = new System.Drawing.Point(12, 40);
+            this.pcbProfile.FillColor = System.Drawing.Color.RosyBrown;
+            this.pcbProfile.ImageRotate = 0F;
+            this.pcbProfile.Location = new System.Drawing.Point(27, 27);
             this.pcbProfile.Name = "pcbProfile";
-            this.pcbProfile.Size = new System.Drawing.Size(93, 58);
+            this.pcbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pcbProfile.Size = new System.Drawing.Size(83, 80);
             this.pcbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbProfile.TabIndex = 3;
+            this.pcbProfile.TabIndex = 21;
             this.pcbProfile.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(718, 53);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "ReportID";
-            // 
-            // txbReportID
-            // 
-            this.txbReportID.Location = new System.Drawing.Point(774, 50);
-            this.txbReportID.Name = "txbReportID";
-            this.txbReportID.Size = new System.Drawing.Size(86, 20);
-            this.txbReportID.TabIndex = 21;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 524);
+            this.Controls.Add(this.pcbProfile);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.label6);
@@ -336,7 +339,6 @@
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.txbUsername);
             this.Controls.Add(this.dgvUsers);
-            this.Controls.Add(this.pcbProfile);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
@@ -358,8 +360,6 @@
         }
 
         #endregion
-
-        private RoundPictureBox pcbProfile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.TextBox txbUsername;
@@ -387,5 +387,6 @@
         private System.Windows.Forms.Button btnDeletereport;
         private System.Windows.Forms.TextBox txbReportID;
         private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pcbProfile;
     }
 }
