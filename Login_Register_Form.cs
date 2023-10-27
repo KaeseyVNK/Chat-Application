@@ -210,6 +210,11 @@ namespace Chat_Application
         {
             Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\textbox_password.gif");
             pictureBox1.Image = bmpass;
+            if(cbShowPassword.Checked == true)
+            {
+                bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\clickpasswordandshow.gif");
+                pictureBox1.Image = bmpass;
+            }
         }
 
         private void linkLabel1_Click(object sender, EventArgs e)
@@ -388,7 +393,7 @@ namespace Chat_Application
             else
             {
                 txtPassword.UseSystemPasswordChar = true;
-                Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\textbox_password.png");
+                Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\cbshowpasswordelse.gif");
                 pictureBox1.Image = bmpass;
             }
         }
