@@ -197,10 +197,6 @@ namespace Chat_Application
                 pictureBox1.Image = images[22];
         }
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         private void txbDangNhap_Click(object sender, EventArgs e)
         {
@@ -212,7 +208,7 @@ namespace Chat_Application
 
         private void txtPassword_Click(object sender, EventArgs e)
         {
-            Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\textbox_password.png");
+            Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\textbox_password.gif");
             pictureBox1.Image = bmpass;
         }
 
@@ -379,6 +375,22 @@ namespace Chat_Application
         private void Login_Register_Form_Load(object sender, EventArgs e)
         {
             panelDangNhap.BringToFront();
+        }
+
+        private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbShowPassword.Checked == true)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\showpassword.gif");
+                pictureBox1.Image = bmpass;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                Bitmap bmpass = new Bitmap(@"C:\Users\Admin\Desktop\New folder\Chat Application\animation\textbox_password.png");
+                pictureBox1.Image = bmpass;
+            }
         }
     }
 }

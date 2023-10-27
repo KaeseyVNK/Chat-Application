@@ -33,6 +33,7 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelDangNhap = new System.Windows.Forms.Panel();
+            this.cbShowPassword = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnDangNhap = new Guna.UI2.WinForms.Guna2Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -55,6 +56,14 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.btnGetpassword = new Guna.UI2.WinForms.Guna2Button();
             this.panelDangKy = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.dtpDateofBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rbNonBinary = new Guna.UI2.WinForms.Guna2ImageRadioButton();
+            this.rbNu = new Guna.UI2.WinForms.Guna2ImageRadioButton();
+            this.rbNam = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.btnDangkyForm = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,14 +77,6 @@
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.txbDangkyTen = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label32 = new System.Windows.Forms.Label();
-            this.dtpDateofBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rbNonBinary = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.rbNu = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.rbNam = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.panelDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -105,6 +106,7 @@
             // 
             // panelDangNhap
             // 
+            this.panelDangNhap.Controls.Add(this.cbShowPassword);
             this.panelDangNhap.Controls.Add(this.btnDangNhap);
             this.panelDangNhap.Controls.Add(this.linkLabel2);
             this.panelDangNhap.Controls.Add(this.pictureBox4);
@@ -120,6 +122,26 @@
             this.panelDangNhap.Name = "panelDangNhap";
             this.panelDangNhap.Size = new System.Drawing.Size(359, 493);
             this.panelDangNhap.TabIndex = 1;
+            // 
+            // cbShowPassword
+            // 
+            this.cbShowPassword.AutoSize = true;
+            this.cbShowPassword.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPassword.CheckedState.BorderRadius = 0;
+            this.cbShowPassword.CheckedState.BorderThickness = 0;
+            this.cbShowPassword.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbShowPassword.CheckMarkColor = System.Drawing.Color.Crimson;
+            this.cbShowPassword.ForeColor = System.Drawing.Color.Crimson;
+            this.cbShowPassword.Location = new System.Drawing.Point(139, 296);
+            this.cbShowPassword.Name = "cbShowPassword";
+            this.cbShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.cbShowPassword.TabIndex = 21;
+            this.cbShowPassword.Text = "Show Password";
+            this.cbShowPassword.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPassword.UncheckedState.BorderRadius = 0;
+            this.cbShowPassword.UncheckedState.BorderThickness = 0;
+            this.cbShowPassword.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
             // 
             // btnDangNhap
             // 
@@ -140,7 +162,7 @@
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.LinkColor = System.Drawing.Color.Crimson;
-            this.linkLabel2.Location = new System.Drawing.Point(14, 302);
+            this.linkLabel2.Location = new System.Drawing.Point(14, 315);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(103, 13);
             this.linkLabel2.TabIndex = 19;
@@ -163,7 +185,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.Crimson;
-            this.linkLabel1.Location = new System.Drawing.Point(136, 302);
+            this.linkLabel1.Location = new System.Drawing.Point(136, 315);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 13);
             this.linkLabel1.TabIndex = 17;
@@ -229,11 +251,10 @@
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(55, 266);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(173, 23);
             this.txtPassword.TabIndex = 11;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtDangNhap
             // 
@@ -385,6 +406,97 @@
             this.panelDangKy.Size = new System.Drawing.Size(359, 496);
             this.panelDangKy.TabIndex = 25;
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label32.ForeColor = System.Drawing.Color.Crimson;
+            this.label32.Location = new System.Drawing.Point(6, 382);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(82, 17);
+            this.label32.TabIndex = 59;
+            this.label32.Text = "Ngày Sinh :";
+            // 
+            // dtpDateofBirth
+            // 
+            this.dtpDateofBirth.Checked = true;
+            this.dtpDateofBirth.FillColor = System.Drawing.Color.Crimson;
+            this.dtpDateofBirth.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpDateofBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateofBirth.Location = new System.Drawing.Point(91, 372);
+            this.dtpDateofBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpDateofBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDateofBirth.Name = "dtpDateofBirth";
+            this.dtpDateofBirth.Size = new System.Drawing.Size(200, 27);
+            this.dtpDateofBirth.TabIndex = 58;
+            this.dtpDateofBirth.Value = new System.DateTime(2023, 10, 22, 15, 2, 40, 456);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Crimson;
+            this.label12.Location = new System.Drawing.Point(177, 344);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 17);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "Non Binary";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Crimson;
+            this.label10.Location = new System.Drawing.Point(100, 344);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 17);
+            this.label10.TabIndex = 56;
+            this.label10.Text = "Nữ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Crimson;
+            this.label9.Location = new System.Drawing.Point(9, 344);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 17);
+            this.label9.TabIndex = 55;
+            this.label9.Text = "Nam";
+            // 
+            // rbNonBinary
+            // 
+            this.rbNonBinary.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.rbNonBinary.Image = ((System.Drawing.Image)(resources.GetObject("rbNonBinary.Image")));
+            this.rbNonBinary.ImageOffset = new System.Drawing.Point(0, 0);
+            this.rbNonBinary.ImageRotate = 0F;
+            this.rbNonBinary.Location = new System.Drawing.Point(258, 343);
+            this.rbNonBinary.Name = "rbNonBinary";
+            this.rbNonBinary.Size = new System.Drawing.Size(24, 24);
+            this.rbNonBinary.TabIndex = 54;
+            // 
+            // rbNu
+            // 
+            this.rbNu.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.rbNu.Image = ((System.Drawing.Image)(resources.GetObject("rbNu.Image")));
+            this.rbNu.ImageOffset = new System.Drawing.Point(0, 0);
+            this.rbNu.ImageRotate = 0F;
+            this.rbNu.Location = new System.Drawing.Point(147, 343);
+            this.rbNu.Name = "rbNu";
+            this.rbNu.Size = new System.Drawing.Size(24, 24);
+            this.rbNu.TabIndex = 53;
+            // 
+            // rbNam
+            // 
+            this.rbNam.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.rbNam.Image = ((System.Drawing.Image)(resources.GetObject("rbNam.Image")));
+            this.rbNam.ImageOffset = new System.Drawing.Point(0, 0);
+            this.rbNam.ImageRotate = 0F;
+            this.rbNam.Location = new System.Drawing.Point(67, 342);
+            this.rbNam.Name = "rbNam";
+            this.rbNam.Size = new System.Drawing.Size(24, 24);
+            this.rbNam.TabIndex = 52;
+            // 
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
@@ -517,97 +629,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label32.ForeColor = System.Drawing.Color.Crimson;
-            this.label32.Location = new System.Drawing.Point(6, 382);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(82, 17);
-            this.label32.TabIndex = 59;
-            this.label32.Text = "Ngày Sinh :";
-            // 
-            // dtpDateofBirth
-            // 
-            this.dtpDateofBirth.Checked = true;
-            this.dtpDateofBirth.FillColor = System.Drawing.Color.Crimson;
-            this.dtpDateofBirth.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpDateofBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateofBirth.Location = new System.Drawing.Point(91, 372);
-            this.dtpDateofBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpDateofBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpDateofBirth.Name = "dtpDateofBirth";
-            this.dtpDateofBirth.Size = new System.Drawing.Size(200, 27);
-            this.dtpDateofBirth.TabIndex = 58;
-            this.dtpDateofBirth.Value = new System.DateTime(2023, 10, 22, 15, 2, 40, 456);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.Crimson;
-            this.label12.Location = new System.Drawing.Point(177, 344);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 17);
-            this.label12.TabIndex = 57;
-            this.label12.Text = "Non Binary";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.Crimson;
-            this.label10.Location = new System.Drawing.Point(100, 344);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 17);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "Nữ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Crimson;
-            this.label9.Location = new System.Drawing.Point(9, 344);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 17);
-            this.label9.TabIndex = 55;
-            this.label9.Text = "Nam";
-            // 
-            // rbNonBinary
-            // 
-            this.rbNonBinary.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.rbNonBinary.Image = ((System.Drawing.Image)(resources.GetObject("rbNonBinary.Image")));
-            this.rbNonBinary.ImageOffset = new System.Drawing.Point(0, 0);
-            this.rbNonBinary.ImageRotate = 0F;
-            this.rbNonBinary.Location = new System.Drawing.Point(258, 343);
-            this.rbNonBinary.Name = "rbNonBinary";
-            this.rbNonBinary.Size = new System.Drawing.Size(24, 24);
-            this.rbNonBinary.TabIndex = 54;
-            // 
-            // rbNu
-            // 
-            this.rbNu.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.rbNu.Image = ((System.Drawing.Image)(resources.GetObject("rbNu.Image")));
-            this.rbNu.ImageOffset = new System.Drawing.Point(0, 0);
-            this.rbNu.ImageRotate = 0F;
-            this.rbNu.Location = new System.Drawing.Point(147, 343);
-            this.rbNu.Name = "rbNu";
-            this.rbNu.Size = new System.Drawing.Size(24, 24);
-            this.rbNu.TabIndex = 53;
-            // 
-            // rbNam
-            // 
-            this.rbNam.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.rbNam.Image = ((System.Drawing.Image)(resources.GetObject("rbNam.Image")));
-            this.rbNam.ImageOffset = new System.Drawing.Point(0, 0);
-            this.rbNam.ImageRotate = 0F;
-            this.rbNam.Location = new System.Drawing.Point(67, 342);
-            this.rbNam.Name = "rbNam";
-            this.rbNam.Size = new System.Drawing.Size(24, 24);
-            this.rbNam.TabIndex = 52;
-            // 
             // Login_Register_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,7 +670,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtDangNhap;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -687,5 +707,7 @@
         private Guna.UI2.WinForms.Guna2ImageRadioButton rbNonBinary;
         private Guna.UI2.WinForms.Guna2ImageRadioButton rbNu;
         private Guna.UI2.WinForms.Guna2ImageRadioButton rbNam;
+        private Guna.UI2.WinForms.Guna2CheckBox cbShowPassword;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
