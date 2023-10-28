@@ -29,7 +29,7 @@ namespace Chat_Application
         string filename = ""; // Tạo biến toàn cục lấy filename của hình ảnh
         string backgroundimagefilename = ""; // Tạo biến toàn cục lấy filename của ảnh background
         Login_Register_Form form1 = new Login_Register_Form(); // khởi tạo form1 nhầm lấy username truyền vào label1
-        string destination = @"C:\Users\Admin\Desktop\New folder\Chat Application\Images\"; //Đường dẫn đến file hình ảnh để khi người dùng lấy hình ảnh sẽ tự động lưu vào folder.
+        string destination = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\Images\"; //Đường dẫn đến file hình ảnh để khi người dùng lấy hình ảnh sẽ tự động lưu vào folder.
         Guna2TextBox Mess;
         Guna2Button SendBtn;
         Panel ChatArea;
