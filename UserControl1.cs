@@ -67,5 +67,10 @@ namespace Chat_Application
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
