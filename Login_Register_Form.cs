@@ -18,37 +18,18 @@ namespace Chat_Application
     {
         private LoginService loginservice = new LoginService();
         string filename = "";
-        string destination = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\Images\";
         List<Image> images = new List<Image>();
         string[] location = new string[25];
-        string destinationAnimation = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\animation\";
         public Login_Register_Form()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            location[0] = destinationAnimation + "textbox_user_1.jpg";
-            location[1] = destinationAnimation + "textbox_user_2.jpg";
-            location[2] = destinationAnimation + "textbox_user_4.jpg";
-            location[3] = destinationAnimation + "textbox_user_5.jpg";
-            location[4] = destinationAnimation + "textbox_user_6.jpg";
-            location[5] = destinationAnimation + "textbox_user_7.jpg";
-            location[6] = destinationAnimation + "textbox_user_8.jpg";
-            location[7] = destinationAnimation + "textbox_user_9.jpg";
-            location[8] = destinationAnimation + "textbox_user_10.jpg";
-            location[9] = destinationAnimation + "textbox_user_11.jpg";
-            location[10] = destinationAnimation + "textbox_user_12.jpg";
-            location[11] = destinationAnimation + "textbox_user_13.jpg";
-            location[12] = destinationAnimation + "textbox_user_14.jpg";
-            location[13] = destinationAnimation + "textbox_user_15.jpg";
-            location[14] = destinationAnimation + "textbox_user_16.jpg";
-            location[15] = destinationAnimation + "textbox_user_17.jpg";
-            location[16] = destinationAnimation + "textbox_user_18.jpg";
-            location[17] = destinationAnimation + "textbox_user_19.jpg";
-            location[18] = destinationAnimation + "textbox_user_20.jpg";
-            location[19] = destinationAnimation + "textbox_user_21.jpg";
-            location[20] = destinationAnimation + "textbox_user_22.jpg";
-            location[21] = destinationAnimation + "textbox_user_23.jpg";
-            location[22] = destinationAnimation + "textbox_user_24.jpg";
+            string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            for (int i = 0; i < 23; i++)
+            {
+                string imagepath = Path.Combine(parentDirectory, "animation","textbox_user_"+(i+1)+".jpg");
+                location[i] = imagepath;
+            }
             tounage();
         }
 
@@ -208,11 +189,15 @@ namespace Chat_Application
 
         private void txtPassword_Click(object sender, EventArgs e)
         {
-            Bitmap bmpass = new Bitmap(destinationAnimation + "textbox_password.gif");
+            string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            string imagepath = Path.Combine(parentDirectory, "animation", "textbox_password.gif");
+            Bitmap bmpass = new Bitmap(imagepath);
             pictureBox1.Image = bmpass;
             if(cbShowPassword.Checked == true)
             {
-                bmpass = new Bitmap(destinationAnimation + "clickpasswordandshow.gif");
+                parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                imagepath = Path.Combine(parentDirectory, "animation", "clickpasswordandshow.gif");
+                bmpass = new Bitmap(imagepath);
                 pictureBox1.Image = bmpass;
             }
         }
@@ -366,13 +351,16 @@ namespace Chat_Application
                 var image = Image.FromFile(dlg.FileName);
                 pcbDangKy.Image = image;
                 string source = dlg.FileName;
-                if (File.Exists(destination + Path.GetFileName(dlg.FileName)))
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images");
+                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
                 {
 
                 }
                 else
                 {
-                    File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                    imagepath = Path.Combine(parentDirectory,"Images",Path.GetFileName(dlg.FileName));
+                    File.Copy(source,imagepath, true);
                 }
             }
         }
@@ -386,14 +374,18 @@ namespace Chat_Application
         {
             if(cbShowPassword.Checked == true)
             {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "animation","showpassword.gif");
                 txtPassword.UseSystemPasswordChar = false;
-                Bitmap bmpass = new Bitmap(destinationAnimation + "showpassword.gif");
+                Bitmap bmpass = new Bitmap(imagepath);
                 pictureBox1.Image = bmpass;
             }
             else
             {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "animation", "cbshowpasswordelse.gif");
                 txtPassword.UseSystemPasswordChar = true;
-                Bitmap bmpass = new Bitmap(destinationAnimation + "cbshowpasswordelse.gif");
+                Bitmap bmpass = new Bitmap(imagepath);
                 pictureBox1.Image = bmpass;
             }
         }

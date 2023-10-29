@@ -29,7 +29,6 @@ namespace Chat_Application
         string filename = ""; // Tạo biến toàn cục lấy filename của hình ảnh
         string backgroundimagefilename = ""; // Tạo biến toàn cục lấy filename của ảnh background
         Login_Register_Form form1 = new Login_Register_Form(); // khởi tạo form1 nhầm lấy username truyền vào label1
-        string destination = @"E:\Kien_WnFm\DoAn_Chat_Application\Chat-Application\Images\"; //Đường dẫn đến file hình ảnh để khi người dùng lấy hình ảnh sẽ tự động lưu vào folder.
         Guna2TextBox Mess;
         Guna2Button SendBtn;
         Panel ChatArea;
@@ -195,7 +194,8 @@ namespace Chat_Application
                 ContextChatDB context = new ContextChatDB();
                 Login dbuser = loginservice.FindUsername(userControls.Title);
                 AddFriend dbaddfriendTrue = addfriendservice.AddFriendTrue(userControls.Title, label1.Text);
-                AddFriend dbaddfriendFalse = addfriendservice.AddFriendFalse(userControls.Title, label1.Text);
+                AddFriend dbaddfriendFalse = context.AddFriends.FirstOrDefault(p => p.User1 == label1.Text && p.User2 == userControls.Title && p.FriendRequestFlag == false);
+                AddFriend dbaddfriendFalseuser = context.AddFriends.FirstOrDefault(p => p.User1 == userControls.Title && p.User2 == label1.Text && p.FriendRequestFlag == false);
                 var listfriend = addfriendservice.GetAll();
                 //tạo button kiểm tra
                 SendBtn = new Guna2Button(); 
@@ -203,25 +203,43 @@ namespace Chat_Application
                 if (dbaddfriendTrue != null) 
                 {
                     SendBtn.Text = " Đã Kết Bạn";
+                    SendBtn.Size = new Size(180, 45);
+                    SendBtn.Location = new Point(240, 404);
+                    SendBtn.FillColor = Color.Crimson;
+                    pnlThongTin.Controls.Add(SendBtn);
                     SendBtn.Enabled = false;
                 }
                 //nếu người dùng đã gửi lời kết bạn nhưng người kia chưa chấp nhận
                 else if (dbaddfriendFalse != null) 
                 {
                     SendBtn.Text = "Đã Gửi Kết Bạn";
+                    SendBtn.Size = new Size(180, 45);
+                    SendBtn.Location = new Point(240, 404);
+                    SendBtn.FillColor = Color.Crimson;
+                    pnlThongTin.Controls.Add(SendBtn);
                     SendBtn.Enabled = false;
                 }
+                else if(dbaddfriendFalseuser != null)
+                {
+                    SendBtn.Text = "Chấp nhận kết bạn";
+                    SendBtn.Size = new Size(180, 45);
+                    SendBtn.Location = new Point(240, 404);
+                    SendBtn.FillColor = Color.Crimson;
+                    //khi click vào sẽ bặt đầu thêm dữ liệu kết bạn vào csdl
+                    SendBtn.Click += acceptfriendclick;
+                    pnlThongTin.Controls.Add(SendBtn);
+                }
                 //nếu cả hai điều kiện không xảy ra
-                else if (dbaddfriendTrue == null && dbaddfriendFalse == null) 
+                else if (dbaddfriendTrue == null && dbaddfriendFalse == null && dbaddfriendFalseuser == null) 
                 {
                     SendBtn.Text = "Kết Bạn !";
+                    SendBtn.Size = new Size(180, 45);
+                    SendBtn.Location = new Point(240, 404);
+                    SendBtn.FillColor = Color.Crimson;
+                    //khi click vào sẽ bặt đầu thêm dữ liệu kết bạn vào csdl
+                    SendBtn.Click += addfriendclick;
+                    pnlThongTin.Controls.Add(SendBtn);
                 }
-                SendBtn.Size = new Size(180, 45);
-                SendBtn.Location = new Point(240, 404);
-                SendBtn.FillColor = Color.Crimson;
-                //khi click vào sẽ bặt đầu thêm dữ liệu kết bạn vào csdl
-                SendBtn.Click += addfriendclick;
-                pnlThongTin.Controls.Add(SendBtn);
                 //truyền thông tin người dùng bạn đang tìm kiếm.
                 if (dbuser != null) 
                 {
@@ -245,16 +263,21 @@ namespace Chat_Application
                 ClosePanel();
             }
         }
-        //hàm đóng đồng loạt tất cả các panel
-        private void ClosePanel() 
+        private void acceptfriendclick(object sender, EventArgs e)
         {
-            pnlTimKiemNguoiDung.Visible = false;
-            pnlToCaoNguoiDung.Visible = false;
-            pnlYeuCauKetban.Visible = false;
-            panelDanSachBanbe.Visible = false;
-            pnlThongTin.Visible = false;
+            ContextChatDB context = new ContextChatDB();
+            AddFriend dbAcceptFriend = context.AddFriends.FirstOrDefault(p => p.User1 == lblAllusername.Text && p.User2 == label1.Text);
+            if (dbAcceptFriend != null)
+            {
+                dbAcceptFriend.FriendRequestFlag = true;
+                //Lưu vào cơ sở dữ liệu
+                context.SaveChanges();
+                //Cập nhật lại Danh sách kết bạn
+                MessageBox.Show("Kết Bạn Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                SendBtn.Text = "Đã Kết Bạn";
+                SendBtn.Enabled = false;
+            }
         }
-
         private void addfriendclick(object sender, EventArgs e)
         {
             try
@@ -296,6 +319,15 @@ namespace Chat_Application
             {
                 MessageBox.Show("Đã gửi lời kết bạn/đã kết bạn với người này !", " Thông Báo", MessageBoxButtons.OK);
             }
+        }
+        //hàm đóng đồng loạt tất cả các panel
+        private void ClosePanel()
+        {
+            pnlTimKiemNguoiDung.Visible = false;
+            pnlToCaoNguoiDung.Visible = false;
+            pnlYeuCauKetban.Visible = false;
+            panelDanSachBanbe.Visible = false;
+            pnlThongTin.Visible = false;
         }
         //dánh sách dùng để kiểm tra để kết bạn với bạn bè
         private void DanhSachThemBanBe() 
@@ -1270,14 +1302,17 @@ namespace Chat_Application
                 pcbDoiThongTin.Image = image;
                 // lấy đường dẫn nguồn của file
                 string source = dlg.FileName;
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images");
                 //Kiểm tra xem ảnh có tồn tại hay không nếu không có thì lưu vào thư mục Images
-                if (File.Exists(destination + Path.GetFileName(dlg.FileName)))
+                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
                 {
 
                 }
                 else
                 {
-                    File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                    imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                    File.Copy(source, imagepath, true);
                 }
             }
         }
@@ -1296,14 +1331,17 @@ namespace Chat_Application
                 pcbBackgroundImageChinhSua.Image = image;
                 //Lấy đường dẫn nguồn của hình ảnh
                 string source = dlg.FileName;
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images");
                 //Kiểm tra xem thư mục có tồn tại hay không nếu không có thì lưu hình ảnh vào thư mục Images
-                if (File.Exists(destination + Path.GetFileName(dlg.FileName)))
+                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
                 {
 
                 }
                 else
                 {
-                    File.Copy(source, destination + Path.GetFileName(dlg.FileName), true);
+                    imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                    File.Copy(source, imagepath, true);
                 }
             }
         }

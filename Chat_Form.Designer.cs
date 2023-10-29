@@ -142,6 +142,8 @@
             this.panelTrangChu = new System.Windows.Forms.Panel();
             this.txbMotaTrangChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
             this.userControl16 = new Chat_Application.UserControl1();
             this.userControl12 = new Chat_Application.UserControl1();
@@ -1067,8 +1069,9 @@
             // 
             // pcbDoiThongTin
             // 
+            this.pcbDoiThongTin.FillColor = System.Drawing.Color.Crimson;
             this.pcbDoiThongTin.ImageRotate = 0F;
-            this.pcbDoiThongTin.Location = new System.Drawing.Point(91, 69);
+            this.pcbDoiThongTin.Location = new System.Drawing.Point(92, 73);
             this.pcbDoiThongTin.Name = "pcbDoiThongTin";
             this.pcbDoiThongTin.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pcbDoiThongTin.Size = new System.Drawing.Size(139, 117);
@@ -1094,6 +1097,8 @@
             // pnlDoiThongTin
             // 
             this.pnlDoiThongTin.Controls.Add(this.pnlDoiMatKhau);
+            this.pnlDoiThongTin.Controls.Add(this.label7);
+            this.pnlDoiThongTin.Controls.Add(this.label6);
             this.pnlDoiThongTin.Controls.Add(this.label32);
             this.pnlDoiThongTin.Controls.Add(this.dtpDateofBirth);
             this.pnlDoiThongTin.Controls.Add(this.label12);
@@ -1127,7 +1132,7 @@
             this.pnlDoiMatKhau.Controls.Add(this.txbNhaplaipassword);
             this.pnlDoiMatKhau.Controls.Add(this.txbDoipassword);
             this.pnlDoiMatKhau.Controls.Add(this.txbOldpassword);
-            this.pnlDoiMatKhau.Location = new System.Drawing.Point(91, 107);
+            this.pnlDoiMatKhau.Location = new System.Drawing.Point(129, 126);
             this.pnlDoiMatKhau.Name = "pnlDoiMatKhau";
             this.pnlDoiMatKhau.Size = new System.Drawing.Size(488, 289);
             this.pnlDoiMatKhau.TabIndex = 42;
@@ -1370,8 +1375,10 @@
             // 
             // pcbBackgroundImageChinhSua
             // 
+            this.pcbBackgroundImageChinhSua.BackColor = System.Drawing.Color.Crimson;
+            this.pcbBackgroundImageChinhSua.FillColor = System.Drawing.Color.Crimson;
             this.pcbBackgroundImageChinhSua.ImageRotate = 0F;
-            this.pcbBackgroundImageChinhSua.Location = new System.Drawing.Point(402, 81);
+            this.pcbBackgroundImageChinhSua.Location = new System.Drawing.Point(386, 77);
             this.pcbBackgroundImageChinhSua.Name = "pcbBackgroundImageChinhSua";
             this.pcbBackgroundImageChinhSua.Size = new System.Drawing.Size(318, 142);
             this.pcbBackgroundImageChinhSua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1518,6 +1525,28 @@
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
             this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(6, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 17);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Đổi Ảnh";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Crimson;
+            this.label7.Location = new System.Drawing.Point(273, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Đổi Banner";
+            // 
             // pcbpnlThongTinTaiKhoan
             // 
             this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1606,9 +1635,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 518);
             this.Controls.Add(this.PanelChaoMung);
-            this.Controls.Add(this.panelHienThiThongTin);
             this.Controls.Add(this.panelTrangChu);
             this.Controls.Add(this.pnlDoiThongTin);
+            this.Controls.Add(this.panelHienThiThongTin);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelThoat);
             this.Controls.Add(this.panel1);
@@ -1793,5 +1822,7 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox Notification;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
