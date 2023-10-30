@@ -352,14 +352,13 @@ namespace Chat_Application
                 pcbDangKy.Image = image;
                 string source = dlg.FileName;
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-                string imagepath = Path.Combine(parentDirectory, "Images");
-                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
+                string imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                if (File.Exists(imagepath))
                 {
 
                 }
                 else
                 {
-                    imagepath = Path.Combine(parentDirectory,"Images",Path.GetFileName(dlg.FileName));
                     File.Copy(source,imagepath, true);
                 }
             }
@@ -387,7 +386,7 @@ namespace Chat_Application
                 txtPassword.UseSystemPasswordChar = true;
                 Bitmap bmpass = new Bitmap(imagepath);
                 pictureBox1.Image = bmpass;
-            }
+                }
         }
     }
 }

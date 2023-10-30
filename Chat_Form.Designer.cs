@@ -97,8 +97,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.PanelMenuThoat = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnCookLn = new Guna.UI2.WinForms.Guna2Button();
             this.TimerMenuThoat = new System.Windows.Forms.Timer(this.components);
@@ -118,6 +116,8 @@
             this.txbNhaplaipassword = new System.Windows.Forms.TextBox();
             this.txbDoipassword = new System.Windows.Forms.TextBox();
             this.txbOldpassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.dtpDateofBirth = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -142,8 +142,6 @@
             this.panelTrangChu = new System.Windows.Forms.Panel();
             this.txbMotaTrangChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.pcbpnlThongTinTaiKhoan = new Chat_Application.RoundPictureBox();
             this.userControl16 = new Chat_Application.UserControl1();
             this.userControl12 = new Chat_Application.UserControl1();
@@ -648,6 +646,7 @@
             // dtpAlluser
             // 
             this.dtpAlluser.Checked = true;
+            this.dtpAlluser.Enabled = false;
             this.dtpAlluser.FillColor = System.Drawing.Color.White;
             this.dtpAlluser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpAlluser.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -708,6 +707,7 @@
             this.txbAlluseraboutme.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txbAlluseraboutme.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txbAlluseraboutme.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbAlluseraboutme.Enabled = false;
             this.txbAlluseraboutme.FillColor = System.Drawing.Color.LavenderBlush;
             this.txbAlluseraboutme.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txbAlluseraboutme.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -942,12 +942,12 @@
             // 
             // panelThoat
             // 
+            this.panelThoat.Controls.Add(this.PanelMenuThoat);
             this.panelThoat.Controls.Add(this.label26);
             this.panelThoat.Controls.Add(this.guna2PictureBox3);
-            this.panelThoat.Controls.Add(this.PanelMenuThoat);
-            this.panelThoat.Location = new System.Drawing.Point(203, 10);
+            this.panelThoat.Location = new System.Drawing.Point(200, 10);
             this.panelThoat.Name = "panelThoat";
-            this.panelThoat.Size = new System.Drawing.Size(729, 508);
+            this.panelThoat.Size = new System.Drawing.Size(732, 508);
             this.panelThoat.TabIndex = 0;
             // 
             // label26
@@ -976,60 +976,42 @@
             // 
             this.PanelMenuThoat.BackColor = System.Drawing.Color.Crimson;
             this.PanelMenuThoat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelMenuThoat.Controls.Add(this.label5);
-            this.PanelMenuThoat.Controls.Add(this.label21);
             this.PanelMenuThoat.Controls.Add(this.btnDangXuat);
             this.PanelMenuThoat.Controls.Add(this.btnCookLn);
-            this.PanelMenuThoat.Location = new System.Drawing.Point(-11, 355);
+            this.PanelMenuThoat.Location = new System.Drawing.Point(0, 384);
             this.PanelMenuThoat.MaximumSize = new System.Drawing.Size(292, 289);
             this.PanelMenuThoat.Name = "PanelMenuThoat";
-            this.PanelMenuThoat.Size = new System.Drawing.Size(10, 116);
+            this.PanelMenuThoat.Size = new System.Drawing.Size(10, 124);
             this.PanelMenuThoat.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(81, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 25);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Thoat";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(81, 17);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(113, 25);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "Đăng Xuất";
             // 
             // btnDangXuat
             // 
             this.btnDangXuat.BorderThickness = 2;
             this.btnDangXuat.FillColor = System.Drawing.Color.Crimson;
-            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnDangXuat.Image = global::Chat_Application.Properties.Resources.Exit;
+            this.btnDangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangXuat.Location = new System.Drawing.Point(11, 3);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(55, 51);
+            this.btnDangXuat.Size = new System.Drawing.Size(276, 51);
             this.btnDangXuat.TabIndex = 5;
+            this.btnDangXuat.Text = "Đăng Xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnCookLn
             // 
             this.btnCookLn.BorderThickness = 2;
             this.btnCookLn.FillColor = System.Drawing.Color.Crimson;
-            this.btnCookLn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCookLn.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCookLn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.btnCookLn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCookLn.Image = global::Chat_Application.Properties.Resources.if_quit_37278;
-            this.btnCookLn.Location = new System.Drawing.Point(11, 60);
+            this.btnCookLn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCookLn.Location = new System.Drawing.Point(11, 65);
             this.btnCookLn.Name = "btnCookLn";
-            this.btnCookLn.Size = new System.Drawing.Size(55, 51);
+            this.btnCookLn.Size = new System.Drawing.Size(276, 51);
             this.btnCookLn.TabIndex = 3;
+            this.btnCookLn.Text = "Thoát";
             this.btnCookLn.Click += new System.EventHandler(this.btnCookLn_Click);
             // 
             // TimerMenuThoat
@@ -1235,6 +1217,28 @@
             this.txbOldpassword.Size = new System.Drawing.Size(173, 23);
             this.txbOldpassword.TabIndex = 38;
             this.txbOldpassword.UseSystemPasswordChar = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Crimson;
+            this.label7.Location = new System.Drawing.Point(273, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Đổi Banner";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Crimson;
+            this.label6.Location = new System.Drawing.Point(6, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 17);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Đổi Ảnh";
             // 
             // label32
             // 
@@ -1525,28 +1529,6 @@
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
             this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(6, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 17);
-            this.label6.TabIndex = 52;
-            this.label6.Text = "Đổi Ảnh";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(273, 118);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Đổi Banner";
-            // 
             // pcbpnlThongTinTaiKhoan
             // 
             this.pcbpnlThongTinTaiKhoan.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1635,13 +1617,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 518);
             this.Controls.Add(this.PanelChaoMung);
-            this.Controls.Add(this.panelTrangChu);
+            this.Controls.Add(this.panelThoat);
             this.Controls.Add(this.pnlDoiThongTin);
             this.Controls.Add(this.panelHienThiThongTin);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panelThoat);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelChatChung);
+            this.Controls.Add(this.panelTrangChu);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Chat_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1685,7 +1667,6 @@
             this.panelThoat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.PanelMenuThoat.ResumeLayout(false);
-            this.PanelMenuThoat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDoiThongTin)).EndInit();
             this.pnlDoiThongTin.ResumeLayout(false);
             this.pnlDoiThongTin.PerformLayout();
@@ -1757,8 +1738,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelThoat;
         private System.Windows.Forms.Panel PanelMenuThoat;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2Button btnDangXuat;
         private Guna.UI2.WinForms.Guna2Button btnCookLn;
         private System.Windows.Forms.Timer TimerMenuThoat;

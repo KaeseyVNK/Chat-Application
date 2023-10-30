@@ -244,7 +244,7 @@ namespace Chat_Application
                 if (dbuser != null) 
                 {
                     lblAllusername.Text = dbuser.Username.ToString(); 
-                    lblGender.Text = dbuser.Gender.ToString();
+                    lblAllusergender.Text = dbuser.Gender.ToString();
                     dtpAlluser.Value = dbuser.DateofBirth;
                     if (dbuser.UserDescription != null)
                     {
@@ -1089,7 +1089,11 @@ namespace Chat_Application
                 if (FlowUserControlThemBan.Visible == true)
                 {
                     DanhSachThemBanBe();
-                }   
+                }
+                if(flowLayoutPanel1.Visible == true)
+                {
+                    XuatDanhSachKetBan();
+                }
                 statustruoc = statussau;
             }
         }
@@ -1303,15 +1307,14 @@ namespace Chat_Application
                 // lấy đường dẫn nguồn của file
                 string source = dlg.FileName;
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-                string imagepath = Path.Combine(parentDirectory, "Images");
-                //Kiểm tra xem ảnh có tồn tại hay không nếu không có thì lưu vào thư mục Images
-                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
+                string imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                //Kiểm tra xem thư mục có tồn tại hay không nếu không có thì lưu hình ảnh vào thư mục Images
+                if (File.Exists(imagepath))
                 {
 
                 }
                 else
                 {
-                    imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
                     File.Copy(source, imagepath, true);
                 }
             }
@@ -1332,15 +1335,14 @@ namespace Chat_Application
                 //Lấy đường dẫn nguồn của hình ảnh
                 string source = dlg.FileName;
                 string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-                string imagepath = Path.Combine(parentDirectory, "Images");
-                //Kiểm tra xem thư mục có tồn tại hay không nếu không có thì lưu hình ảnh vào thư mục Images
-                if (File.Exists(imagepath + Path.GetFileName(dlg.FileName)))
+                string imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                    //Kiểm tra xem thư mục có tồn tại hay không nếu không có thì lưu hình ảnh vào thư mục Images
+                 if (File.Exists(imagepath))
                 {
 
                 }
                 else
                 {
-                    imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
                     File.Copy(source, imagepath, true);
                 }
             }
