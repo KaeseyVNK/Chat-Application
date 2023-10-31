@@ -219,6 +219,7 @@ namespace Chat_Application
                     pnlThongTin.Controls.Add(SendBtn);
                     SendBtn.Enabled = false;
                 }
+                //nếu người dùng được gửi lời mời kết bạn và chưa chấp nhận
                 else if(dbaddfriendFalseuser != null)
                 {
                     SendBtn.Text = "Chấp nhận kết bạn";
@@ -229,7 +230,7 @@ namespace Chat_Application
                     SendBtn.Click += acceptfriendclick;
                     pnlThongTin.Controls.Add(SendBtn);
                 }
-                //nếu cả hai điều kiện không xảy ra
+                //nếu cả ba điều kiện không xảy ra
                 else if (dbaddfriendTrue == null && dbaddfriendFalse == null && dbaddfriendFalseuser == null) 
                 {
                     SendBtn.Text = "Kết Bạn !";
@@ -390,7 +391,8 @@ namespace Chat_Application
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
                         userControls[i].Status = username.UserStatus.ToString();
-                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true) 
+                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 
+                            && friend.User2 == label1.Text && friend.FriendRequestFlag == true) 
                         {
                             flowLayoutPanel1.Controls.Add(userControls[i]);
                         }
@@ -656,7 +658,8 @@ namespace Chat_Application
                         userControls[i].Title = username.Username;
                         userControls[i].Icon = username.image;
                         userControls[i].Status = username.UserStatus.ToString();
-                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true)
+                        if (userControls[i].Title == friend.User2 && friend.User1 == label1.Text && friend.FriendRequestFlag == true || 
+                            userControls[i].Title == friend.User1 && friend.User2 == label1.Text && friend.FriendRequestFlag == true)
                         {
                             flowLayoutPanel2.Controls.Add(userControls[i]);
                         }

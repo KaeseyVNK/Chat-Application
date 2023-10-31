@@ -56,12 +56,19 @@
             this.dgvReports = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.pcbProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pcbBannernguoidung = new System.Windows.Forms.PictureBox();
+            this.txbGioitinh = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhnguoidung)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBannernguoidung)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,42 +88,42 @@
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(11, 213);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(861, 301);
+            this.dgvUsers.Size = new System.Drawing.Size(1015, 301);
             this.dgvUsers.TabIndex = 5;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             // 
             // txbUsername
             // 
-            this.txbUsername.Location = new System.Drawing.Point(571, 12);
+            this.txbUsername.Location = new System.Drawing.Point(658, 12);
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(112, 20);
             this.txbUsername.TabIndex = 6;
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(571, 40);
+            this.txbPassword.Location = new System.Drawing.Point(658, 40);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(112, 20);
             this.txbPassword.TabIndex = 7;
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(571, 72);
+            this.txbEmail.Location = new System.Drawing.Point(658, 72);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(174, 20);
+            this.txbEmail.Size = new System.Drawing.Size(141, 20);
             this.txbEmail.TabIndex = 8;
             // 
             // cmbPermission
             // 
             this.cmbPermission.FormattingEnabled = true;
-            this.cmbPermission.Location = new System.Drawing.Point(571, 99);
+            this.cmbPermission.Location = new System.Drawing.Point(658, 99);
             this.cmbPermission.Name = "cmbPermission";
             this.cmbPermission.Size = new System.Drawing.Size(138, 21);
             this.cmbPermission.TabIndex = 9;
             // 
             // pcbAnhnguoidung
             // 
-            this.pcbAnhnguoidung.Location = new System.Drawing.Point(331, 12);
+            this.pcbAnhnguoidung.Location = new System.Drawing.Point(230, 15);
             this.pcbAnhnguoidung.Name = "pcbAnhnguoidung";
             this.pcbAnhnguoidung.Size = new System.Drawing.Size(124, 108);
             this.pcbAnhnguoidung.TabIndex = 10;
@@ -126,7 +133,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(509, 15);
+            this.label2.Location = new System.Drawing.Point(596, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 11;
@@ -135,7 +142,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(509, 40);
+            this.label3.Location = new System.Drawing.Point(596, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 12;
@@ -144,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(509, 102);
+            this.label4.Location = new System.Drawing.Point(596, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 14;
@@ -153,7 +160,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(509, 72);
+            this.label5.Location = new System.Drawing.Point(596, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 13;
@@ -162,7 +169,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(243, 72);
+            this.label6.Location = new System.Drawing.Point(142, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 15;
@@ -194,7 +201,7 @@
             this.chuyểnDatabaseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(948, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -233,13 +240,13 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(12, 126);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(861, 388);
+            this.panel1.Size = new System.Drawing.Size(1036, 388);
             this.panel1.TabIndex = 20;
             this.panel1.Visible = false;
             // 
             // txbReportID
             // 
-            this.txbReportID.Location = new System.Drawing.Point(774, 50);
+            this.txbReportID.Location = new System.Drawing.Point(864, 49);
             this.txbReportID.Name = "txbReportID";
             this.txbReportID.Size = new System.Drawing.Size(86, 20);
             this.txbReportID.TabIndex = 21;
@@ -247,7 +254,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(718, 53);
+            this.label9.Location = new System.Drawing.Point(808, 52);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 21;
@@ -266,7 +273,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(497, 53);
+            this.label8.Location = new System.Drawing.Point(587, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 22;
@@ -274,7 +281,7 @@
             // 
             // txbNote
             // 
-            this.txbNote.Location = new System.Drawing.Point(562, 3);
+            this.txbNote.Location = new System.Drawing.Point(652, 2);
             this.txbNote.Multiline = true;
             this.txbNote.Name = "txbNote";
             this.txbNote.ReadOnly = true;
@@ -284,7 +291,7 @@
             // cmbReason
             // 
             this.cmbReason.FormattingEnabled = true;
-            this.cmbReason.Location = new System.Drawing.Point(559, 50);
+            this.cmbReason.Location = new System.Drawing.Point(649, 49);
             this.cmbReason.Name = "cmbReason";
             this.cmbReason.Size = new System.Drawing.Size(138, 21);
             this.cmbReason.TabIndex = 21;
@@ -295,14 +302,14 @@
             this.dgvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReports.Location = new System.Drawing.Point(1, 87);
             this.dgvReports.Name = "dgvReports";
-            this.dgvReports.Size = new System.Drawing.Size(858, 301);
+            this.dgvReports.Size = new System.Drawing.Size(1013, 301);
             this.dgvReports.TabIndex = 0;
             this.dgvReports.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReports_CellClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(497, 5);
+            this.label7.Location = new System.Drawing.Point(587, 4);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 21;
@@ -320,11 +327,69 @@
             this.pcbProfile.TabIndex = 21;
             this.pcbProfile.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(360, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Banner người dùng";
+            // 
+            // pcbBannernguoidung
+            // 
+            this.pcbBannernguoidung.Location = new System.Drawing.Point(462, 12);
+            this.pcbBannernguoidung.Name = "pcbBannernguoidung";
+            this.pcbBannernguoidung.Size = new System.Drawing.Size(124, 108);
+            this.pcbBannernguoidung.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbBannernguoidung.TabIndex = 22;
+            this.pcbBannernguoidung.TabStop = false;
+            this.pcbBannernguoidung.Click += new System.EventHandler(this.pcbBannernguoidung_Click);
+            // 
+            // txbGioitinh
+            // 
+            this.txbGioitinh.Location = new System.Drawing.Point(876, 12);
+            this.txbGioitinh.Name = "txbGioitinh";
+            this.txbGioitinh.Size = new System.Drawing.Size(112, 20);
+            this.txbGioitinh.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(815, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Giới Tính";
+            // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(877, 38);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(111, 20);
+            this.dtpNgaySinh.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(815, 40);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Ngày Sinh";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 524);
+            this.ClientSize = new System.Drawing.Size(1060, 524);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dtpNgaySinh);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txbGioitinh);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.pcbBannernguoidung);
             this.Controls.Add(this.pcbProfile);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnThoat);
@@ -354,6 +419,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBannernguoidung)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +454,11 @@
         private System.Windows.Forms.TextBox txbReportID;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pcbProfile;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pcbBannernguoidung;
+        private System.Windows.Forms.TextBox txbGioitinh;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.Label label12;
     }
 }

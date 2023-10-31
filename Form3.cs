@@ -16,6 +16,7 @@ namespace Chat_Application
     public partial class Form3 : Form
     {
         string filename = "";
+        string bannername = "";
         Form1 form1 = new Form1();
         public string usernames { set; get; }
         public Form3()
@@ -51,6 +52,20 @@ namespace Chat_Application
                 pcbAnhnguoidung.Refresh();
             }
         }
+        private void ThemBanner(string Imagename)
+        {
+            if (string.IsNullOrEmpty(Imagename))
+            {
+                pcbProfile.Image = null;
+            }
+            else
+            {
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Imagename);
+                pcbBannernguoidung.Image = Image.FromFile(imagepath);
+                pcbBannernguoidung.Refresh();
+            }
+        }
         private void Form3_Load(object sender, EventArgs e)
         {
             label1.Text = usernames;
@@ -66,13 +81,8 @@ namespace Chat_Application
             dgvReports.Columns[3].Visible = false;
             dgvReports.Columns[5].Visible = false;
             dgvReports.Columns[6].Visible = false;
-            dgvUsers.Columns[5].Visible = false;
             dgvUsers.Columns[3].Visible = false;
-            dgvUsers.Columns[6].Visible = false;
-            dgvUsers.Columns[7].Visible = false;
-            dgvUsers.Columns[8].Visible = false;
-            dgvUsers.Columns[9].Visible = false;
-            dgvUsers.Columns[10].Visible = false;
+            dgvUsers.Columns[5].Visible = false;
             dgvUsers.Columns[11].Visible = false;
             dgvUsers.Columns[12].Visible = false;
             dgvUsers.Columns[13].Visible = false;
@@ -114,8 +124,19 @@ namespace Chat_Application
                         txbPassword.Text = find.Password;
                         txbEmail.Text = find.Email;
                         cmbPermission.SelectedValue = find.IDPermission;
+                        txbGioitinh.Text = find.Gender;
+                        dtpNgaySinh.Value = find.DateofBirth;
                         filename = find.image;
                         ThemHinhAnh1(find.image);
+                        if (find.BackgroundImage == null)
+                        {
+                            pcbBannernguoidung.Image = null;
+                        }
+                        else
+                        {
+                            bannername = find.BackgroundImage;
+                            ThemBanner(find.BackgroundImage);
+                        }
                     }
                 }
             }
@@ -136,6 +157,9 @@ namespace Chat_Application
                 find.Email = txbEmail.Text;
                 find.IDPermission = (cmbPermission.SelectedItem as Permission).IDPermission;
                 find.image = filename.ToString();
+                find.BackgroundImage = bannername.ToString();
+                find.DateofBirth = dtpNgaySinh.Value;
+                find.Gender = txbGioitinh.Text;
                 context.SaveChanges();
                 Form3_Load(sender, e);
                 MessageBox.Show("Sửa Thành Công ! ", " Thông Báo", MessageBoxButtons.OK);
@@ -152,6 +176,17 @@ namespace Chat_Application
                 var image = Image.FromFile(dlg.FileName);
                 pcbAnhnguoidung.Image = image;
                 pcbAnhnguoidung.SizeMode = PictureBoxSizeMode.Zoom;
+                string source = dlg.FileName;
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                if (File.Exists(imagepath))
+                {
+
+                }
+                else
+                {
+                    File.Copy(source, imagepath, true);
+                }
             }
         }
         private void btnThoat_Click(object sender, EventArgs e)
@@ -163,11 +198,13 @@ namespace Chat_Application
         {
             if (dgvUsers.Visible == false)
             {
+                Form3_Load(sender, e);
                 panel1.Visible = false;
                 dgvUsers.Visible = true;
             }
             else
             {
+                Form3_Load(sender, e);
                 dgvUsers.Visible = false;
             }
         }
@@ -176,11 +213,13 @@ namespace Chat_Application
         {
             if (panel1.Visible == false)
             {
+                Form3_Load(sender, e);
                 dgvUsers.Visible = false;
                 panel1.Visible = true;
             }
             else
             {
+                Form3_Load(sender, e);
                 dgvUsers.Visible = true;
                 panel1.Visible = false;
             }
@@ -200,8 +239,19 @@ namespace Chat_Application
                     txbPassword.Text = find.Password;
                     txbEmail.Text = find.Email;
                     cmbPermission.SelectedValue = find.IDPermission;
+                    txbGioitinh.Text = find.Gender;
+                    dtpNgaySinh.Value = find.DateofBirth;
                     filename = find.image;
                     ThemHinhAnh1(find.image);
+                    if (find.BackgroundImage == null)
+                    {
+                        pcbBannernguoidung.Image = null;
+                    }
+                    else
+                    {
+                        bannername = find.BackgroundImage;
+                        ThemBanner(find.BackgroundImage);
+                    }
                     txbNote.Text = dgvReports.Rows[e.RowIndex].Cells[4].Value.ToString();
                     cmbReason.SelectedValue = dgvReports.Rows[e.RowIndex].Cells["ReportReasonID"].Value;
                 }
@@ -219,6 +269,30 @@ namespace Chat_Application
                 context.SaveChanges();
                 Form3_Load(sender, e);
                 MessageBox.Show("Xóa thành công ! ", " Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void pcbBannernguoidung_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                bannername = Path.GetFileName(dlg.FileName);
+                var image = Image.FromFile(dlg.FileName);
+                pcbBannernguoidung.Image = image;
+                pcbBannernguoidung.SizeMode = PictureBoxSizeMode.Zoom;
+                string source = dlg.FileName;
+                string parentDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagepath = Path.Combine(parentDirectory, "Images", Path.GetFileName(dlg.FileName));
+                if (File.Exists(imagepath))
+                {
+
+                }
+                else
+                {
+                    File.Copy(source, imagepath, true);
+                }
             }
         }
     }
