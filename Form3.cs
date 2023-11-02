@@ -126,6 +126,14 @@ namespace Chat_Application
                         cmbPermission.SelectedValue = find.IDPermission;
                         txbGioitinh.Text = find.Gender;
                         dtpNgaySinh.Value = find.DateofBirth;
+                        if (find.UserDescription != null)
+                        {
+                            txbUserDescription.Text = find.UserDescription;
+                        }
+                        else
+                        {
+                            txbUserDescription.Text = null;
+                        }
                         filename = find.image;
                         ThemHinhAnh1(find.image);
                         if (find.BackgroundImage == null)
@@ -160,6 +168,7 @@ namespace Chat_Application
                 find.BackgroundImage = bannername.ToString();
                 find.DateofBirth = dtpNgaySinh.Value;
                 find.Gender = txbGioitinh.Text;
+                find.UserDescription = txbUserDescription.Text;
                 context.SaveChanges();
                 Form3_Load(sender, e);
                 MessageBox.Show("Sửa Thành Công ! ", " Thông Báo", MessageBoxButtons.OK);
@@ -241,6 +250,14 @@ namespace Chat_Application
                     cmbPermission.SelectedValue = find.IDPermission;
                     txbGioitinh.Text = find.Gender;
                     dtpNgaySinh.Value = find.DateofBirth;
+                    if (find.UserDescription != null)
+                    {
+                        txbUserDescription.Text = find.UserDescription;
+                    }
+                    else
+                    {
+                        txbUserDescription.Text = null;
+                    }
                     filename = find.image;
                     ThemHinhAnh1(find.image);
                     if (find.BackgroundImage == null)

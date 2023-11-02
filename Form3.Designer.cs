@@ -62,6 +62,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
+            this.txbUserDescription = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhnguoidung)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -94,29 +96,29 @@
             // 
             // txbUsername
             // 
-            this.txbUsername.Location = new System.Drawing.Point(658, 12);
+            this.txbUsername.Location = new System.Drawing.Point(651, 12);
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(112, 20);
             this.txbUsername.TabIndex = 6;
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(658, 40);
+            this.txbPassword.Location = new System.Drawing.Point(651, 40);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(112, 20);
             this.txbPassword.TabIndex = 7;
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(658, 72);
+            this.txbEmail.Location = new System.Drawing.Point(651, 72);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(141, 20);
+            this.txbEmail.Size = new System.Drawing.Size(138, 20);
             this.txbEmail.TabIndex = 8;
             // 
             // cmbPermission
             // 
             this.cmbPermission.FormattingEnabled = true;
-            this.cmbPermission.Location = new System.Drawing.Point(658, 99);
+            this.cmbPermission.Location = new System.Drawing.Point(651, 99);
             this.cmbPermission.Name = "cmbPermission";
             this.cmbPermission.Size = new System.Drawing.Size(138, 21);
             this.cmbPermission.TabIndex = 9;
@@ -133,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(596, 15);
+            this.label2.Location = new System.Drawing.Point(589, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 11;
@@ -142,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(596, 40);
+            this.label3.Location = new System.Drawing.Point(589, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 12;
@@ -151,7 +153,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(596, 102);
+            this.label4.Location = new System.Drawing.Point(589, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 14;
@@ -160,7 +162,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(596, 72);
+            this.label5.Location = new System.Drawing.Point(589, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 13;
@@ -201,7 +203,7 @@
             this.chuyểnDatabaseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1097, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -281,7 +283,7 @@
             // 
             // txbNote
             // 
-            this.txbNote.Location = new System.Drawing.Point(652, 2);
+            this.txbNote.Location = new System.Drawing.Point(649, 4);
             this.txbNote.Multiline = true;
             this.txbNote.Name = "txbNote";
             this.txbNote.ReadOnly = true;
@@ -348,7 +350,7 @@
             // 
             // txbGioitinh
             // 
-            this.txbGioitinh.Location = new System.Drawing.Point(876, 12);
+            this.txbGioitinh.Location = new System.Drawing.Point(874, 12);
             this.txbGioitinh.Name = "txbGioitinh";
             this.txbGioitinh.Size = new System.Drawing.Size(112, 20);
             this.txbGioitinh.TabIndex = 24;
@@ -356,7 +358,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(815, 15);
+            this.label11.Location = new System.Drawing.Point(813, 15);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 25;
@@ -365,7 +367,7 @@
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(877, 38);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(875, 38);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(111, 20);
             this.dtpNgaySinh.TabIndex = 26;
@@ -373,17 +375,36 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(815, 40);
+            this.label12.Location = new System.Drawing.Point(813, 40);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 13);
             this.label12.TabIndex = 27;
             this.label12.Text = "Ngày Sinh";
             // 
+            // txbUserDescription
+            // 
+            this.txbUserDescription.Location = new System.Drawing.Point(873, 64);
+            this.txbUserDescription.Multiline = true;
+            this.txbUserDescription.Name = "txbUserDescription";
+            this.txbUserDescription.Size = new System.Drawing.Size(175, 56);
+            this.txbUserDescription.TabIndex = 28;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(794, 67);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Userdescription";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 524);
+            this.ClientSize = new System.Drawing.Size(1097, 524);
+            this.Controls.Add(this.txbUserDescription);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.label11);
@@ -460,5 +481,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txbUserDescription;
+        private System.Windows.Forms.Label label13;
     }
 }

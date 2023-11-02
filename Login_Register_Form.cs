@@ -279,7 +279,7 @@ namespace Chat_Application
                 }
                 if(rbNam.Checked == false && rbNu.Checked == false && rbNonBinary.Checked == false)
                 {
-                    errorProvider1.SetError(rbNonBinary, "Chưa Chọn Giới Tính");
+                    errorProvider1.SetError(label12, "Chưa Chọn Giới Tính") ;
                     return;
                 }
                 else

@@ -637,8 +637,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(524, 476);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelDangNhap);
             this.Controls.Add(this.panelDangKy);
+            this.Controls.Add(this.panelDangNhap);
             this.Controls.Add(this.PanelQuenMatKhau);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login_Register_Form";

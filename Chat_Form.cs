@@ -1052,8 +1052,9 @@ namespace Chat_Application
                 if (truoc != sau)
                 {
                     var MessList = messengerservice.GetAllMessage(usernames);
+                    ChatArea.Controls.Clear();
                     BindGridMess(MessList, usercchat);
-                    ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
+                    // ChatArea.VerticalScroll.Value = ChatArea.VerticalScroll.Maximum;
                     // gán lại số lượng, để tránh load tin nhắn liên tục
                     truoc = sau;
                 }
