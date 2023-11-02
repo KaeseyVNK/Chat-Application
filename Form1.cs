@@ -4,17 +4,22 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
-using Chat_Application.Model;
+using BusChatApplication;
+using DalChatApplication.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 namespace Chat_Application
 {
     public partial class Form1 : Form
     {
+        private LoginService loginservice = new LoginService();
         string filename = "";
         OpenFileDialog dlg = new OpenFileDialog();
         public Form1()
@@ -23,27 +28,28 @@ namespace Chat_Application
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            closeform();
             button1.BackColor = Color.Gray;
             button2.BackColor = Color.White;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            closeform();
             panel1.Visible = true;
             button2.BackColor = Color.Gray;
             button1.BackColor = Color.White;
         }
-
+        private void closeform()
+        {
+            panel1.Visible = false;
+            panel2.Visible = false;
+        }
         private void btnDangkyForm_Click(object sender, EventArgs e)
         {
             try
             {
                 var email = new EmailAddressAttribute();
-                if (pcbDangKy.Image == null)
-                {
-                    MessageBox.Show("Xin hãy thêm ảnh", " Thông Báo", MessageBoxButtons.OK);
-                }
                 if(txbDangkyTen.Text == "")
                 {
                     errorProvider1.SetError(txbDangkyTen, "Chưa Điền Tên Đăng Ký");
@@ -104,10 +110,17 @@ namespace Chat_Application
                 l.Password = txbDangKyPassword.Text;
                 l.ConfirmPass = txbDangKyPassword.Text;
                 l.Email = txbEmail.Text;
-                l.image = filename.ToString();
+                if (filename == "")
+                {
+                    l.image = "user-icon.png";
+                }
+                else
+                {
+                    l.image = filename.ToString();
+                }
+                l.IDPermission = 1;
                 ThemHinhAnh(l.image);
-                context.Login.Add(l);
-                context.SaveChanges();
+                loginservice.InsertLogin(l);
                 MessageBox.Show("Đăng Ký Thành công !", " Thông Báo", MessageBoxButtons.OK);
                 Form1_Load(sender, e);
                 
@@ -145,7 +158,7 @@ namespace Chat_Application
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            closeform();
         }
 
         private void btn_LogIn_Click(object sender, EventArgs e)
@@ -169,14 +182,52 @@ namespace Chat_Application
                 errorProvider1.SetError(txbPassword, string.Empty);
             }
             ContextChatDB context = new ContextChatDB();
-            Login dblogin = context.Login.FirstOrDefault(p=>p.Username == txbDangnhap.Text && p.Password == txbPassword.Text);
-            if (dblogin != null)
+            Login dbBanned = loginservice.FindBanned(txbDangnhap.Text, txbPassword.Text);
+            Login dblogin = context.Logins.FirstOrDefault(p => p.Password.Equals(txbPassword.Text) && p.Username.Equals(txbDangnhap.Text)) ;
+            Login dbadmin = loginservice.FindAdmin(txbDangnhap.Text, txbPassword.Text);
+            var listuser = context.Logins.ToList();
+            if(dbBanned != null)
             {
-                MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
-                Form2 form2 = new Form2();
-                this.Visible = false;
-                form2.usernames = txbDangnhap.Text;
-                form2.Show();
+                string a = dblogin.Username;
+                string b = txbDangnhap.Text;
+                string c = dblogin.Password;
+                string d = txbPassword.Text;
+                if (c.Equals(d) && a.Equals(b))
+                {
+                    MessageBox.Show("Người dùng đã bị giới hạn quyền truy cập xin hãy liên hệ Admin", " Thông Báo", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                }             
+            }
+            if(dblogin != null)
+            {
+                string a = dblogin.Username;
+                string b = txbDangnhap.Text;
+                string c = dblogin.Password;
+                string d = txbPassword.Text;
+                if ( c.Equals(d) && a.Equals(b) )
+                {
+                    MessageBox.Show("Đăng Nhập Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                    Form2 form2 = new Form2();
+                    this.Visible = false;
+                    dblogin.UserStatus = true;
+                    context.SaveChanges();
+                    form2.usernames = txbDangnhap.Text;
+                    form2.Show();
+                    if (dbadmin != null)
+                    {
+                        Form3 form3 = new Form3();
+                        form3.usernames = txbDangnhap.Text;
+                        form3.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đăng Nhập Không Thành Công !", " Thông Báo", MessageBoxButtons.OK);
+                }
             }
             else
             {
@@ -196,6 +247,63 @@ namespace Chat_Application
             {
                 txbPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void label6_MouseHover(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.Blue;
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            label6.ForeColor = Color.Black;
+        }
+        private void label6_Click(object sender, EventArgs e)
+        {
+            closeform();
+            panel2.Visible = true;
+
+        }
+        private void btnGetpassword_Click(object sender, EventArgs e)
+        {
+            if (txbttkQuenmatkhau.Text == "")
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, "Chưa Điền Tên Tài Khoản !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, string.Empty);
+            }
+            if (txbEmailquenmatkhau.Text == "")
+            {
+                errorProvider1.SetError(txbEmailquenmatkhau, "Chưa Điền Email !");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txbEmailquenmatkhau, string.Empty);
+            }
+            ContextChatDB context = new ContextChatDB();
+            Login dblogin = context.Logins.FirstOrDefault(p => p.Username == txbttkQuenmatkhau.Text && p.Email == txbEmailquenmatkhau.Text);
+            if(dblogin != null)
+            {
+                MessageBox.Show("Password của bạn là : "+dblogin.Password, " Thông Báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                errorProvider1.SetError(txbttkQuenmatkhau, "Kiểm tra");
+                errorProvider1.SetError(txbEmailquenmatkhau, "Kiểm tra");
+                MessageBox.Show("Không tìm thấy người dùng xin hãy kiểm tra lại" , " Thông Báo", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+            guna2WinProgressIndicator1.Visible = true;
+            guna2WinProgressIndicator1.AutoStart = true;
+
         }
     }
 }

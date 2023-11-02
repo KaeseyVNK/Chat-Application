@@ -28,48 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pcbDanhBa = new Chat_Application.RoundPictureBox();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this.pcbDanhBa = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this.pcbStatus = new Chat_Application.RoundPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDanhBa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbStatus)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pcbDanhBa
-            // 
-            this.pcbDanhBa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcbDanhBa.Location = new System.Drawing.Point(18, 18);
-            this.pcbDanhBa.Name = "pcbDanhBa";
-            this.pcbDanhBa.Size = new System.Drawing.Size(60, 36);
-            this.pcbDanhBa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbDanhBa.TabIndex = 0;
-            this.pcbDanhBa.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(84, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pcbDanhBa
+            // 
+            this.pcbDanhBa.BackColor = System.Drawing.Color.Transparent;
+            this.pcbDanhBa.FillColor = System.Drawing.Color.DarkGray;
+            this.pcbDanhBa.ImageRotate = 0F;
+            this.pcbDanhBa.Location = new System.Drawing.Point(3, 3);
+            this.pcbDanhBa.Name = "pcbDanhBa";
+            this.pcbDanhBa.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pcbDanhBa.Size = new System.Drawing.Size(64, 64);
+            this.pcbDanhBa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbDanhBa.TabIndex = 5;
+            this.pcbDanhBa.TabStop = false;
+            // 
+            // pcbStatus
+            // 
+            this.pcbStatus.Enabled = false;
+            this.pcbStatus.Location = new System.Drawing.Point(54, 50);
+            this.pcbStatus.Name = "pcbStatus";
+            this.pcbStatus.Size = new System.Drawing.Size(13, 17);
+            this.pcbStatus.TabIndex = 4;
+            this.pcbStatus.TabStop = false;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.pcbStatus);
             this.Controls.Add(this.pcbDanhBa);
+            this.Controls.Add(this.label1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(339, 73);
+            this.Size = new System.Drawing.Size(214, 73);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbDanhBa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private RoundPictureBox pcbDanhBa;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pcbDanhBa;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow2;
+        private RoundPictureBox pcbStatus;
     }
 }

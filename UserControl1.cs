@@ -30,6 +30,14 @@ namespace Chat_Application
             get { return _icon; }
             set { _icon = value;ThemHinhAnh(_icon); }
         }
+
+        private string _status;
+
+        public string Status
+        {
+            get { return _status; }
+            set { _status = value; ThemStatus(_status); }
+        }
         private void ThemHinhAnh(string Imagename)
         {
             if (string.IsNullOrEmpty(Imagename))
@@ -43,6 +51,26 @@ namespace Chat_Application
                 pcbDanhBa.Image = Image.FromFile(imagepath);
                 pcbDanhBa.Refresh();
             }
+        }
+        private void ThemStatus(string status)
+        {
+            if(status == "True")
+            {
+               pcbStatus.BackColor = Color.Green;   
+            }
+            else
+            {
+                pcbStatus.BackColor = Color.Gray;
+            }
+        }
+        private void UserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
